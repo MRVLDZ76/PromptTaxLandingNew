@@ -34,16 +34,19 @@ const PoolPageContent = () => {
           showSignUp
           showLogin
         />
-
-        <div style={{ paddingTop: '80px', backgroundColor: '#fdfbf7', minHeight: '100vh' }}>
-          <div className="max-w-7xl mx-auto px-4 py-8">
+        <main className='bg-light'>
+        <div style={{ paddingTop: '80px', minHeight: '100vh' }}>
+          <div className="container py-5">
             {/* Header */}
-            <header className="mb-10 text-center">
-              <h1 className="display-4 fw-bold text-gray-900 mb-3">Campaign Capital Pool Manager</h1>
-              <p className="lead text-muted mx-auto" style={{ maxWidth: '700px' }}>
-                Collaborative funding tracker for Marketing Phases 1 & 2. Manage investor contributions, 
-                track campaign burn rate, and calculate real-time refund values automatically.
-              </p>
+            <header className="mb-5 pb-4 border-bottom">
+              <div className="d-flex align-items-center justify-content-between">
+                <div>
+                  <h1 className="h2 fw-bold text-dark mb-2">Campaign Capital Pool</h1>
+                  <p className="text-muted mb-0">
+                    Marketing Phases 1 & 2 • Real-time fund allocation and investor tracking
+                  </p>
+                </div>
+              </div>
             </header>
 
             {/* Grid Layout */}
@@ -67,7 +70,7 @@ const PoolPageContent = () => {
             </div>
           </div>
         </div>
-
+        </main>
         <Footer1 />
       </>
     </PoolProvider>

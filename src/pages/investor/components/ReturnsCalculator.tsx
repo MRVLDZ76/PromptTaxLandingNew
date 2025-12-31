@@ -222,13 +222,15 @@ const ReturnsCalculator = () => {
 
         {/* SECTION 1: Business/Ads Metrics Calculator */}
         <div className="mx-auto mb-5" style={{maxWidth: '1200px'}}>
-          <div className="card shadow-lg border bg-body">
-            <div className="card-header bg-primary text-white">
-              <h3 className="h5 mb-0 fw-bold d-flex align-items-center gap-2 text-white">
-                <BarChart3 size={20} />
-                Business Metrics: Tax Season Revenue Forecast
-              </h3>
-              <small>Calculate expected revenue from ads campaign (Q1 2025: Feb-Apr)</small>
+          <div className="card border shadow-sm">
+            <div className="card-header bg-white border-bottom">
+              <div className="d-flex align-items-center justify-content-between">
+                <div>
+                  <h3 className="h6 fw-bold mb-1 text-dark">Revenue Forecast Model</h3>
+                  <p className="text-muted small mb-0">Tax season campaign projections (Q1 2025: Feb-Apr)</p>
+                </div>
+                <BarChart3 size={20} className="text-muted" />
+              </div>
             </div>
             <div className="card-body p-4">
               
@@ -277,8 +279,8 @@ const ReturnsCalculator = () => {
                   <div className="fw-bold text-primary mb-2">{formatCurrency(avgTicket)}</div>
                   <input
                     type="range"
-                    min="150"
-                    max="500"
+                    min="39"
+                    max="1000"
                     step="25"
                     value={avgTicket}
                     onChange={(e) => setAvgTicket(Number(e.target.value))}
@@ -294,7 +296,7 @@ const ReturnsCalculator = () => {
                   <div className="fw-bold text-primary mb-2">{cpaShare}%</div>
                   <input
                     type="range"
-                    min="20"
+                    min="0"
                     max="50"
                     step="5"
                     value={cpaShare}
@@ -413,13 +415,15 @@ const ReturnsCalculator = () => {
 
         {/* SECTION 2: Investor Returns Calculator */}
         <div className="mx-auto" style={{maxWidth: '1200px'}}>
-          <div className="card shadow-lg border bg-body">
-            <div className="card-header bg-success text-white">
-              <h3 className="h5 mb-0 fw-bold d-flex align-items-center gap-2 text-white">
-                <DollarSign size={20} />
-                Your Investment Returns Calculator
-              </h3>
-              <small>30% Revenue Share + Full Return of Principal</small>
+          <div className="card border shadow-sm">
+            <div className="card-header bg-white border-bottom">
+              <div className="d-flex align-items-center justify-content-between">
+                <div>
+                  <h3 className="h6 fw-bold mb-1 text-dark">Investment Returns Calculator</h3>
+                  <p className="text-muted small mb-0">Revenue share model with principal protection</p>
+                </div>
+                <DollarSign size={20} className="text-muted" />
+              </div>
             </div>
             <div className="card-body p-4 p-md-5">
               
@@ -442,7 +446,7 @@ const ReturnsCalculator = () => {
                     <input
                       type="range"
                       min="10"
-                      max="50"
+                      max="100"
                       step="5"
                       value={profitSharePercent}
                       onChange={(e) => setProfitSharePercent(Number(e.target.value))}

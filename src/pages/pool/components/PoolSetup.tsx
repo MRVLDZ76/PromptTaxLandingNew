@@ -29,14 +29,14 @@ const PoolSetup = () => {
   }
 
   return (
-    <div className="card shadow-sm">
+    <div className="card border h-100">
       <div className="card-body">
-        <h2 className="h5 fw-semibold mb-3 d-flex align-items-center">
-          <span className="badge bg-success me-2">1</span>
-          Pool Setup
-        </h2>
+        <div className="d-flex align-items-center justify-content-between mb-3">
+          <h2 className="h6 fw-bold mb-0 text-uppercase text-secondary">Pool Configuration</h2>
+          <span className="badge bg-secondary">1</span>
+        </div>
         <p className="text-muted small mb-4">
-          Define the total target for Phase 1 & 2 ads and add contributors to the pool.
+          Define campaign target and add investor contributions.
         </p>
 
         {/* Goal Input */}
@@ -52,7 +52,10 @@ const PoolSetup = () => {
               onChange={(e) => setGoalInput(e.target.value)}
               placeholder="30000"
             />
-            <Button variant="secondary" onClick={handleUpdateGoal}>
+            <Button 
+              variant="dark"
+              onClick={handleUpdateGoal}
+            >
               Set
             </Button>
           </InputGroup>

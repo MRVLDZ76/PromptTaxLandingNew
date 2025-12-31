@@ -11,35 +11,48 @@ const MetricsBar = () => {
   return (
     <div className="row g-3">
       <div className="col-md-4">
-        <div className="card border-success shadow-sm" style={{ backgroundColor: '#d1fae5' }}>
+        <div className="card border h-100">
           <div className="card-body">
-            <p className="small fw-medium text-success mb-1">Total Raised</p>
-            <p className="h3 fw-bold text-success mb-1">{formatCurrency(totalRaised)}</p>
-            <p className="small text-success mb-0">
-              {progressPercent.toFixed(1)}% of ${goal.toLocaleString()} Goal
-            </p>
+            <div className="d-flex justify-content-between align-items-start mb-2">
+              <span className="text-muted text-uppercase small fw-semibold">Total Raised</span>
+              <span className="badge bg-success">{progressPercent.toFixed(0)}%</span>
+            </div>
+            <p className="h3 fw-bold mb-2">{formatCurrency(totalRaised)}</p>
+            <div className="progress" style={{ height: '4px' }}>
+              <div className="progress-bar bg-success" style={{ width: `${progressPercent}%` }}></div>
+            </div>
+            <p className="text-muted small mt-2 mb-0">of ${goal.toLocaleString()} goal</p>
           </div>
         </div>
       </div>
 
       <div className="col-md-4">
-        <div className="card border-danger shadow-sm" style={{ backgroundColor: '#ffe4e6' }}>
+        <div className="card border h-100">
           <div className="card-body">
-            <p className="small fw-medium text-danger mb-1">Total Spent</p>
-            <p className="h3 fw-bold text-danger mb-1">{formatCurrency(totalSpent)}</p>
-            <p className="small text-danger mb-0">
-              {burnPercent.toFixed(1)}% Burn Rate
-            </p>
+            <div className="d-flex justify-content-between align-items-start mb-2">
+              <span className="text-muted text-uppercase small fw-semibold">Total Spent</span>
+              <span className="badge bg-danger">{burnPercent.toFixed(0)}%</span>
+            </div>
+            <p className="h3 fw-bold mb-2">{formatCurrency(totalSpent)}</p>
+            <div className="progress" style={{ height: '4px' }}>
+              <div className="progress-bar bg-danger" style={{ width: `${burnPercent}%` }}></div>
+            </div>
+            <p className="text-muted small mt-2 mb-0">burn rate</p>
           </div>
         </div>
       </div>
 
       <div className="col-md-4">
-        <div className="card border-primary shadow-sm" style={{ backgroundColor: '#dbeafe' }}>
+        <div className="card border h-100">
           <div className="card-body">
-            <p className="small fw-medium text-primary mb-1">Remaining Pool</p>
-            <p className="h3 fw-bold text-primary mb-1">{formatCurrency(remaining)}</p>
-            <p className="small text-primary mb-0">Available for Ads</p>
+            <div className="d-flex justify-content-between align-items-start mb-2">
+              <span className="text-muted text-uppercase small fw-semibold">Available</span>
+            </div>
+            <p className="h3 fw-bold mb-2">{formatCurrency(remaining)}</p>
+            <div className="progress" style={{ height: '4px' }}>
+              <div className="progress-bar bg-dark" style={{ width: '100%' }}></div>
+            </div>
+            <p className="text-muted small mt-2 mb-0">remaining funds</p>
           </div>
         </div>
       </div>

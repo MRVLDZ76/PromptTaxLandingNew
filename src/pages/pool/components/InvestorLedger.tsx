@@ -9,13 +9,15 @@ const InvestorLedger = () => {
   }
 
   return (
-    <div className="card shadow-sm">
+    <div className="card border">
       <div className="card-body">
-        <div className="d-flex justify-content-between align-items-center mb-3">
+        <div className="d-flex justify-content-between align-items-start mb-3">
           <div>
-            <h2 className="h5 fw-semibold mb-1">Investor Ledger & Refund Calculator</h2>
+            <h2 className="h6 fw-bold text-uppercase text-secondary mb-1">
+              Investor Ledger
+            </h2>
             <p className="text-muted small mb-0">
-              Real-time valuation. If you stop the campaign now, this is what everyone gets back.
+              Real-time valuation and refund calculator
             </p>
           </div>
           <button 

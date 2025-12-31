@@ -103,11 +103,16 @@ const PoolCharts = () => {
   }, [getInvestorData, getTotals, goal])
 
   return (
-    <div className="row g-4">
+    <div className="card border">
+      <div className="card-body">
+        <h3 className="h6 fw-bold text-uppercase text-secondary mb-4">
+          Performance Analytics
+        </h3>
+        <div className="row g-4">
       <div className="col-md-6">
-        <div className="card shadow-sm">
-          <div className="card-body text-center">
-            <h3 className="h6 fw-medium mb-2">Investor Share (%)</h3>
+        <div className="card bg-light border-0">
+          <div className="card-body">
+            <h3 className="small fw-semibold text-muted mb-3">Investor Distribution</h3>
             <p className="text-muted small mb-3">
               Initial contribution breakdown. Deductions apply proportionally to this share.
             </p>
@@ -119,9 +124,9 @@ const PoolCharts = () => {
       </div>
 
       <div className="col-md-6">
-        <div className="card shadow-sm">
-          <div className="card-body text-center">
-            <h3 className="h6 fw-medium mb-2">Campaign Burn Rate</h3>
+        <div className="card bg-light border-0">
+          <div className="card-body">
+            <h3 className="small fw-semibold text-muted mb-3">Budget Overview</h3>
             <p className="text-muted small mb-3">
               Visualizing raised funds vs. cumulative expenses.
             </p>
@@ -130,6 +135,8 @@ const PoolCharts = () => {
             </div>
           </div>
         </div>
+      </div>
+    </div>
       </div>
     </div>
   )

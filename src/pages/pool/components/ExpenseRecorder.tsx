@@ -26,14 +26,14 @@ const ExpenseRecorder = () => {
   }
 
   return (
-    <div className="card shadow-sm border-start border-danger border-4">
+    <div className="card border h-100">
       <div className="card-body">
-        <h2 className="h5 fw-semibold mb-3 d-flex align-items-center">
-          <span className="badge bg-danger me-2">2</span>
-          Record Expenses
-        </h2>
+        <div className="d-flex align-items-center justify-content-between mb-3">
+          <h2 className="h6 fw-bold mb-0 text-uppercase text-secondary">Expense Tracking</h2>
+          <span className="badge bg-secondary">2</span>
+        </div>
         <p className="text-muted small mb-4">
-          Log marketing spend (e.g., Weekly Ads). The system will automatically deduct this from all investors proportionally.
+          Log marketing expenditures. Costs are automatically allocated proportionally.
         </p>
 
         <Form onSubmit={handleAddExpense}>
@@ -58,8 +58,12 @@ const ExpenseRecorder = () => {
             />
           </Form.Group>
 
-          <Button type="submit" variant="danger" className="w-100">
-            Record Spend
+          <Button 
+            type="submit" 
+            variant="danger"
+            className="w-100"
+          >
+            Record Expense
           </Button>
         </Form>
 

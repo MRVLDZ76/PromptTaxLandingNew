@@ -146,9 +146,7 @@ export const quickLinks4: FooterLinkType[] = [
 ]
 
 export const communityLinks: FooterLinkType[] = [
-  {
-    name: "Documents",
-  },
+ 
   {
     name: "Supports",
     icon: BsBoxArrowUpRight
