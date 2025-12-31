@@ -20,22 +20,74 @@ export interface BlogPost {
 
 // Map of blog posts by slug for quick lookup
 export const sharedBlogPostMap: Record<string, BlogPost> = {
-  // Add your blog posts here
-  // Example:
-  // "getting-started": {
-  //   slug: "getting-started",
-  //   title: "Getting Started with Prompt Tax",
-  //   excerpt: "Learn how to use AI prompts for tax preparation",
-  //   author: "Prompt Tax Team",
-  //   date: "2024-01-01",
-  //   thumbnail: "/images/blog/getting-started.jpg",
-  //   tags: ["Getting Started", "AI", "Tax"],
-  //   seo: {
-  //     description: "Complete guide to getting started with Prompt Tax",
-  //     keywords: ["AI tax", "tax preparation", "automation"],
-  //     version: "1.0"
-  //   }
-  // }
+  'crypto-tax-nightmare-solved-2025': {
+    slug: 'crypto-tax-nightmare-solved-2025',
+    title: 'Crypto Tax Nightmare Solved: AI-Powered Tax Prep Saves 40+ Hours',
+    excerpt: 'If you\'ve traded crypto in 2025, you know crypto taxes are a nightmare. Multiple exchanges, thousands of transactions, DeFi protocols - and the IRS expects perfect accuracy. Learn how AI automation can save you 40+ hours.',
+    author: 'Prompt Tax Team',
+    date: '2025-01-15',
+    thumbnail: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-tax-hero-2026.jpg',
+    tags: ['Crypto Tax', 'AI Automation', 'Tax Software', '2025'],
+    seo: {
+      description: 'Discover how AI-powered tax automation solves the crypto tax nightmare. Save 40+ hours on tax prep with intelligent crypto transaction processing for 2025.',
+      keywords: ['crypto tax', 'crypto tax software', 'AI tax automation', 'cryptocurrency taxes 2025', 'crypto tax prep'],
+      ogImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-blog-og-1200x630.jpg',
+      linkedInImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-blog-linkedin-1200x627.jpg',
+      twitterImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-blog-twitter-1200x675.jpg',
+      version: '1.0'
+    }
+  },
+  'ai-k1-generator-partnership-tax-revolution': {
+    slug: 'ai-k1-generator-partnership-tax-revolution',
+    title: 'AI K-1 Generator: The Partnership Tax Revolution CPAs Have Been Waiting For',
+    excerpt: 'Partnership K-1 forms are notoriously complex and time-consuming. Discover how AI-powered K-1 generation is revolutionizing partnership tax preparation for CPAs and tax professionals.',
+    author: 'Prompt Tax Team',
+    date: '2025-01-10',
+    thumbnail: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/k1-generator-hero.jpg',
+    tags: ['K-1 Forms', 'Partnership Tax', 'AI Tax Tools', 'CPAs'],
+    seo: {
+      description: 'AI-powered K-1 generator revolutionizes partnership tax preparation. Automate complex K-1 form processing and save hours on partnership tax returns.',
+      keywords: ['K-1 generator', 'AI K-1', 'partnership tax', 'K-1 automation', 'tax software for CPAs'],
+      ogImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/k1-generator-og-1200x630.jpg',
+      linkedInImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/k1-generator-linkedin-1200x627.jpg',
+      twitterImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/k1-generator-twitter-1200x675.jpg',
+      version: '1.0'
+    }
+  },
+  'simplify-k1-form-processing-crypto-tax-season': {
+    slug: 'simplify-k1-form-processing-crypto-tax-season',
+    title: 'How to Simplify K-1 Form Processing During Crypto Tax Season',
+    excerpt: 'K-1 forms meet crypto taxes: the ultimate complexity challenge. Learn practical strategies to streamline K-1 processing when dealing with cryptocurrency partnerships and investments.',
+    author: 'Prompt Tax Team',
+    date: '2025-01-05',
+    thumbnail: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/k1-crypto-hero.jpg',
+    tags: ['K-1 Forms', 'Crypto Tax', 'Tax Season', 'Automation'],
+    seo: {
+      description: 'Master K-1 form processing for crypto tax season. Practical strategies and AI tools to simplify complex partnership tax returns involving cryptocurrency.',
+      keywords: ['K-1 processing', 'crypto K-1', 'partnership crypto taxes', 'tax season automation'],
+      ogImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/k1-crypto-og-1200x630.jpg',
+      linkedInImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/k1-blog-linkedin-1200x627.jpg',
+      twitterImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/k1-crypto-twitter-1200x675.jpg',
+      version: '1.0'
+    }
+  },
+  'crypto-tax-ai-automation-saves-15-hours': {
+    slug: 'crypto-tax-ai-automation-saves-15-hours',
+    title: 'Crypto Tax AI Automation: How We Saved 15+ Hours Per Client',
+    excerpt: 'Real-world case study: How AI automation transformed our crypto tax workflow, reducing preparation time from 18 hours to just 3 hours per client while improving accuracy.',
+    author: 'Prompt Tax Team',
+    date: '2024-12-28',
+    thumbnail: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-blog-og-1200x630.jpg',
+    tags: ['Case Study', 'Crypto Tax', 'AI Automation', 'Efficiency'],
+    seo: {
+      description: 'Case study: How AI automation reduced crypto tax preparation time by 15+ hours per client while improving accuracy and compliance.',
+      keywords: ['crypto tax automation', 'AI tax case study', 'tax efficiency', 'crypto tax workflow'],
+      ogImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-blog-og-1200x630.jpg',
+      linkedInImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-blog-linkedin-1200x627.jpg',
+      twitterImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-blog-twitter-1200x675.jpg',
+      version: '1.0'
+    }
+  }
 };
 
 export const blogPosts: BlogPost[] = Object.values(sharedBlogPostMap);
