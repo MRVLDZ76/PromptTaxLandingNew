@@ -1,0 +1,56 @@
+import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {BsSearch} from "react-icons/bs";
+import { Link } from "react-router-dom";
+
+const Hero = () => {
+    return (
+        <section className="position-relative pt-md-8 pb-0">
+            <Container className="position-relative z-index-1 pt-4 pt-md-0">
+                <Row className="g-4 g-xxl-5">
+                    <Col lg={8} xl={6}>
+
+                        <div className="d-flex position-relative mb-3">
+                            <nav aria-label="breadcrumb">
+                                <ol className="breadcrumb breadcrumb-dots pb-0 mb-0">
+                                    <li className="breadcrumb-item"><Link to="">Home</Link></li>
+                                    <li className="breadcrumb-item active" aria-current="page">Help center</li>
+                                </ol>
+                            </nav>
+                        </div>
+                      
+                        <h1 className="mb-4 h2">How can we help you?</h1>
+
+                        <Form className="bg-light border rounded-2 position-relative p-2">
+                            <div className="input-group">
+                                <Form.Control className="focus-shadow-none bg-light border-0 me-1" type="email"
+                                              placeholder="Search for answer..."/>
+                                <Button variant='dark' type="button" className="rounded-2 mb-0">
+                                    <BsSearch/>
+                                </Button>
+                            </div>
+                        </Form>
+
+
+                        <ul className="list-inline small mb-0 mt-3">
+                            <li className="list-inline-item"><span className="text-secondary">Popular search: </span>
+                            </li>&nbsp;
+                            <li className="list-inline-item"><a
+                                className="text-primary-hover heading-color text-decoration-underline mb-lg-0"
+                                href=""> How
+                                can we help?</a></li>&nbsp;
+                            <li className="list-inline-item"><a
+                                className="text-primary-hover heading-color text-decoration-underline mb-lg-0"
+                                href=""> Installation Guide? </a></li>&nbsp;
+                            <li className="list-inline-item"><a
+                                className="text-primary-hover heading-color text-decoration-underline mb-lg-0"
+                                href=""> How
+                                to view expired tickets? </a></li>
+                        </ul>
+                    </Col>
+                </Row>
+            </Container>
+        </section>
+    )
+}
+
+export default Hero

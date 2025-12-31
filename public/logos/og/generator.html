@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OG Image Generator - PromptTax</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #0065a4;
+    }
+
+    .controls {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .control-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .format-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .format-btn {
+      flex: 1;
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .format-btn:hover {
+      border-color: #0065a4;
+    }
+
+    .format-btn.active {
+      border-color: #0065a4;
+      background: #0065a4;
+      color: white;
+    }
+
+    .canvas-container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    canvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+    }
+
+    .download-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: #0065a4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.2s;
+    }
+
+    .download-btn:hover {
+      background: #004d7d;
+    }
+
+    .dimensions {
+      text-align: center;
+      margin-top: 10px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 PromptTax OG Image Generator</h1>
+
+    <div class="controls">
+      <div class="control-group">
+        <label>Blog Slug (Required - used for file naming)</label>
+        <input type="text" id="slug" value="crypto-blog" placeholder="e.g., crypto-blog, k1-blog, tax-guide" />
+        <small style="color: #666; display: block; margin-top: 5px;">
+          Use lowercase, hyphens only. Examples: crypto-blog, k1-blog, tax-automation-guide
+        </small>
+      </div>
+
+      <div class="control-group">
+        <label>Blog Post Title</label>
+        <input type="text" id="title" value="The Crypto Tax Nightmare (And How PromptTax Solves It in 5 Minutes)" />
+      </div>
+
+      <div class="control-group">
+        <label>Subtitle (Optional)</label>
+        <input type="text" id="subtitle" value="Save 40+ hours with AI automation" />
+      </div>
+
+      <div class="control-group">
+        <label>Background Style</label>
+        <select id="bgStyle">
+          <option value="gradient">Gradient (Blue)</option>
+          <option value="dark">Dark Solid</option>
+          <option value="light">Light Solid</option>
+          <option value="crypto">Crypto Pattern</option>
+          <option value="custom">Custom Image Upload</option>
+        </select>
+      </div>
+
+      <div class="control-group" id="imageUploadSection" style="display: none;">
+        <label>Upload Background Image</label>
+        <input type="file" id="bgImageUpload" accept="image/*" />
+        <small style="color: #666; display: block; margin-top: 5px;">
+          Recommended: 1920x1080px or larger. Image will be cropped to fit.
+        </small>
+      </div>
+
+      <div class="format-buttons">
+        <button class="format-btn active" data-format="facebook">
+          Facebook/OG<br>
+          <small>1200×630</small>
+        </button>
+        <button class="format-btn" data-format="twitter">
+          Twitter/X<br>
+          <small>1200×675</small>
+        </button>
+        <button class="format-btn" data-format="linkedin">
+          LinkedIn<br>
+          <small>1200×627</small>
+        </button>
+      </div>
+    </div>
+
+    <div class="canvas-container">
+      <canvas id="canvas"></canvas>
+      <div class="dimensions" id="dimensions">1200 × 630 pixels</div>
+      <button class="download-btn" id="downloadBtn">⬇️ Download Image</button>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const slugInput = document.getElementById('slug');
+    const titleInput = document.getElementById('title');
+    const subtitleInput = document.getElementById('subtitle');
+    const bgStyleSelect = document.getElementById('bgStyle');
+    const bgImageUpload = document.getElementById('bgImageUpload');
+    const imageUploadSection = document.getElementById('imageUploadSection');
+    const formatButtons = document.querySelectorAll('.format-btn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const dimensionsText = document.getElementById('dimensions');
+
+    let currentFormat = 'facebook';
+    let uploadedImage = null;
+    
+    const formats = {
+      facebook: { width: 1200, height: 630, name: 'og-1200x630' },
+      twitter: { width: 1200, height: 675, name: 'twitter-1200x675' },
+      linkedin: { width: 1200, height: 627, name: 'linkedin-1200x627' }
+    };
+
+    function drawImage() {
+      const format = formats[currentFormat];
+      canvas.width = format.width;
+      canvas.height = format.height;
+
+      const title = titleInput.value;
+      const subtitle = subtitleInput.value;
+      const bgStyle = bgStyleSelect.value;
+
+      // Background
+      if (bgStyle === 'custom' && uploadedImage) {
+        // Draw uploaded image as background
+        const imgAspect = uploadedImage.width / uploadedImage.height;
+        const canvasAspect = canvas.width / canvas.height;
+        
+        let drawWidth, drawHeight, offsetX, offsetY;
+        
+        if (imgAspect > canvasAspect) {
+          // Image is wider - fit to height
+          drawHeight = canvas.height;
+          drawWidth = drawHeight * imgAspect;
+          offsetX = (canvas.width - drawWidth) / 2;
+          offsetY = 0;
+        } else {
+          // Image is taller - fit to width
+          drawWidth = canvas.width;
+          drawHeight = drawWidth / imgAspect;
+          offsetX = 0;
+          offsetY = (canvas.height - drawHeight) / 2;
+        }
+        
+        ctx.drawImage(uploadedImage, offsetX, offsetY, drawWidth, drawHeight);
+        
+        // Add dark overlay for text readability
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      } else if (bgStyle === 'gradient') {
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, '#0065a4');
+        gradient.addColorStop(1, '#004d7d');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      } else if (bgStyle === 'dark') {
+        ctx.fillStyle = '#1a1a1a';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      } else if (bgStyle === 'light') {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      } else if (bgStyle === 'crypto') {
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, '#667eea');
+        gradient.addColorStop(0.5, '#764ba2');
+        gradient.addColorStop(1, '#f093fb');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+
+      // Safe zones
+      const padding = 60;
+      const safeWidth = canvas.width - (padding * 2);
+      const safeHeight = canvas.height - (padding * 2);
+
+      // Logo (top-left)
+      ctx.fillStyle = (bgStyle === 'light' && !uploadedImage) ? '#0065a4' : '#ffffff';
+      ctx.font = 'bold 48px Inter, sans-serif';
+      ctx.fillText('PromptTax', padding, padding + 48);
+
+      // Title
+      ctx.fillStyle = (bgStyle === 'light' && !uploadedImage) ? '#000000' : '#ffffff';
+      ctx.font = 'bold 64px Inter, sans-serif';
+      ctx.textAlign = 'left';
+      
+      // Word wrap title
+      const words = title.split(' ');
+      let line = '';
+      let y = canvas.height / 2 - 80;
+      const lineHeight = 75;
+      const maxWidth = safeWidth;
+
+      for (let word of words) {
+        const testLine = line + word + ' ';
+        const metrics = ctx.measureText(testLine);
+        
+        if (metrics.width > maxWidth && line !== '') {
+          ctx.fillText(line, padding, y);
+          line = word + ' ';
+          y += lineHeight;
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line, padding, y);
+
+      // Subtitle
+      if (subtitle) {
+        ctx.font = '36px Inter, sans-serif';
+        ctx.fillStyle = (bgStyle === 'light' && !uploadedImage) ? '#666666' : 'rgba(255, 255, 255, 0.8)';
+        ctx.fillText(subtitle, padding, y + 60);
+      }
+
+      // Bottom badge
+      const badgeText = 'AI-Powered Tax Automation';
+      ctx.font = 'bold 24px Inter, sans-serif';
+      ctx.fillStyle = (bgStyle === 'light' && !uploadedImage) ? '#0065a4' : '#ffffff';
+      ctx.fillText(badgeText, padding, canvas.height - padding);
+
+      dimensionsText.textContent = `${format.width} × ${format.height} pixels`;
+    }
+
+    // Handle background style change
+    bgStyleSelect.addEventListener('change', () => {
+      if (bgStyleSelect.value === 'custom') {
+        imageUploadSection.style.display = 'block';
+      } else {
+        imageUploadSection.style.display = 'none';
+      }
+      drawImage();
+    });
+
+    // Handle image upload
+    bgImageUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const img = new Image();
+          img.onload = () => {
+            uploadedImage = img;
+            drawImage();
+          };
+          img.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Event listeners
+    titleInput.addEventListener('input', drawImage);
+    subtitleInput.addEventListener('input', drawImage);
+    bgStyleSelect.addEventListener('change', drawImage);
+
+    formatButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        formatButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFormat = btn.dataset.format;
+        drawImage();
+      });
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      const format = formats[currentFormat];
+      const slug = slugInput.value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-');
+      
+      if (!slug) {
+        alert('⚠️ Please enter a blog slug before downloading!');
+        slugInput.focus();
+        return;
+      }
+      
+      const link = document.createElement('a');
+      link.download = `${slug}-${format.name}.jpg`;
+      link.href = canvas.toDataURL('image/jpeg', 0.9);
+      link.click();
+      
+      // Show helpful message
+      console.log(`✅ Downloaded: ${slug}-${format.name}.jpg`);
+      console.log(`📁 Place this file in: public/logos/og/`);
+      console.log(`🔗 Will be accessible at: https://prompt.tax/logos/og/${slug}-${format.name}.jpg`);
+    });
+
+    // Initial draw
+    drawImage();
+  </script>
+</body>
+</html>

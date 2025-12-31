@@ -1,0 +1,19 @@
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="taxheroes-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ea580c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="80" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+  
+  <!-- Icon -->
+  <polygon points="25,28 30,33 28,40 25,38 22,40 20,33" fill="url(#taxheroes-gradient)"/>
+  <rect x="20" y="40" width="10" height="12" fill="url(#taxheroes-gradient)"/>
+  
+  <!-- Text -->
+  <text x="45" y="32" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f2937">Tax Heroes</text>
+  <text x="45" y="48" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Your Tax Champions</text>
+</svg>

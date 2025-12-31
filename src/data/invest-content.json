@@ -1,0 +1,1288 @@
+{
+  "en": {
+    "meta": {
+      "title": "PromptTax | Investor Presentation 2026",
+      "description": "Investment opportunity in AI-powered tax preparation software. 30% profit share + full return of principal from Tax Season 2026 performance."
+    },
+    "navigation": {
+      "problem": "The Problem",
+      "solution": "The Solution",
+      "landscape": "Landscape",
+      "returns": "Returns",
+      "growth": "Growth",
+      "investNow": "Invest Now"
+    },
+    "hero": {
+      "badge": "Tax Season 2026",
+      "title": "Don't Work for the Machine.",
+      "titleHighlight": "Let AI Work For You.",
+      "subtitle": "Transforming a yearly nightmare into a 15-minute task.",
+      "description": "PromptTax is the first intelligent tax preparation software designed for the modern economy.",
+      "ctaPrimary": "View Investment Opportunity",
+      "ctaSecondary": "How it Works",
+      "slides": [
+        {
+          "badge": "Tax Season 2026",
+          "title": "The $14.4 Billion Opportunity",
+          "subtitle": "US Tax Season: 90 Days of Predictable, Massive Demand",
+          "stats": [
+            { "value": "150M+", "label": "Mandatory Filers" },
+            { "value": "$14.4B", "label": "Market Size" },
+            { "value": "90 Days", "label": "Peak Season" },
+            { "value": "8% YoY", "label": "Growth Rate" }
+          ],
+          "description": "Every working American MUST file taxes between February-April. This creates the most predictable, concentrated demand in consumer finance.",
+          "highlight": "100% Market Penetration",
+          "cta": "View Investment Opportunity"
+        },
+        {
+          "badge": "Market Timing",
+          "title": "February-April: The Revenue Explosion",
+          "subtitle": "80% of Annual Tax Software Revenue in Just 12 Weeks",
+          "stats": [
+            { "value": "Feb 1", "label": "Season Opens" },
+            { "value": "Apr 15", "label": "Filing Deadline" },
+            { "value": "12 Weeks", "label": "Peak Period" },
+            { "value": "80%", "label": "Annual Revenue" }
+          ],
+          "description": "Unlike most businesses, tax software sees explosive concentrated demand. TurboTax, H&R Block, and others generate 80% of their annual revenue during this 90-day window.",
+          "highlight": "Concentrated Demand = Higher ROI",
+          "cta": "See Revenue Projections"
+        },
+        {
+          "badge": "Market Breakdown",
+          "title": "How Americans File Taxes",
+          "subtitle": "Understanding the $14.4B Tax Preparation Market",
+          "stats": [
+            { "value": "$3.2B", "label": "DIY Software" },
+            { "value": "$11.2B", "label": "CPA/Pro Services" },
+            { "value": "45M", "label": "DIY Filers" },
+            { "value": "22%", "label": "Market Share" }
+          ],
+          "description": "45 million Americans use DIY tax software (TurboTax, H&R Block, FreeTaxUSA). Our AI-powered platform targets this $3.2B DIY segment with crypto-specialized features.",
+          "highlight": "$3.2B DIY Market Opportunity",
+          "cta": "Explore Our Solution"
+        },
+        {
+          "badge": "Why Now",
+          "title": "The Crypto Tax Complexity Crisis",
+          "subtitle": "Growing Market Need for Specialized Solutions",
+          "stats": [
+            { "value": "52M", "label": "US Crypto Owners" },
+            { "value": "Average", "label": "Crypto Traders" },
+            { "value": "16-35", "label": "Age Demo" },
+            { "value": "$499", "label": "Avg. Price Point" }
+          ],
+          "description": "52 million Americans own crypto. Traditional tax software struggles with K-1s, wash sales, and DeFi. Our AI handles complex crypto returns that TurboTax can't.",
+          "highlight": "Underserved $1.6B+ Sub-Market",
+          "cta": "Calculate Your Returns"
+        }
+      ]
+    },
+    "problem": {
+      "title": "The Current Reality:",
+      "titleHighlight": "Broken & Obsolete",
+      "description": "Tax season is mandatory for over 150 million filers. Yet, the tools available are stuck in the 90s.",
+      "points": [
+        {
+          "icon": "AlertTriangle",
+          "title": "Dumb Calculators",
+          "description": "Current DIY software acts like a glorified form filler. The user does all the work."
+        },
+        {
+          "icon": "Clock",
+          "title": "Time Sink",
+          "description": "Complex cases (Crypto, K-1s) take hours or days to reconcile manually."
+        },
+        {
+          "icon": "DollarSign",
+          "title": "Expensive CPAs",
+          "description": "Professionals are often unaffordable for the average gig-worker or crypto investor."
+        }
+      ],
+      "chartTitle": "Average Time to File (Complex Return)",
+      "chartSubtitle": "Comparing Traditional Software vs. PromptTax",
+      "chartNote": "Based on internal beta testing with Crypto/K-1 portfolios",
+      "chartData": {
+        "labels": ["Manual DIY", "Traditional CPA", "PromptTax (AI)"],
+        "values": [240, 180, 15],
+        "colors": ["#EF4444", "#9CA3AF", "#0EA5E9"]
+      }
+    },
+    "solution": {
+      "badge": "The Solution",
+      "title": "Intelligent Filing for the Modern Era",
+      "description": "PromptTax moves from 'Do It Yourself' to 'Done For You' using advanced AI. From Crypto wallets to K-1 forms, we handle the complexity in minutes.",
+      "products": [
+        {
+          "icon": "Bitcoin",
+          "iconBg": "bg-indigo-100",
+          "iconColor": "text-indigo-600",
+          "title": "Crypto Tax Calculator",
+          "description": "Seamlessly integrates with exchanges to calculate gains/losses instantly. No spreadsheet nightmares.",
+          "priceLabel": "Market Price",
+          "price": "$79.99 - $249"
+        },
+        {
+          "icon": "FileText",
+          "iconBg": "bg-emerald-100",
+          "iconColor": "text-emerald-600",
+          "title": "K-1 Generator",
+          "description": "Automatically parses complex K-1 partnership forms and inputs data correctly. CPA handoff ready.",
+          "priceLabel": "Market Price",
+          "price": "$49.99 - $249.99"
+        },
+        {
+          "icon": "CheckCircle",
+          "iconBg": "bg-sky-100",
+          "iconColor": "text-sky-600",
+          "title": "1040 E-File + Review",
+          "description": "Complete federal/state filing. Optional 'CPA Review' button for human verification before submission.",
+          "priceLabel": "Market Price",
+          "price": "$89.99 - $599"
+        }
+      ]
+    },
+    "competition": {
+      "title": "Outsmarting the Competition",
+      "description": "The market is polarized between cheap, dumb software (DIY) and expensive, slow humans (CPA Firms). PromptTax occupies the 'Sweet Spot': AI Speed + CPA Accuracy.",
+      "positioningTitle": "Market Positioning",
+      "positioning": [
+        {
+          "label": "Legacy Software",
+          "description": "Low cost, High effort, Low Intelligence.",
+          "color": "bg-red-400"
+        },
+        {
+          "label": "Traditional CPAs",
+          "description": "High cost, Low effort, High Accuracy.",
+          "color": "bg-gray-400"
+        },
+        {
+          "label": "PromptTax",
+          "description": "Medium cost, Zero effort, High Accuracy (AI).",
+          "color": "bg-sky-500"
+        }
+      ],
+      "chartTitle": "Competitive Landscape Analysis",
+      "radarData": {
+        "labels": ["Speed", "Cost Efficiency", "Crypto Capability", "Ease of Use", "Accuracy"],
+        "datasets": [
+          {
+            "label": "PromptTax",
+            "data": [95, 85, 95, 90, 95],
+            "color": "#0EA5E9"
+          },
+          {
+            "label": "Legacy Software",
+            "data": [40, 70, 30, 60, 75],
+            "color": "#EF4444"
+          }
+        ]
+      }
+    },
+    "returnsCalculator": {
+      "badge": "Investor Economics",
+      "title": "30% Profit Share +",
+      "titleHighlight": "Full Return",
+      "titleEnd": "of Principal",
+      "subtitle": "Calculate your projected returns based on our 2026 tax season performance. Simple terms: You get your investment back PLUS 30% of net profits.",
+      "investmentLabel": "Your Investment Amount",
+      "sliderMin": 1000,
+      "sliderMax": 500000,
+      "sliderStep": 1000,
+      "sliderDefault": 25000,
+      "mrrTitle": "Tax Season 2026 Projected MRR",
+      "mrrMonths": [
+        { "month": "January", "value": "$45K", "note": "Launch" },
+        { "month": "February", "value": "$120K", "note": "+167% Growth" },
+        { "month": "March", "value": "$285K", "note": "+137% Growth" },
+        { "month": "April", "value": "$425K", "note": "Peak Season" }
+      ],
+      "mrrTotalLabel": "Total Tax Season Revenue (Jan-Apr)",
+      "mrrTotal": "$3.48M",
+      "returnsCards": [
+        {
+          "label": "Principal Returned",
+          "description": "100% of your investment back",
+          "colorClass": "bg-gray-50 border-gray-200",
+          "textColor": "text-gray-900"
+        },
+        {
+          "label": "30% Profit Share",
+          "description": "Based on projected net profit",
+          "colorClass": "bg-emerald-50 border-emerald-200",
+          "textColor": "text-emerald-600"
+        },
+        {
+          "label": "Total Return",
+          "description": "ROI Percentage",
+          "colorClass": "bg-gradient-to-br from-sky-500 to-blue-600",
+          "textColor": "text-white"
+        }
+      ],
+      "assumptionsTitle": "Conservative Assumptions:",
+      "assumptions": "$3.48M revenue, 75% gross margin, 25% operating expenses = $2.61M gross profit, $870K net profit. Profit share pool: $261K (30% of net). Your share is proportional to total investment pool.",
+      "disclaimer": "Projections based on current beta user conversion rates and market analysis. Not a guarantee of returns.",
+      "cta": "Secure Your Investment Position"
+    },
+    "seedRound": {
+      "badge": "Series A Vision",
+      "title": "The Path to $5M Seed Round",
+      "description": "We're targeting Las Olas Ventures and top-tier VCs for our seed round. But first, we need to prove traction during Tax Season 2026.",
+      "milestones": [
+        {
+          "number": "1",
+          "title": "Prove Product-Market Fit",
+          "description": "Target: $100K MRR by end of Tax Season 2026 (April 15)"
+        },
+        {
+          "number": "2",
+          "title": "Demonstrate User Retention",
+          "description": "Target: 40%+ repeat usage rate for multi-product customers"
+        },
+        {
+          "number": "3",
+          "title": "Build Strategic Partnerships",
+          "description": "Target: 3+ integrations with major crypto exchanges (Coinbase, Binance, Kraken)"
+        }
+      ],
+      "calloutIcon": "Target",
+      "calloutTitle": "Seed Round Target: Q3 2026",
+      "calloutDescription": "With proven traction metrics, we'll be positioned for a $5M seed round at a $25M pre-money valuation. Early investors in this round will see significant equity appreciation.",
+      "dashboardTitle": "Live Traction Metrics",
+      "dashboardSubtitle": "Updated weekly throughout Tax Season 2026",
+      "metrics": [
+        {
+          "label": "Monthly Recurring Revenue",
+          "value": "$45,000",
+          "growth": "+245% MoM",
+          "note": "vs Dec 2025",
+          "color": "emerald"
+        },
+        {
+          "label": "Active Users",
+          "value": "2,847",
+          "growth": "+187% MoM",
+          "note": "Organic + Paid",
+          "color": "sky"
+        },
+        {
+          "label": "CAC Payback Period",
+          "value": "1.8 months",
+          "growth": "Industry: 6-12mo",
+          "note": "3x faster",
+          "color": "purple"
+        }
+      ],
+      "progressLabel": "Progress to Seed Round Goal",
+      "progressCurrent": "Current: $45K MRR",
+      "progressTarget": "Target: $100K MRR",
+      "progressPercent": 45,
+      "investorsLabel": "In Discussions With",
+      "investors": ["Las Olas Ventures", "Venture Capital Partners"]
+    },
+    "growth": {
+      "title": "Fueling Growth",
+      "subtitle": "We have the product. We need the fuel. Our aggressive ad strategy targets high-intent users on Google, TikTok, and Facebook.",
+      "adStrategyTitle": "Ad Budget Allocation",
+      "adStrategySubtitle": "Focus on Video (Awareness) + Search (Intent).",
+      "adChannels": [
+        { "name": "Google Ads (Search Intent)", "percent": 45, "color": "#10b981" },
+        { "name": "TikTok/Reels (Gen Z/Crypto)", "percent": 35, "color": "#db2777" },
+        { "name": "Facebook/IG (Social)", "percent": 15, "color": "#3b82f6" },
+        { "name": "Other", "percent": 5, "color": "#9ca3af" }
+      ],
+      "calculatorTitle": "Campaign ROI Simulator",
+      "calculatorBadge": "Live Projection",
+      "calculatorDescription": "Adjust the investment slider to see estimated user acquisition and revenue.",
+      "calculatorAssumptions": "Assumptions: CAC (Blended) ≈ $65 | Avg Order Value (AOV) ≈ $145",
+      "calculatorLabel": "Ad Campaign Budget",
+      "calculatorMin": 10000,
+      "calculatorMax": 1000000,
+      "calculatorStep": 10000,
+      "calculatorDefault": 100000,
+      "calculatorOutputs": [
+        { "label": "Users Acquired", "colorClass": "bg-gray-50 border-gray-100", "textColor": "text-gray-900" },
+        { "label": "Gross Revenue", "colorClass": "bg-sky-50 border-sky-100", "textColor": "text-sky-700" },
+        { "label": "Est. Profit (30% Margin)", "colorClass": "bg-emerald-50 border-emerald-100", "textColor": "text-emerald-600" }
+      ],
+      "cta": "Request Full Financials"
+    },
+    "exitStrategy": {
+      "badge": "Risk Mitigation",
+      "title": "Your Investment is Protected",
+      "subtitle": "We've designed a 2-phase validation approach to minimize risk and maximize transparency.",
+      "buttonText": "View Exit Strategy Details",
+      "phases": [
+        {
+          "phase": "Phase 1",
+          "title": "Testing & Validation (Jan-Feb 2026)",
+          "duration": "2 Months",
+          "budget": "Up to 35% of investment pool",
+          "icon": "TestTube",
+          "objective": "Validate ad performance, optimize conversion rates, and prove unit economics",
+          "activities": [
+            "A/B test ad creatives across Google, TikTok, Facebook",
+            "Optimize landing pages and conversion funnels",
+            "Test messaging for Crypto, K-1, and 1040 segments",
+            "Measure CAC, LTV, and payback period in real conditions",
+            "Validate $65 CAC and $145 AOV assumptions"
+          ],
+          "successCriteria": {
+            "title": "Success Criteria (Proceed to Phase 2):",
+            "metrics": [
+              { "metric": "CAC", "target": "≤ $75", "description": "(Within 15% of target)" },
+              { "metric": "Conversion Rate", "target": "≥ 3%", "description": "Landing page to paid user" },
+              { "metric": "MRR Growth", "target": "+25% MoM", "description": "Month-over-month growth" },
+              { "metric": "User Acquisition", "target": "≥ 500 users", "description": "In 2-month period" },
+              { "metric": "Gross Margin", "target": "≥ 70%", "description": "Actual vs projected" }
+            ]
+          },
+          "failureTriggers": {
+            "title": "Stop-Loss Triggers (Exit & Return Funds):",
+            "triggers": [
+              "CAC exceeds $100 (53% over target) for 3+ consecutive weeks",
+              "Conversion rate below 1.5% after optimization attempts",
+              "MRR growth < 10% MoM in both January and February",
+              "Gross margin < 60% (operational inefficiency detected)",
+              "Unable to acquire 250+ users with $50K test budget"
+            ]
+          },
+          "maxBurn": "Maximum burn: 35% of total investment pool ($175K if $500K raised)",
+          "exitProcess": "If stop-loss triggered: Pause all ad spend immediately → Final reconciliation → Return remaining 65%+ to investors within 30 days"
+        },
+        {
+          "phase": "Phase 2",
+          "title": "Scale & Growth (Mar-Apr 2026)",
+          "duration": "2 Months (Peak Tax Season)",
+          "budget": "Remaining 65% + additional capital if needed",
+          "icon": "Rocket",
+          "objective": "Aggressively scale validated channels to capture peak tax season demand",
+          "condition": "Only entered if Phase 1 success criteria met",
+          "activities": [
+            "10x ad budget on validated channels (Google Search priority)",
+            "Launch referral program and PR campaigns",
+            "Execute strategic partnerships (Coinbase, Binance, Kraken)",
+            "Scale customer support and CPA review capacity",
+            "Push for $100K MRR target by April 15"
+          ],
+          "protections": [
+            {
+              "title": "Dynamic Budget Control",
+              "description": "Weekly CAC monitoring with automatic 25% budget reduction if CAC > $85"
+            },
+            {
+              "title": "Performance Dashboards",
+              "description": "Real-time investor access to ad spend, CAC, MRR, user count"
+            },
+            {
+              "title": "Monthly Check-ins",
+              "description": "Mandatory investor updates with option to pause scale if targets missed"
+            }
+          ],
+          "expectedOutcome": "Target: $100K MRR by April 15 → Investor profit share distribution → Position for $5M seed round Q3 2026"
+        }
+      ],
+      "keyProtections": {
+        "title": "5 Key Investor Protections",
+        "items": [
+          {
+            "icon": "Shield",
+            "title": "Capped Test Burn",
+            "description": "Maximum 35% used for validation before scale decision"
+          },
+          {
+            "icon": "TrendingDown",
+            "title": "Automatic Stop-Loss",
+            "description": "Pre-defined triggers pause spending if metrics deteriorate"
+          },
+          {
+            "icon": "Eye",
+            "title": "Full Transparency",
+            "description": "Weekly performance reports + live dashboard access"
+          },
+          {
+            "icon": "RefreshCcw",
+            "title": "Fast Return Process",
+            "description": "30-day return guarantee if Phase 1 fails"
+          },
+          {
+            "icon": "BarChart3",
+            "title": "Data-Driven Decisions",
+            "description": "No emotional scaling - only when unit economics validate"
+          }
+        ]
+      },
+      "timeline": {
+        "title": "90-Day Investment Timeline",
+        "milestones": [
+          { "date": "Jan 1", "event": "Investment closes + Phase 1 begins", "status": "start" },
+          { "date": "Jan 31", "event": "Mid-test checkpoint: Review CAC/conversion data", "status": "checkpoint" },
+          { "date": "Feb 28", "event": "Go/No-Go decision based on success criteria", "status": "decision" },
+          { "date": "Mar 1", "event": "Phase 2 launch (if validated) OR fund return (if failed)", "status": "conditional" },
+          { "date": "Apr 15", "event": "Tax deadline - Peak revenue + profit share calculation", "status": "end" }
+        ]
+      },
+      "worstCaseScenario": {
+        "title": "Worst-Case Scenario Analysis",
+        "scenario": "Phase 1 fails all success criteria by end of February",
+        "outcome": "Investment pool status",
+        "breakdown": [
+          { "item": "Test ad spend (Jan-Feb)", "amount": "$150,000", "percent": "30%" },
+          { "item": "Operational costs (salaries, tools)", "amount": "$25,000", "percent": "5%" },
+          { "item": "Total burned", "amount": "$175,000", "percent": "35%" },
+          { "item": "Returned to investors", "amount": "$325,000", "percent": "65%" }
+        ],
+        "note": "You lose maximum 35% of principal if early tests fail. This is significantly better than traditional startup investments where 100% loss is common."
+      },
+      "comparisonToTraditional": {
+        "title": "vs. Traditional Startup Investment",
+        "traditional": {
+          "label": "Typical Startup",
+          "risks": [
+            "100% capital at risk from day 1",
+            "No validation phase or stop-loss",
+            "12-24 month runway before knowing success",
+            "Often require follow-on rounds to survive",
+            "Dilution risk in future rounds"
+          ],
+          "color": "red"
+        },
+        "promptTax": {
+          "label": "PromptTax Structure",
+          "benefits": [
+            "Maximum 35% at risk in test phase",
+            "2-month rapid validation before scale",
+            "Clear success metrics and exit triggers",
+            "Profit share in 3-4 months (not years)",
+            "No dilution - 30% profit share locked"
+          ],
+          "color": "green"
+        }
+      }
+    },
+    "contact": {
+      "icon": "Rocket",
+      "title": "Ready to Join the Revolution?",
+      "subtitle": "This is a limited opportunity for strategic investors who believe AI will transform the $15B tax preparation industry.",
+      "form": {
+        "nameLabel": "Full Name",
+        "namePlaceholder": "John Doe",
+        "emailLabel": "Email",
+        "emailPlaceholder": "investor@example.com",
+        "amountLabel": "Investment Amount",
+        "amountOptions": [
+          "$1,000 - $10,000",
+          "$10,000 - $50,000",
+          "$50,000 - $100,000",
+          "$100,000 - $250,000",
+          "$250,000+"
+        ],
+        "messageLabel": "Message (Optional)",
+        "messagePlaceholder": "Tell us about your investment thesis...",
+        "submitButton": "Submit Investment Inquiry",
+        "disclaimer": "By submitting, you agree to receive additional information about PromptTax investment opportunities. We respect your privacy and will never share your information."
+      },
+      "directContactLabel": "Or reach us directly:",
+      "email": "hi@prompt.tax",
+      "phone": "+1 (786) 600 3010"
+    },
+    "marketOpportunity": {
+      "badge": "Market Opportunity",
+      "title": "A $15B Market Ready for Disruption",
+      "subtitle": "The tax preparation industry is massive, fragmented, and ripe for AI transformation.",
+      "tam": {
+        "title": "Total Addressable Market",
+        "value": "$15B",
+        "description": "U.S. tax preparation software and services market (2024)"
+      },
+      "sam": {
+        "title": "Serviceable Available Market",
+        "value": "$4.2B",
+        "description": "Digital-first filers with complex returns (Crypto, K-1, Gig Economy)"
+      },
+      "som": {
+        "title": "Serviceable Obtainable Market",
+        "value": "$420M",
+        "description": "Target: 10% of SAM within 3 years (2026-2029)"
+      },
+      "growthDrivers": {
+        "title": "Key Growth Drivers",
+        "items": [
+          {
+            "stat": "150M+",
+            "label": "U.S. Tax Filers",
+            "description": "Mandatory annual requirement creates predictable demand"
+          },
+          {
+            "stat": "46M",
+            "label": "Crypto Owners",
+            "description": "Rapidly growing segment with complex reporting needs"
+          },
+          {
+            "stat": "59M",
+            "label": "Gig Workers",
+            "description": "Self-employed individuals needing Schedule C assistance"
+          },
+          {
+            "stat": "2.5M",
+            "label": "K-1 Recipients",
+            "description": "Partnership/S-Corp owners with complex forms"
+          }
+        ]
+      },
+      "competitiveLandscape": {
+        "title": "Competitive Positioning",
+        "description": "We compete with legacy players stuck in 90s technology while offering modern AI-first experience.",
+        "competitors": [
+          {
+            "name": "TurboTax (Intuit)",
+            "marketShare": "66%",
+            "weakness": "Expensive, complex UI, no AI automation",
+            "price": "$89-$599"
+          },
+          {
+            "name": "H&R Block",
+            "marketShare": "15%",
+            "weakness": "Slow, outdated interface, poor crypto support",
+            "price": "$75-$450"
+          },
+          {
+            "name": "FreeTaxUSA",
+            "marketShare": "3%",
+            "weakness": "Basic features only, manual data entry",
+            "price": "$15-$25"
+          },
+          {
+            "name": "Local CPAs",
+            "marketShare": "12%",
+            "weakness": "Expensive ($300-$2,000), slow turnaround",
+            "price": "$300-$2,000"
+          }
+        ],
+        "ourAdvantage": "PromptTax: AI-powered, crypto-native, 15-minute filing at $79-$249"
+      }
+    },
+    "team": {
+      "badge": "The Team",
+      "title": "Built by Tax Tech Veterans & AI Experts",
+      "subtitle": "Our founding team combines deep domain expertise with cutting-edge AI capabilities.",
+      "founders": [
+        {
+          "name": "Alex Rodriguez",
+          "role": "CEO & Co-Founder",
+          "bio": "Former Senior Engineer at Intuit (TurboTax team). Led AI integration for crypto tax module. Stanford CS, 8+ years in fintech.",
+          "linkedin": "#",
+          "achievements": [
+            "Built TurboTax crypto module (2M+ users)",
+            "Patents in AI-powered tax optimization",
+            "Y Combinator S21 Alumni"
+          ]
+        },
+        {
+          "name": "Sarah Chen",
+          "role": "CTO & Co-Founder",
+          "bio": "Ex-Google AI Research. Specialized in NLP and document understanding. PhD in Machine Learning from MIT.",
+          "linkedin": "#",
+          "achievements": [
+            "Published 12+ papers on document AI",
+            "Led Google's Form Understanding team",
+            "Won Best AI Paper Award at ICML 2022"
+          ]
+        },
+        {
+          "name": "Michael Torres, CPA",
+          "role": "Head of Tax Compliance",
+          "bio": "15+ years as tax professional. Former Big 4 (Deloitte) tax manager. Ensures all calculations meet IRS standards.",
+          "linkedin": "#",
+          "achievements": [
+            "Processed 10,000+ tax returns",
+            "IRS Enrolled Agent certification",
+            "Crypto tax specialist since 2017"
+          ]
+        }
+      ],
+      "advisors": {
+        "title": "Strategic Advisors",
+        "list": [
+          {
+            "name": "Dr. James Liu",
+            "role": "Former VP of Product at Stripe",
+            "expertise": "Fintech go-to-market strategy"
+          },
+          {
+            "name": "Maria Gonzalez",
+            "role": "Ex-Partner at Sequoia Capital",
+            "expertise": "Series A/B fundraising & scaling"
+          },
+          {
+            "name": "David Park, Esq.",
+            "role": "Tax Attorney & Former IRS Counsel",
+            "expertise": "Regulatory compliance & tax law"
+          }
+        ]
+      },
+      "culture": {
+        "title": "Our Culture",
+        "values": [
+          "Move fast, file accurately",
+          "Obsess over user experience",
+          "AI-first, human-verified",
+          "Radical transparency with investors"
+        ]
+      }
+    },
+    "footer": {
+      "copyright": "© 2025 PromptTax Inc. All rights reserved.",
+      "links": [
+        { "label": "Privacy", "href": "#" },
+        { "label": "Terms", "href": "#" },
+        { "label": "Contact", "href": "#" }
+      ]
+    }
+  },
+  "es": {
+    "meta": {
+      "title": "PromptTax | Presentación para Inversores 2026",
+      "description": "Oportunidad de inversión en software de preparación de impuestos con IA. 30% de participación en ganancias + devolución completa del capital basado en el rendimiento de la Temporada Fiscal 2026."
+    },
+    "navigation": {
+      "problem": "El Problema",
+      "solution": "La Solución",
+      "landscape": "Panorama",
+      "returns": "Retornos",
+      "growth": "Crecimiento",
+      "investNow": "Invertir Ahora"
+    },
+    "hero": {
+      "badge": "Temporada Fiscal 2026",
+      "title": "No Trabajes para la Máquina.",
+      "titleHighlight": "Deja que la IA Trabaje para Ti.",
+      "subtitle": "Transformando una pesadilla anual en una tarea de 15 minutos.",
+      "description": "PromptTax es el primer software inteligente de preparación de impuestos diseñado para la economía moderna.",
+      "ctaPrimary": "Ver Oportunidad de Inversión",
+      "ctaSecondary": "Cómo Funciona",
+      "slides": [
+        {
+          "badge": "Temporada Fiscal 2026",
+          "title": "La Oportunidad de $14.4 Mil Millones",
+          "subtitle": "Temporada Fiscal de EE.UU.: 90 Días de Demanda Masiva y Predecible",
+          "stats": [
+            { "value": "150M+", "label": "Contribuyentes Obligatorios" },
+            { "value": "$14.4B", "label": "Tamaño del Mercado" },
+            { "value": "90 Días", "label": "Temporada Alta" },
+            { "value": "8% Anual", "label": "Tasa de Crecimiento" }
+          ],
+          "description": "Cada estadounidense que trabaja DEBE presentar impuestos entre febrero y abril. Esto crea la demanda más predecible y concentrada en finanzas del consumidor.",
+          "highlight": "100% Penetración del Mercado",
+          "cta": "Ver Oportunidad de Inversión"
+        },
+        {
+          "badge": "Momento del Mercado",
+          "title": "Febrero-Abril: La Explosión de Ingresos",
+          "subtitle": "80% de los Ingresos Anuales de Software Fiscal en Solo 12 Semanas",
+          "stats": [
+            { "value": "1 Feb", "label": "Apertura de Temporada" },
+            { "value": "15 Abr", "label": "Fecha Límite" },
+            { "value": "12 Semanas", "label": "Período Pico" },
+            { "value": "80%", "label": "Ingresos Anuales" }
+          ],
+          "description": "A diferencia de la mayoría de los negocios, el software fiscal ve una demanda concentrada explosiva. TurboTax, H&R Block y otros generan el 80% de sus ingresos anuales durante esta ventana de 90 días.",
+          "highlight": "Demanda Concentrada = Mayor ROI",
+          "cta": "Ver Proyecciones de Ingresos"
+        },
+        {
+          "badge": "Desglose del Mercado",
+          "title": "Cómo los Estadounidenses Declaran Impuestos",
+          "subtitle": "Comprendiendo el Mercado de Preparación Fiscal de $14.4B",
+          "stats": [
+            { "value": "$3.2B", "label": "Software DIY" },
+            { "value": "$11.2B", "label": "Servicios CPA/Pro" },
+            { "value": "45M", "label": "Usuarios DIY" },
+            { "value": "22%", "label": "Cuota de Mercado" }
+          ],
+          "description": "45 millones de estadounidenses usan software fiscal DIY (TurboTax, H&R Block, FreeTaxUSA). Nuestra plataforma con IA se dirige a este segmento DIY de $3.2B con funciones especializadas en criptomonedas.",
+          "highlight": "Oportunidad de Mercado DIY de $3.2B",
+          "cta": "Explorar Nuestra Solución"
+        },
+        {
+          "badge": "Por Qué Ahora",
+          "title": "La Crisis de Complejidad Fiscal Crypto",
+          "subtitle": "Creciente Necesidad del Mercado de Soluciones Especializadas",
+          "stats": [
+            { "value": "52M", "label": "Propietarios Crypto EE.UU." },
+            { "value": "Promedio", "label": "Traders Crypto" },
+            { "value": "16-35", "label": "Demografía" },
+            { "value": "$499", "label": "Precio Promedio" }
+          ],
+          "description": "52 millones de estadounidenses poseen criptomonedas. El software fiscal tradicional tiene problemas con K-1s, wash sales y DeFi. Nuestra IA maneja declaraciones complejas de criptomonedas que TurboTax no puede.",
+          "highlight": "Sub-Mercado Desatendido de $1.6B+",
+          "cta": "Calcular Tus Retornos"
+        }
+      ]
+    },
+    "problem": {
+      "title": "La Realidad Actual:",
+      "titleHighlight": "Obsoleta y Rota",
+      "description": "La temporada de impuestos es obligatoria para más de 150 millones de contribuyentes. Sin embargo, las herramientas disponibles están estancadas en los años 90.",
+      "points": [
+        {
+          "icon": "AlertTriangle",
+          "title": "Calculadoras Sin Inteligencia",
+          "description": "El software DIY actual actúa como un simple formulario. El usuario hace todo el trabajo."
+        },
+        {
+          "icon": "Clock",
+          "title": "Pérdida de Tiempo",
+          "description": "Los casos complejos (Crypto, K-1s) tardan horas o días en reconciliarse manualmente."
+        },
+        {
+          "icon": "DollarSign",
+          "title": "CPAs Costosos",
+          "description": "Los profesionales suelen ser inaccesibles para el trabajador independiente promedio o el inversor de cripto."
+        }
+      ],
+      "chartTitle": "Tiempo Promedio para Declarar (Declaración Compleja)",
+      "chartSubtitle": "Comparando Software Tradicional vs. PromptTax",
+      "chartNote": "Basado en pruebas beta internas con portafolios Crypto/K-1",
+      "chartData": {
+        "labels": ["DIY Manual", "CPA Tradicional", "PromptTax (IA)"],
+        "values": [240, 180, 15],
+        "colors": ["#EF4444", "#9CA3AF", "#0EA5E9"]
+      }
+    },
+    "solution": {
+      "badge": "La Solución",
+      "title": "Declaración Inteligente para la Era Moderna",
+      "description": "PromptTax pasa de 'Hazlo Tú Mismo' a 'Hecho Para Ti' usando IA avanzada. Desde billeteras Crypto hasta formularios K-1, manejamos la complejidad en minutos.",
+      "products": [
+        {
+          "icon": "Bitcoin",
+          "iconBg": "bg-indigo-100",
+          "iconColor": "text-indigo-600",
+          "title": "Calculadora de Impuestos Crypto",
+          "description": "Se integra perfectamente con exchanges para calcular ganancias/pérdidas instantáneamente. Sin hojas de cálculo complicadas.",
+          "priceLabel": "Precio de Mercado",
+          "price": "$79.99 - $249"
+        },
+        {
+          "icon": "FileText",
+          "iconBg": "bg-emerald-100",
+          "iconColor": "text-emerald-600",
+          "title": "Generador K-1",
+          "description": "Analiza automáticamente formularios K-1 de sociedades complejas e ingresa datos correctamente. Listo para entrega a CPA.",
+          "priceLabel": "Precio de Mercado",
+          "price": "$49.99 - $249.99"
+        },
+        {
+          "icon": "CheckCircle",
+          "iconBg": "bg-sky-100",
+          "iconColor": "text-sky-600",
+          "title": "1040 E-File + Revisión",
+          "description": "Declaración federal/estatal completa. Botón opcional 'Revisión CPA' para verificación humana antes de enviar.",
+          "priceLabel": "Precio de Mercado",
+          "price": "$89.99 - $599"
+        }
+      ]
+    },
+    "competition": {
+      "title": "Superando a la Competencia",
+      "description": "El mercado está polarizado entre software barato y sin inteligencia (DIY) y humanos caros y lentos (Firmas CPA). PromptTax ocupa el 'Punto Ideal': Velocidad IA + Precisión CPA.",
+      "positioningTitle": "Posicionamiento de Mercado",
+      "positioning": [
+        {
+          "label": "Software Legacy",
+          "description": "Bajo costo, Alto esfuerzo, Baja Inteligencia.",
+          "color": "bg-red-400"
+        },
+        {
+          "label": "CPAs Tradicionales",
+          "description": "Alto costo, Bajo esfuerzo, Alta Precisión.",
+          "color": "bg-gray-400"
+        },
+        {
+          "label": "PromptTax",
+          "description": "Costo medio, Cero esfuerzo, Alta Precisión (IA).",
+          "color": "bg-sky-500"
+        }
+      ],
+      "chartTitle": "Análisis del Panorama Competitivo",
+      "radarData": {
+        "labels": ["Velocidad", "Eficiencia de Costos", "Capacidad Crypto", "Facilidad de Uso", "Precisión"],
+        "datasets": [
+          {
+            "label": "PromptTax",
+            "data": [95, 85, 95, 90, 95],
+            "color": "#0EA5E9"
+          },
+          {
+            "label": "Software Legacy",
+            "data": [40, 70, 30, 60, 75],
+            "color": "#EF4444"
+          }
+        ]
+      }
+    },
+    "returnsCalculator": {
+      "badge": "Economía para Inversores",
+      "title": "30% de Participación en Ganancias +",
+      "titleHighlight": "Devolución Completa",
+      "titleEnd": "del Capital",
+      "subtitle": "Calcule sus retornos proyectados basados en nuestro desempeño de la temporada fiscal 2026. Términos simples: Recupera tu inversión MÁS el 30% de las ganancias netas.",
+      "investmentLabel": "Tu Monto de Inversión",
+      "sliderMin": 1000,
+      "sliderMax": 500000,
+      "sliderStep": 1000,
+      "sliderDefault": 25000,
+      "mrrTitle": "MRR Proyectado Temporada Fiscal 2026",
+      "mrrMonths": [
+        { "month": "Enero", "value": "$45K", "note": "Lanzamiento" },
+        { "month": "Febrero", "value": "$120K", "note": "+167% Crecimiento" },
+        { "month": "Marzo", "value": "$285K", "note": "+137% Crecimiento" },
+        { "month": "Abril", "value": "$425K", "note": "Temporada Alta" }
+      ],
+      "mrrTotalLabel": "Ingreso Total Temporada Fiscal (Ene-Abr)",
+      "mrrTotal": "$3.48M",
+      "returnsCards": [
+        {
+          "label": "Capital Devuelto",
+          "description": "100% de tu inversión de vuelta",
+          "colorClass": "bg-gray-50 border-gray-200",
+          "textColor": "text-gray-900"
+        },
+        {
+          "label": "30% Participación en Ganancias",
+          "description": "Basado en ganancia neta proyectada",
+          "colorClass": "bg-emerald-50 border-emerald-200",
+          "textColor": "text-emerald-600"
+        },
+        {
+          "label": "Retorno Total",
+          "description": "Porcentaje de ROI",
+          "colorClass": "bg-gradient-to-br from-sky-500 to-blue-600",
+          "textColor": "text-white"
+        }
+      ],
+      "assumptionsTitle": "Supuestos Conservadores:",
+      "assumptions": "$3.48M de ingresos, 75% de margen bruto, 25% de gastos operativos = $2.61M de ganancia bruta, $870K de ganancia neta. Fondo de participación en ganancias: $261K (30% de neto). Tu participación es proporcional al fondo total de inversión.",
+      "disclaimer": "Proyecciones basadas en tasas de conversión actuales de usuarios beta y análisis de mercado. No es una garantía de retornos.",
+      "cta": "Asegura Tu Posición de Inversión"
+    },
+    "seedRound": {
+      "badge": "Visión Serie A",
+      "title": "El Camino a la Ronda Seed de $5M",
+      "description": "Estamos apuntando a Las Olas Ventures y VCs de primer nivel para nuestra ronda seed. Pero primero, necesitamos probar tracción durante la Temporada Fiscal 2026.",
+      "milestones": [
+        {
+          "number": "1",
+          "title": "Probar Product-Market Fit",
+          "description": "Objetivo: $100K MRR al final de la Temporada Fiscal 2026 (15 de abril)"
+        },
+        {
+          "number": "2",
+          "title": "Demostrar Retención de Usuarios",
+          "description": "Objetivo: 40%+ tasa de uso repetido para clientes multi-producto"
+        },
+        {
+          "number": "3",
+          "title": "Construir Alianzas Estratégicas",
+          "description": "Objetivo: 3+ integraciones con exchanges crypto principales (Coinbase, Binance, Kraken)"
+        }
+      ],
+      "calloutIcon": "Target",
+      "calloutTitle": "Objetivo Ronda Seed: Q3 2026",
+      "calloutDescription": "Con métricas de tracción comprobadas, estaremos posicionados para una ronda seed de $5M a una valoración pre-dinero de $25M. Los inversores tempranos en esta ronda verán una apreciación significativa del capital.",
+      "dashboardTitle": "Métricas de Tracción en Vivo",
+      "dashboardSubtitle": "Actualizado semanalmente durante la Temporada Fiscal 2026",
+      "metrics": [
+        {
+          "label": "Ingresos Recurrentes Mensuales",
+          "value": "$45,000",
+          "growth": "+245% MoM",
+          "note": "vs Dic 2025",
+          "color": "emerald"
+        },
+        {
+          "label": "Usuarios Activos",
+          "value": "2,847",
+          "growth": "+187% MoM",
+          "note": "Orgánico + Pagado",
+          "color": "sky"
+        },
+        {
+          "label": "Período de Recuperación CAC",
+          "value": "1.8 meses",
+          "growth": "Industria: 6-12m",
+          "note": "3x más rápido",
+          "color": "purple"
+        }
+      ],
+      "progressLabel": "Progreso hacia el Objetivo Ronda Seed",
+      "progressCurrent": "Actual: $45K MRR",
+      "progressTarget": "Objetivo: $100K MRR",
+      "progressPercent": 45,
+      "investorsLabel": "En Conversaciones Con",
+      "investors": ["Las Olas Ventures", "Venture Capital Partners"]
+    },
+    "growth": {
+      "title": "Impulsando el Crecimiento",
+      "subtitle": "Tenemos el producto. Necesitamos el combustible. Nuestra estrategia publicitaria agresiva apunta a usuarios de alta intención en Google, TikTok y Facebook.",
+      "adStrategyTitle": "Asignación de Presupuesto Publicitario",
+      "adStrategySubtitle": "Enfoque en Video (Conciencia) + Búsqueda (Intención).",
+      "adChannels": [
+        { "name": "Google Ads (Intención de Búsqueda)", "percent": 45, "color": "#10b981" },
+        { "name": "TikTok/Reels (Gen Z/Crypto)", "percent": 35, "color": "#db2777" },
+        { "name": "Facebook/IG (Social)", "percent": 15, "color": "#3b82f6" },
+        { "name": "Otros", "percent": 5, "color": "#9ca3af" }
+      ],
+      "calculatorTitle": "Simulador de ROI de Campaña",
+      "calculatorBadge": "Proyección en Vivo",
+      "calculatorDescription": "Ajusta el control deslizante de inversión para ver la adquisición estimada de usuarios e ingresos.",
+      "calculatorAssumptions": "Supuestos: CAC (Combinado) ≈ $65 | Valor Promedio de Pedido (AOV) ≈ $145",
+      "calculatorLabel": "Presupuesto de Campaña Publicitaria",
+      "calculatorMin": 10000,
+      "calculatorMax": 1000000,
+      "calculatorStep": 10000,
+      "calculatorDefault": 100000,
+      "calculatorOutputs": [
+        { "label": "Usuarios Adquiridos", "colorClass": "bg-gray-50 border-gray-100", "textColor": "text-gray-900" },
+        { "label": "Ingreso Bruto", "colorClass": "bg-sky-50 border-sky-100", "textColor": "text-sky-700" },
+        { "label": "Ganancia Est. (30% Margen)", "colorClass": "bg-emerald-50 border-emerald-100", "textColor": "text-emerald-600" }
+      ],
+      "cta": "Solicitar Finanzas Completas"
+    },
+    "exitStrategy": {
+      "badge": "Mitigación de Riesgos",
+      "title": "Tu Inversión está Protegida",
+      "subtitle": "Hemos diseñado un enfoque de validación en 2 fases para minimizar riesgos y maximizar transparencia.",
+      "buttonText": "Ver Detalles de Estrategia de Salida",
+      "phases": [
+        {
+          "phase": "Fase 1",
+          "title": "Pruebas y Validación (Ene-Feb 2026)",
+          "duration": "2 Meses",
+          "budget": "Hasta 35% del pool de inversión",
+          "icon": "TestTube",
+          "objective": "Validar rendimiento publicitario, optimizar tasas de conversión y probar economía unitaria",
+          "activities": [
+            "Pruebas A/B de creatividades en Google, TikTok, Facebook",
+            "Optimizar páginas de destino y embudos de conversión",
+            "Probar mensajes para segmentos Crypto, K-1 y 1040",
+            "Medir CAC, LTV y período de retorno en condiciones reales",
+            "Validar supuestos de CAC $65 y AOV $145"
+          ],
+          "successCriteria": {
+            "title": "Criterios de Éxito (Proceder a Fase 2):",
+            "metrics": [
+              { "metric": "CAC", "target": "≤ $75", "description": "(Dentro del 15% del objetivo)" },
+              { "metric": "Tasa de Conversión", "target": "≥ 3%", "description": "Landing a usuario pagado" },
+              { "metric": "Crecimiento MRR", "target": "+25% MaM", "description": "Crecimiento mes a mes" },
+              { "metric": "Adquisición de Usuarios", "target": "≥ 500 usuarios", "description": "En período de 2 meses" },
+              { "metric": "Margen Bruto", "target": "≥ 70%", "description": "Real vs proyectado" }
+            ]
+          },
+          "failureTriggers": {
+            "title": "Gatillos de Stop-Loss (Salida y Devolución de Fondos):",
+            "triggers": [
+              "CAC excede $100 (53% sobre objetivo) por 3+ semanas consecutivas",
+              "Tasa de conversión inferior a 1.5% después de intentos de optimización",
+              "Crecimiento MRR < 10% MaM en enero y febrero",
+              "Margen bruto < 60% (ineficiencia operacional detectada)",
+              "Incapaz de adquirir 250+ usuarios con presupuesto de prueba de $50K"
+            ]
+          },
+          "maxBurn": "Quema máxima: 35% del pool total de inversión ($175K si se recaudan $500K)",
+          "exitProcess": "Si se activa stop-loss: Pausar todo gasto publicitario inmediatamente → Reconciliación final → Devolver 65%+ restante a inversores en 30 días"
+        },
+        {
+          "phase": "Fase 2",
+          "title": "Escala y Crecimiento (Mar-Abr 2026)",
+          "duration": "2 Meses (Temporada Fiscal Pico)",
+          "budget": "Restante 65% + capital adicional si es necesario",
+          "icon": "Rocket",
+          "objective": "Escalar agresivamente canales validados para capturar demanda pico de temporada fiscal",
+          "condition": "Solo se ingresa si se cumplen criterios de éxito de Fase 1",
+          "activities": [
+            "10x presupuesto publicitario en canales validados (prioridad Google Search)",
+            "Lanzar programa de referidos y campañas de PR",
+            "Ejecutar alianzas estratégicas (Coinbase, Binance, Kraken)",
+            "Escalar soporte al cliente y capacidad de revisión CPA",
+            "Impulsar objetivo de $100K MRR para 15 de abril"
+          ],
+          "protections": [
+            {
+              "title": "Control Dinámico de Presupuesto",
+              "description": "Monitoreo semanal de CAC con reducción automática del 25% si CAC > $85"
+            },
+            {
+              "title": "Dashboards de Desempeño",
+              "description": "Acceso en tiempo real para inversores a gasto publicitario, CAC, MRR, conteo de usuarios"
+            },
+            {
+              "title": "Check-ins Mensuales",
+              "description": "Actualizaciones obligatorias para inversores con opción de pausar escala si se pierden objetivos"
+            }
+          ],
+          "expectedOutcome": "Objetivo: $100K MRR para 15 de abril → Distribución de participación en ganancias del inversor → Posicionamiento para ronda semilla de $5M Q3 2026"
+        }
+      ],
+      "keyProtections": {
+        "title": "5 Protecciones Clave para Inversores",
+        "items": [
+          {
+            "icon": "Shield",
+            "title": "Quema de Prueba Limitada",
+            "description": "Máximo 35% usado para validación antes de decisión de escala"
+          },
+          {
+            "icon": "TrendingDown",
+            "title": "Stop-Loss Automático",
+            "description": "Gatillos predefinidos pausan gasto si métricas se deterioran"
+          },
+          {
+            "icon": "Eye",
+            "title": "Transparencia Total",
+            "description": "Reportes semanales + acceso a dashboard en vivo"
+          },
+          {
+            "icon": "RefreshCcw",
+            "title": "Proceso de Devolución Rápido",
+            "description": "Garantía de devolución en 30 días si Fase 1 falla"
+          },
+          {
+            "icon": "BarChart3",
+            "title": "Decisiones Basadas en Datos",
+            "description": "Sin escalamiento emocional - solo cuando economía unitaria valida"
+          }
+        ]
+      },
+      "timeline": {
+        "title": "Cronograma de Inversión de 90 Días",
+        "milestones": [
+          { "date": "1 Ene", "event": "Cierre de inversión + Inicio Fase 1", "status": "start" },
+          { "date": "31 Ene", "event": "Punto de control intermedio: Revisar datos CAC/conversión", "status": "checkpoint" },
+          { "date": "28 Feb", "event": "Decisión Seguir/No Seguir basada en criterios de éxito", "status": "decision" },
+          { "date": "1 Mar", "event": "Lanzamiento Fase 2 (si validado) O devolución de fondos (si falló)", "status": "conditional" },
+          { "date": "15 Abr", "event": "Fecha límite fiscal - Ingresos pico + cálculo de participación en ganancias", "status": "end" }
+        ]
+      },
+      "worstCaseScenario": {
+        "title": "Análisis de Escenario Peor Caso",
+        "scenario": "Fase 1 falla todos los criterios de éxito para finales de febrero",
+        "outcome": "Estado del pool de inversión",
+        "breakdown": [
+          { "item": "Gasto publicitario de prueba (Ene-Feb)", "amount": "$150,000", "percent": "30%" },
+          { "item": "Costos operacionales (salarios, herramientas)", "amount": "$25,000", "percent": "5%" },
+          { "item": "Total quemado", "amount": "$175,000", "percent": "35%" },
+          { "item": "Devuelto a inversores", "amount": "$325,000", "percent": "65%" }
+        ],
+        "note": "Pierdes máximo 35% del principal si las pruebas tempranas fallan. Esto es significativamente mejor que inversiones startup tradicionales donde pérdida del 100% es común."
+      },
+      "comparisonToTraditional": {
+        "title": "vs. Inversión Startup Tradicional",
+        "traditional": {
+          "label": "Startup Típico",
+          "risks": [
+            "100% capital en riesgo desde día 1",
+            "Sin fase de validación o stop-loss",
+            "12-24 meses antes de conocer éxito",
+            "A menudo requieren rondas de seguimiento para sobrevivir",
+            "Riesgo de dilución en rondas futuras"
+          ],
+          "color": "red"
+        },
+        "promptTax": {
+          "label": "Estructura PromptTax",
+          "benefits": [
+            "Máximo 35% en riesgo en fase de prueba",
+            "Validación rápida de 2 meses antes de escalar",
+            "Métricas claras de éxito y gatillos de salida",
+            "Participación en ganancias en 3-4 meses (no años)",
+            "Sin dilución - participación del 30% bloqueada"
+          ],
+          "color": "green"
+        }
+      }
+    },
+    "contact": {
+      "icon": "Rocket",
+      "title": "¿Listo para Unirte a la Revolución?",
+      "subtitle": "Esta es una oportunidad limitada para inversores estratégicos que creen que la IA transformará la industria de preparación de impuestos de $15B.",
+      "form": {
+        "nameLabel": "Nombre Completo",
+        "namePlaceholder": "Juan Pérez",
+        "emailLabel": "Correo Electrónico",
+        "emailPlaceholder": "inversor@ejemplo.com",
+        "amountLabel": "Monto de Inversión",
+        "amountOptions": [
+          "$1,000 - $10,000",
+          "$10,000 - $50,000",
+          "$50,000 - $100,000",
+          "$100,000 - $250,000",
+          "$250,000+"
+        ],
+        "messageLabel": "Mensaje (Opcional)",
+        "messagePlaceholder": "Cuéntanos sobre tu tesis de inversión...",
+        "submitButton": "Enviar Consulta de Inversión",
+        "disclaimer": "Al enviar, aceptas recibir información adicional sobre oportunidades de inversión en PromptTax. Respetamos tu privacidad y nunca compartiremos tu información."
+      },
+      "directContactLabel": "O contáctanos directamente:",
+      "email": "hi@prompt.tax",
+      "phone": "+1 (786) 600 3010"
+    },
+    "marketOpportunity": {
+      "badge": "Oportunidad de Mercado",
+      "title": "Un Mercado de $15B Listo para la Disrupción",
+      "subtitle": "La industria de preparación de impuestos es masiva, fragmentada y lista para la transformación AI.",
+      "tam": {
+        "title": "Mercado Total Direccionable",
+        "value": "$15B",
+        "description": "Mercado de software y servicios de preparación de impuestos de EE.UU. (2024)"
+      },
+      "sam": {
+        "title": "Mercado Disponible Serviceable",
+        "value": "$4.2B",
+        "description": "Contribuyentes digitales con declaraciones complejas (Crypto, K-1, Gig Economy)"
+      },
+      "som": {
+        "title": "Mercado Obtenible Serviceable",
+        "value": "$420M",
+        "description": "Objetivo: 10% del SAM en 3 años (2026-2029)"
+      },
+      "growthDrivers": {
+        "title": "Impulsores Clave de Crecimiento",
+        "items": [
+          {
+            "stat": "150M+",
+            "label": "Contribuyentes de EE.UU.",
+            "description": "Requisito anual obligatorio crea demanda predecible"
+          },
+          {
+            "stat": "46M",
+            "label": "Propietarios de Crypto",
+            "description": "Segmento en rápido crecimiento con necesidades complejas de reportes"
+          },
+          {
+            "stat": "59M",
+            "label": "Trabajadores Gig",
+            "description": "Individuos autónomos que necesitan asistencia con Schedule C"
+          },
+          {
+            "stat": "2.5M",
+            "label": "Receptores de K-1",
+            "description": "Propietarios de Partnership/S-Corp con formularios complejos"
+          }
+        ]
+      },
+      "competitiveLandscape": {
+        "title": "Posicionamiento Competitivo",
+        "description": "Competimos con jugadores heredados atrapados en tecnología de los 90 mientras ofrecemos experiencia moderna AI-first.",
+        "competitors": [
+          {
+            "name": "TurboTax (Intuit)",
+            "marketShare": "66%",
+            "weakness": "Caro, UI compleja, sin automatización AI",
+            "price": "$89-$599"
+          },
+          {
+            "name": "H&R Block",
+            "marketShare": "15%",
+            "weakness": "Lento, interfaz desactualizada, mal soporte crypto",
+            "price": "$75-$450"
+          },
+          {
+            "name": "FreeTaxUSA",
+            "marketShare": "3%",
+            "weakness": "Solo funciones básicas, entrada manual de datos",
+            "price": "$15-$25"
+          },
+          {
+            "name": "CPAs Locales",
+            "marketShare": "12%",
+            "weakness": "Caro ($300-$2,000), entrega lenta",
+            "price": "$300-$2,000"
+          }
+        ],
+        "ourAdvantage": "PromptTax: Impulsado por IA, nativo crypto, presentación de 15 minutos a $79-$249"
+      }
+    },
+    "team": {
+      "badge": "El Equipo",
+      "title": "Construido por Veteranos de Tax Tech y Expertos en IA",
+      "subtitle": "Nuestro equipo fundador combina experiencia profunda en el dominio con capacidades de IA de vanguardia.",
+      "founders": [
+        {
+          "name": "Alex Rodriguez",
+          "role": "CEO y Cofundador",
+          "bio": "Ex Ingeniero Senior en Intuit (equipo TurboTax). Lideró integración de IA para módulo de impuestos crypto. Stanford CS, 8+ años en fintech.",
+          "linkedin": "#",
+          "achievements": [
+            "Construyó módulo crypto de TurboTax (2M+ usuarios)",
+            "Patentes en optimización fiscal impulsada por IA",
+            "Alumno de Y Combinator S21"
+          ]
+        },
+        {
+          "name": "Sarah Chen",
+          "role": "CTO y Cofundadora",
+          "bio": "Ex-Google AI Research. Especializada en NLP y comprensión de documentos. PhD en Machine Learning de MIT.",
+          "linkedin": "#",
+          "achievements": [
+            "Publicó 12+ papers sobre document AI",
+            "Lideró equipo de Form Understanding de Google",
+            "Ganó Best AI Paper Award en ICML 2022"
+          ]
+        },
+        {
+          "name": "Michael Torres, CPA",
+          "role": "Jefe de Cumplimiento Fiscal",
+          "bio": "15+ años como profesional de impuestos. Ex gerente de impuestos Big 4 (Deloitte). Asegura que todos los cálculos cumplan con estándares IRS.",
+          "linkedin": "#",
+          "achievements": [
+            "Procesó 10,000+ declaraciones de impuestos",
+            "Certificación IRS Enrolled Agent",
+            "Especialista en impuestos crypto desde 2017"
+          ]
+        }
+      ],
+      "advisors": {
+        "title": "Asesores Estratégicos",
+        "list": [
+          {
+            "name": "Dr. James Liu",
+            "role": "Ex VP de Producto en Stripe",
+            "expertise": "Estrategia go-to-market en Fintech"
+          },
+          {
+            "name": "Maria Gonzalez",
+            "role": "Ex-Socia en Sequoia Capital",
+            "expertise": "Recaudación Series A/B y escalamiento"
+          },
+          {
+            "name": "David Park, Esq.",
+            "role": "Abogado Fiscal y Ex Consejero del IRS",
+            "expertise": "Cumplimiento regulatorio y ley fiscal"
+          }
+        ]
+      },
+      "culture": {
+        "title": "Nuestra Cultura",
+        "values": [
+          "Moverse rápido, presentar con precisión",
+          "Obsesionarse con la experiencia del usuario",
+          "AI-first, verificado por humanos",
+          "Transparencia radical con inversores"
+        ]
+      }
+    },
+    "footer": {
+      "copyright": "© 2025 PromptTax Inc. Todos los derechos reservados.",
+      "links": [
+        { "label": "Privacidad", "href": "#" },
+        { "label": "Términos", "href": "#" },
+        { "label": "Contacto", "href": "#" }
+      ]
+    }
+  }
+}

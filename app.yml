@@ -1,0 +1,9 @@
+type: nodejs
+nodejs_version: "20"
+build_command: npm run build
+start_command: npm start
+port: 3000
+env:
+  NODE_ENV: production
+  PORT: 3000
+  NODE_OPTIONS: "--max-old-space-size=512"

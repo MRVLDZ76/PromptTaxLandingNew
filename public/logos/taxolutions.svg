@@ -1,0 +1,19 @@
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="taxolutions-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="80" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+  
+  <!-- Icon -->
+  <rect x="13" y="28" width="24" height="24" rx="4" fill="url(#taxolutions-gradient)"/>
+  <path d="M19 34 L25 40 L31 34" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Text -->
+  <text x="45" y="32" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f2937">Taxolutions</text>
+  <text x="45" y="48" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Smart Tax Services</text>
+</svg>

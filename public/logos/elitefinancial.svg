@@ -1,0 +1,19 @@
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="elite-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#be185d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9f1239;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="80" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+  
+  <!-- Icon -->
+  <polygon points="25,28 32,35 25,42 18,35" fill="url(#elite-gradient)"/>
+  <rect x="22" y="32" width="6" height="6" fill="white"/>
+  
+  <!-- Text -->
+  <text x="45" y="32" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f2937">Elite Financial</text>
+  <text x="45" y="48" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Premium CPA Services</text>
+</svg>
