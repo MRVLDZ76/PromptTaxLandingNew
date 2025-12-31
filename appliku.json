@@ -1,8 +1,8 @@
 {
   "type": "nodejs",
   "nodejs_version": "20",
-  "build_command": "npm run build",
-  "start_command": "node dist/server/node-build.mjs",
+  "build_command": "npm run build:all",
+  "start_command": "npm start",
   "port": 3000,
   "healthcheck_url": "/api/ping",
   "env": {

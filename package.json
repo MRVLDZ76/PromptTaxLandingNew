@@ -9,6 +9,7 @@
     "build:client": "tsc && vite build",
     "build:server": "vite build --config vite.config.server.ts",
     "build:all": "npm run build:client && npm run build:server",
+    "start": "node dist/server/node-build.mjs",
     "server": "node dist/server/node-build.mjs",
     "preview:server": "npm run build:all && npm run server",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",

@@ -1,6 +1,6 @@
 type=nodejs
 port=3000
 healthcheck=/api/ping
-build_command=npm run build
+build_command=npm run build:all
 start_command=npm start
 nodejs_version=20
