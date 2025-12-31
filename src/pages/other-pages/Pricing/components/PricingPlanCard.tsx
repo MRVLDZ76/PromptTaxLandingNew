@@ -9,7 +9,7 @@ type PropsType = {
     duration: PricingType['duration']
 }
 
-const PricingPlanCard = ({plan, duration}: PropsType) => {
+const PricingPlanCard = ({plan}: PropsType) => {
     const { showModal, openModal, closeModal } = useLaunchModal();
 
     const Icon = plan.icon

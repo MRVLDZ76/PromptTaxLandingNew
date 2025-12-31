@@ -1,9 +1,5 @@
-import avatar5 from '@/assets/images/avatar/05.jpg'
-import avatar2 from '@/assets/images/avatar/02.jpg'
-import about7 from '@/assets/images/about/07.jpg'
 import {Card, Col, Container, Row} from "react-bootstrap";
 import {BsCloudUpload, BsRobot, BsCheckCircle, BsDownload} from 'react-icons/bs'
-import { Link } from 'react-router-dom';
 
 const Features2 = () => {
     const steps = [

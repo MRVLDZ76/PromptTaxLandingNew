@@ -114,19 +114,17 @@ export function getRecentPosts(limit: number = 5): BlogPostMetadata[] {
   return getAllPosts().slice(0, limit);
 }
 
-// Update shared blog metadata for server-side rendering
-import { sharedBlogPostMap } from '@shared/blog-metadata';
-
 // Sync client metadata with server
-blogPosts.forEach(post => {
-  sharedBlogPostMap[post.slug] = {
-    slug: post.slug,
-    title: post.title,
-    excerpt: post.excerpt,
-    author: post.author,
-    date: post.date,
-    thumbnail: post.thumbnail,
-    tags: post.tags,
-    seo: post.seo
-  };
-});
+// import { sharedBlogPostMap } from '@shared/blog-metadata';
+// blogPosts.forEach(post => {
+//   sharedBlogPostMap[post.slug] = {
+//     slug: post.slug,
+//     title: post.title,
+//     excerpt: post.excerpt,
+//     author: post.author,
+//     date: post.date,
+//     thumbnail: post.thumbnail,
+//     tags: post.tags,
+//     seo: post.seo
+//   };
+// });

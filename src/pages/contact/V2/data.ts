@@ -4,7 +4,6 @@ import webflowImg from '@/assets/images/elements/webflow.svg'
 import bootstrapImg from '@/assets/images/elements/bootstrap.svg'
 import githubImg from '@/assets/images/elements/github.svg'
 import usflagImg from '@/assets/images/flags/us.svg'
-import indianflagImg from '@/assets/images/flags/in.svg'
 
 
 export const followUsIcons: FollowUsType[] = [

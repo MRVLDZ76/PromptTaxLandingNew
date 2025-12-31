@@ -1,5 +1,4 @@
 import { BsArrowRight } from "react-icons/bs"
-import { Link } from "react-router-dom"
 import { features } from "@/pages/crypto-bundle/data"
 import type { FeatureType } from "@/pages/crypto-bundle/types"
 import { Card, Col, Container, Row } from "react-bootstrap"

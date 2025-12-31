@@ -1,6 +1,5 @@
 import {BsX, BsCheck} from 'react-icons/bs';
 import {Card, Col, Container, Row} from "react-bootstrap";
-import { Link } from 'react-router-dom';
 
 const Integration = () => {
     const traditionalFeatures = [
