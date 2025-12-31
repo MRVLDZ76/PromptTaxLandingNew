@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc && vite build",
+    "build": "npm run build:all",
     "build:client": "tsc && vite build",
     "build:server": "vite build --config vite.config.server.ts",
     "build:all": "npm run build:client && npm run build:server",
+    "prestart": "test -f dist/server/node-build.mjs || npm run build:all",
     "start": "node dist/server/node-build.mjs",
     "server": "node dist/server/node-build.mjs",
     "preview:server": "npm run build:all && npm run server",
