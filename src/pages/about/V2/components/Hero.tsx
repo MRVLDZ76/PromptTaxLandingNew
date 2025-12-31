@@ -117,7 +117,7 @@ const Hero = () => {
                   <img src={about15} className="card-img" alt="about-img" />
                   <div className="bg-overlay bg-dark opacity-2" />
                   <div className="position-absolute end-0 bottom-0 m-3 z-index-2">
-                    <GlightBox image="https://www.youtube.com/embed/tXHviS-4ygo" className="btn btn-lh btn-white"><BsYoutube size={24} className="text-danger fa-fw fa-xl me-1" /> Watch our story</GlightBox>
+                    <GlightBox image="https://www.youtube.com/watch?v=V48OhZmiMsw" className="btn btn-lh btn-white"><BsYoutube size={24} className="text-danger fa-fw fa-xl me-1" /> Watch our story</GlightBox>
                   </div>
                 </Card>
               </Col>

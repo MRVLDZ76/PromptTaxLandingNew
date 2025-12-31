@@ -45,7 +45,7 @@ const Hero = () => {
 
                         <div className="d-flex gap-3 gap-sm-4 flex-wrap mb-4 mb-sm-5">
                             <Link to="/crypto-bundle" className="btn btn-lg btn-primary-soft">Get Form 8949 Bundle</Link>
-                            <GlightBox className="btn btn-lg btn-outline-white icons-center" image="https://www.youtube.com/embed/tXHviS-4ygo"
+                            <GlightBox className="btn btn-lg btn-outline-white icons-center" image="https://www.youtube.com/watch?v=V48OhZmiMsw"
                                data-glightbox="" data-gallery="course-video"><BsPlayCircle className="me-2"/>See How It Works</GlightBox>
                         </div>
 

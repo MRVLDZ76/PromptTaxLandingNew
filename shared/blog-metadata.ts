@@ -87,6 +87,40 @@ export const sharedBlogPostMap: Record<string, BlogPost> = {
       twitterImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-blog-twitter-1200x675.jpg',
       version: '1.0'
     }
+  },
+  'costly-tax-filing-errors-cpa-review-saves-thousands': {
+    slug: 'costly-tax-filing-errors-cpa-review-saves-thousands',
+    title: '7 Costly Tax Filing Errors (And How a CPA Review Can Save You Thousands)',
+    excerpt: 'Discover the 7 most expensive tax filing errors that cost taxpayers thousands. Learn how professional CPA review catches mistakes before filing and saves you money.',
+    author: 'Prompt Tax Team',
+    date: '2025-01-20',
+    thumbnail: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/cpa-review-hero.jpg',
+    tags: ['CPA Review', 'Tax Errors', 'Tax Planning', 'Tax Season'],
+    seo: {
+      description: 'Discover the 7 most expensive tax filing errors that cost taxpayers thousands. Learn how professional CPA review catches mistakes before filing. Get expert tax review from $179.',
+      keywords: ['tax filing errors', 'CPA tax review', 'tax return mistakes', 'professional tax review', 'crypto tax errors', 'K-1 form review', 'e-filing services', 'tax preparation help'],
+      ogImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/cpa-review-og-1200x630.jpg',
+      linkedInImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/cpa-review-linkedin-1200x627.jpg',
+      twitterImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/cpa-review-twitter-1200x675.jpg',
+      version: '1.0'
+    }
+  },
+  'crypto-tax-complete-guide-2025': {
+    slug: 'crypto-tax-complete-guide-2025',
+    title: 'Crypto Tax Made Simple: Complete Guide to Filing Bitcoin, NFTs & DeFi in 2025',
+    excerpt: 'File crypto taxes in minutes, not weeks. Automatic import from 500+ exchanges. Handle Bitcoin, Ethereum, NFTs, DeFi, staking & airdrops. CPA review included from $149.',
+    author: 'Prompt Tax Team',
+    date: '2025-01-25',
+    thumbnail: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-tax-hero.jpg',
+    tags: ['Crypto Tax', 'Bitcoin', 'NFT Tax', 'DeFi', 'Tax Software'],
+    seo: {
+      description: 'File crypto taxes in minutes, not weeks. Automatic import from 500+ exchanges. Handle Bitcoin, Ethereum, NFTs, DeFi, staking & airdrops. CPA review included. From $149.',
+      keywords: ['crypto tax software', 'cryptocurrency tax filing', 'Bitcoin taxes', 'NFT tax reporting', 'DeFi taxes', 'crypto tax calculator', 'crypto CPA review', 'blockchain tax preparation', 'crypto tax forms'],
+      ogImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-bundle-og-1200x630.jpg',
+      linkedInImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-bundle-linkedin-1200x627.jpg',
+      twitterImage: 'https://businessesppall.nyc3.cdn.digitaloceanspaces.com/prompttax/logos/og/crypto-bundle-twitter-1200x675.jpg',
+      version: '1.0'
+    }
   }
 };
 

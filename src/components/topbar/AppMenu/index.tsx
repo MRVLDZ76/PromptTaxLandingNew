@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useState } from 'react'
-import { Collapse } from 'react-bootstrap'
+import { Collapse, Dropdown, DropdownToggle } from 'react-bootstrap'
 import { Link, useLocation } from 'react-router-dom'
+import { FaAngleDown } from 'react-icons/fa6'
 
 import { findAllParent, findMenuItem, getAppMenuItems, getMenuItemFromURL } from '@/helpers/menu'
 import type { MenuItemType } from '@/types/menu'
@@ -75,10 +76,18 @@ const AppMenu = ({
                   1040 Tax Prep
                 </Link>
               </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <Dropdown as="li" className="nav-item">
+                <DropdownToggle
+                  as={Link}
+                  to=""
+                  variant='link'
+                  className="nav-link mb-0 arrow-none d-flex w-100 justify-content-between align-items-center dropdown-toggle"
+                  data-bs-auto-close="outside"
+                  aria-haspopup="true"
+                >
                   Crypto
-                </a>
+                  <FaAngleDown size={12} className='ms-1' />
+                </DropdownToggle>
                 <ul className="dropdown-menu">
                   <li>
                     <Link className="dropdown-item" to="/crypto-tax">
@@ -91,7 +100,7 @@ const AppMenu = ({
                     </Link>
                   </li>
                 </ul>
-              </li>
+              </Dropdown>
               <li className="nav-item">
                 <Link className="nav-link" to="/k1-forms">
                   K-1 Forms

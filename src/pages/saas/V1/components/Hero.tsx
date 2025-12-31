@@ -47,7 +47,7 @@ const Hero = () => {
 
                     <div className="d-flex gap-3 justify-content-center mb-5">
                         <button type="button" className="btn btn-lg btn-primary">Start Free Trial</button>
-                        <GlightBox className="btn btn-lg btn-outline-white icons-center" image="https://www.youtube.com/embed/tXHviS-4ygo"
+                        <GlightBox className="btn btn-lg btn-outline-white icons-center" image="https://www.youtube.com/watch?v=V48OhZmiMsw"
                                data-glightbox="" data-gallery="demo-video">
                             <BsPlayCircle className="me-2"/>Watch Demo Video
                         </GlightBox>

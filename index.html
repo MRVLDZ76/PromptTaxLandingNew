@@ -106,13 +106,27 @@
       }
     }
   </style>
+  
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-9MLE8GP7S0"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-9MLE8GP7S0");
+    </script>
 
 </head>
 
 <body>
   <div id="root"></div>
   <div id="splash-screen">
-    <img alt="Prompt Tax - AI Tax Automation" class="light" src="/logos/icon.png" style="height: 15%; max-width: 400px; object-fit: contain;" />
+    <img alt="Prompt Tax - AI Tax Automation" class="light" src="/logos/default.png" style="height: 15%; max-width: 400px; object-fit: contain;" />
   </div>
   <script type="module" src="/src/main"></script>
   <script>

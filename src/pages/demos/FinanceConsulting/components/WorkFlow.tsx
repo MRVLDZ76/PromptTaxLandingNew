@@ -51,7 +51,7 @@ const WorkFlow = () => {
                             <div className="h-100 d-flex flex-column">
                                 <h2 className="mb-4">Choose us for your financial journey</h2>
                                 <div className="mt-auto">
-                                    <GlightBox image="https://www.youtube.com/embed/tXHviS-4ygo"
+                                    <GlightBox image="https://www.youtube.com/watch?v=V48OhZmiMsw"
                                                className="btn btn-primary icons-center" data-glightbox=""
                                                data-gallery="course-video">
                                         <BsPlayFill size={24} className="fa-xl me-2"/>Watch demo video

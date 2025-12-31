@@ -76,7 +76,7 @@ const Hero = () => {
                   <div className="bg-overlay bg-dark opacity-3" />
                   <div className="card-img-overlay d-flex p-3">
                     <div className="m-auto">
-                      <GlightBox image="https://www.youtube.com/embed/tXHviS-4ygo" className="btn btn-lg btn-white btn-round stretched-link mb-0 flex-centered" >
+                      <GlightBox image="https://www.youtube.com/watch?v=V48OhZmiMsw" className="btn btn-lg btn-white btn-round stretched-link mb-0 flex-centered" >
                         <FaPlay className="text-danger" />
                       </GlightBox>
                     </div>

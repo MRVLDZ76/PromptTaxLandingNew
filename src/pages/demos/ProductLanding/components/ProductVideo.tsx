@@ -12,7 +12,7 @@ const ProductVideo = () => {
             backgroundPosition: 'center'
         }}>
             <div className="position-absolute top-50 start-50 translate-middle">
-                <GlightBox image='https://www.youtube.com/embed/tXHviS-4ygo'
+                <GlightBox image='https://www.youtube.com/watch?v=V48OhZmiMsw'
                            className="btn btn-icon btn-xl btn-dark btn-round mb-0 stretched-link" data-glightbox=""
                            data-gallery="Video">
                     <BsPlayFill size={34} className="fa-lg"/>

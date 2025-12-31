@@ -45,3 +45,65 @@
     transform: translateY(0);
   }
 }
+
+/* Fix for navbar dropdown on mobile devices */
+@media (max-width: 1199.98px) {
+  /* Hide default Bootstrap dropdown caret and use custom icon */
+  .navbar-collapse .dropdown-toggle::after {
+    display: none;
+  }
+  
+  /* Ensure dropdown toggle is clickable and shows properly */
+  .navbar-collapse .dropdown-toggle {
+    display: flex !important;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .navbar-collapse .nav-item.dropdown .dropdown-menu,
+  .navbar-collapse .nav-item .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    border: 0;
+    box-shadow: none;
+    background-color: transparent;
+    padding-left: 1rem;
+    margin-top: 0;
+  }
+  
+  .navbar-collapse .nav-item.dropdown .dropdown-item,
+  .navbar-collapse .nav-item .dropdown-item {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+  }
+  
+  .navbar-collapse .dropdown-menu {
+    display: none;
+  }
+  
+  .navbar-collapse .dropdown-menu.show {
+    display: block;
+  }
+  
+  /* Ensure proper spacing and visibility */
+  .navbar-collapse {
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 1050;
+  }
+}
+
+/* Ensure dropdown is properly positioned on desktop */
+@media (min-width: 1200px) {
+  .navbar .nav-item.dropdown .dropdown-menu,
+  .navbar .nav-item .dropdown-menu {
+    z-index: 1060;
+    position: absolute;
+  }
+  
+  /* Show Bootstrap default caret on desktop only if no custom icon */
+  .navbar .dropdown-toggle.arrow-none::after {
+    display: none;
+  }
+}

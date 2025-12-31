@@ -30,7 +30,7 @@ const Video = () => {
               <div className="bg-overlay bg-dark opacity-3" />
               <div className="card-img-overlay d-flex p-3">
                 <div className="m-auto">
-                  <GlightBox image="https://www.youtube.com/embed/tXHviS-4ygo" className="flex-centered btn btn-lg btn-white btn-round stretched-link mb-0" >
+                  <GlightBox image="https://www.youtube.com/watch?v=V48OhZmiMsw" className="flex-centered btn btn-lg btn-white btn-round stretched-link mb-0" >
                     <FaPlay />
                   </GlightBox>
                 </div>
