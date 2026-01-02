@@ -49,7 +49,7 @@ const Testimonials = () => {
 
                         <Row className="g-4 mb-4 mb-md-7">
                             <Col md={6}>
-                                <h3 className="border-start border-primary border-2 ps-4 mb-3">15,000+</h3>
+                                <h3 className="border-start border-primary border-2 ps-4 mb-3">1,500+</h3>
                                 <p className="mb-0">Transactions processed with AI-powered automation</p>
                             </Col>
 

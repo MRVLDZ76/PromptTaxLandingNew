@@ -24,7 +24,7 @@ const Hero = () => {
 
                         <span className="text-primary fw-bold text-uppercase">AI-Powered Tax Automation</span>
                         <h1 className="mt-4">Simplify Crypto & K-1 Tax Filing with Expert CPA Review</h1>
-                        <p className="mt-4">Automate your cryptocurrency transactions and partnership K-1 forms with AI precision. Download instantly or get professional CPA review and IRS filing — all in one platform trusted by 15,000+ taxpayers.</p>
+                        <p className="mt-4">Automate your cryptocurrency transactions and partnership K-1 forms with AI precision. Download instantly or get professional CPA review and IRS filing — all in one platform trusted by 1,500+ taxpayers.</p>
 
                         <div className="d-flex gap-3 gap-sm-4 flex-wrap mt-4 mt-md-5">
                             <Link to="/pricing" className="btn btn-lg btn-dark mb-0">View Pricing</Link>

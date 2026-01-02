@@ -10,7 +10,7 @@ const CTA = () => {
 
                     <Col lg={6} className="mb-5 mb-sm-0">
 
-                        <h2 className="mb-0">Join <span className="text-primary">15,000+ </span> Crypto Investors using PromptTax
+                        <h2 className="mb-0">Join <span className="text-primary">1,500+ </span> Crypto Investors using PromptTax
                         </h2>
 
                         <Row className="mt-4">
