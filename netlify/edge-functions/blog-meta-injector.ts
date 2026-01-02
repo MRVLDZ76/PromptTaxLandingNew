@@ -127,26 +127,26 @@ export default async (request: Request, context: any) => {
   // Replace title (use global flag to catch all instances)
   updatedHtml = updatedHtml.replace(
     /<title>[^<]*<\/title>/g,
-    `<title>${escapeHtml(post.title)} | Prompt Tax</title>`
+    `<title>${post.title} | Prompt Tax</title>`
   );
 
   // Replace name="title" meta tag
   updatedHtml = updatedHtml.replace(
     /<meta name="title" content="[^"]*"\s*\/?>/g,
-    `<meta name="title" content="${escapeHtml(post.title)} | Prompt Tax">`
+    `<meta name="title" content="${post.title}">`
   );
 
   // Replace description
   updatedHtml = updatedHtml.replace(
     /<meta name="description" content="[^"]*"\s*\/?>/g,
-    `<meta name="description" content="${escapeHtml(description)}">`
+    `<meta name="description" content="${description}">`
   );
 
   // Replace keywords if exists
   if (keywords) {
     updatedHtml = updatedHtml.replace(
       /<meta name="keywords" content="[^"]*"\s*\/?>/g,
-      `<meta name="keywords" content="${escapeHtml(keywords)}">`
+      `<meta name="keywords" content="${keywords}">`
     );
   }
 
@@ -169,12 +169,12 @@ export default async (request: Request, context: any) => {
 
   updatedHtml = updatedHtml.replace(
     /<meta property="og:title" content="[^"]*"\s*\/?>/g,
-    `<meta property="og:title" content="${escapeHtml(post.title)}">`
+    `<meta property="og:title" content="${post.title}">`
   );
 
   updatedHtml = updatedHtml.replace(
     /<meta property="og:description" content="[^"]*"\s*\/?>/g,
-    `<meta property="og:description" content="${escapeHtml(description)}">`
+    `<meta property="og:description" content="${description}">`
   );
 
   updatedHtml = updatedHtml.replace(
@@ -189,7 +189,7 @@ export default async (request: Request, context: any) => {
 
   updatedHtml = updatedHtml.replace(
     /<meta property="og:image:alt" content="[^"]*"\s*\/?>/g,
-    `<meta property="og:image:alt" content="${escapeHtml(post.title)}">`
+    `<meta property="og:image:alt" content="${post.title}">`
   );
 
   // Add Facebook App ID if missing
@@ -204,8 +204,8 @@ export default async (request: Request, context: any) => {
   const articleMetaTags = `
     <meta property="article:published_time" content="${publishedTime}">
     <meta property="article:modified_time" content="${publishedTime}">
-    <meta property="article:author" content="${escapeHtml(post.author)}">
-    ${post.tags ? post.tags.map(tag => `<meta property="article:tag" content="${escapeHtml(tag)}">`).join('\n    ') : ''}
+    <meta property="article:author" content="${post.author}">
+    ${post.tags ? post.tags.map(tag => `<meta property="article:tag" content="${tag}">`).join('\n    ') : ''}
   `;
 
   updatedHtml = updatedHtml.replace('</head>', `${articleMetaTags}</head>`);
@@ -218,12 +218,12 @@ export default async (request: Request, context: any) => {
 
   updatedHtml = updatedHtml.replace(
     /<meta (property|name)="twitter:title" content="[^"]*"\s*\/?>/g,
-    `<meta property="twitter:title" content="${escapeHtml(post.title)}">`
+    `<meta property="twitter:title" content="${post.title}">`
   );
 
   updatedHtml = updatedHtml.replace(
     /<meta (property|name)="twitter:description" content="[^"]*"\s*\/?>/g,
-    `<meta property="twitter:description" content="${escapeHtml(description)}">`
+    `<meta property="twitter:description" content="${description}">`
   );
 
   updatedHtml = updatedHtml.replace(
@@ -233,7 +233,7 @@ export default async (request: Request, context: any) => {
 
   updatedHtml = updatedHtml.replace(
     /<meta (property|name)="twitter:image:alt" content="[^"]*"\s*\/?>/g,
-    `<meta property="twitter:image:alt" content="${escapeHtml(post.title)}">`
+    `<meta property="twitter:image:alt" content="${post.title}">`
   );
 
   // Return the modified HTML
@@ -244,17 +244,5 @@ export default async (request: Request, context: any) => {
     },
   });
 };
-
-// Helper function to escape HTML special characters
-function escapeHtml(text: string): string {
-  const map: { [key: string]: string } = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;'
-  };
-  return text.replace(/[&<>"']/g, (m) => map[m]);
-}
 
 export const config = { path: "/blog/*" };
