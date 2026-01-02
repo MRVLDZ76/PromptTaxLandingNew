@@ -519,7 +519,7 @@ export default function CryptoTaxBlogPost({ metadata }: CryptoTaxBlogPostProps) 
         CPA review at a fraction of the cost.
       </p>
 
-      <div className="bg-gradient p-5 rounded text-white text-center my-5" style={{ 
+      <div className="p-5 rounded text-white text-center my-5" style={{ 
         background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' 
       }}>
         <h2 className="text-white mb-4">Special Offer: 2024 Tax Season Discount</h2>

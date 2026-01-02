@@ -430,7 +430,7 @@ export default function CpaReviewBlogPost({ metadata }: CpaReviewBlogPostProps) 
         </div>
       </div>
 
-      <div className="bg-gradient p-5 rounded text-white text-center my-5" style={{ 
+      <div className="p-5 rounded text-white text-center my-5" style={{ 
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
       }}>
         <h2 className="text-white mb-4">Limited Time: 2024 Tax Season Special</h2>

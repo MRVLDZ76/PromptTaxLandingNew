@@ -49,13 +49,13 @@ const Testimonials = () => {
 
                         <Row className="g-4 mb-4 mb-md-7">
                             <Col md={6}>
-                                <h3 className="border-start border-primary border-2 ps-4 mb-3">50,000+</h3>
-                                <p className="mb-0">Customers have used our awesome templates since 2019</p>
+                                <h3 className="border-start border-primary border-2 ps-4 mb-3">15,000+</h3>
+                                <p className="mb-0">Transactions processed with AI-powered automation</p>
                             </Col>
 
                             <Col md={6}>
-                                <h3 className="border-start border-primary border-2 ps-4 mb-3">150+</h3>
-                                <p className="mb-0">Client's projects complete all over the world</p>
+                                <h3 className="border-start border-primary border-2 ps-4 mb-3">11+</h3>
+                                <p className="mb-0">Major crypto exchanges integrated and syncing</p>
                             </Col>
                         </Row>
 
@@ -76,8 +76,8 @@ const Testimonials = () => {
                                 </svg>
                             </div>
 
-                            <p className="mb-0 ms-3 heading-color">Whether you're a small startup or a large enterprise,
-                                we have the expertise to meet your needs.</p>
+                            <p className="mb-0 ms-3 heading-color">From individual traders to institutional investors,
+                                our AI handles the complexity of multi-exchange crypto tax reporting automatically.</p>
                         </div>
                     </Col>
                 </Row>

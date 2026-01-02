@@ -50,14 +50,14 @@ const About = () => {
                 <Row className="mb-4">
                   <Col sm={6} className="mb-4 mb-sm-0">
                     <div className="bg-dark text-white rounded text-center p-3">
-                      <span className="h2 text-white">10+</span>
-                      <p className="mb-0">Years of experience</p>
+                      <span className="h2 text-white">95%</span>
+                      <p className="mb-0">Time Reduction</p>
                     </div>
                   </Col>
                   <Col sm={6}>
                     <div className="bg-primary rounded text-center p-3">
-                      <span className="h2 text-white">1.2K</span>
-                      <p className="mb-0 text-white">Happy customers</p>
+                      <span className="h2 text-white">99.9%</span>
+                      <p className="mb-0 text-white">Accuracy Rate</p>
                     </div>
                   </Col>
                 </Row>
