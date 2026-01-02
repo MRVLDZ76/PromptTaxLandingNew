@@ -7,6 +7,10 @@
   external_node_modules = ["express"]
   node_bundler = "esbuild"
 
+[[edge_functions]]
+  function = "blog-meta-injector"
+  path = "/blog/*"
+
 # SPA fallback
 [[redirects]]
   from = "/*"
