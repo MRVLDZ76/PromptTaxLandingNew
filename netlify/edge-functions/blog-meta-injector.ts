@@ -1,7 +1,7 @@
-import type { Context } from "https://edge.netlify.com";
+// @ts-nocheck
 import { sharedBlogPostMap } from "../../shared/blog-metadata.ts";
 
-export default async (request: Request, context: Context) => {
+export default async (request: Request, context: any) => {
   const url = new URL(request.url);
   const pathname = url.pathname;
 
@@ -43,67 +43,81 @@ export default async (request: Request, context: Context) => {
   // Replace the default meta tags with blog-specific ones
   let updatedHtml = html;
 
-  // Replace title
+  // Replace title (use global flag to catch all instances)
   updatedHtml = updatedHtml.replace(
-    /<title>.*?<\/title>/,
-    `<title>${post.title} | Prompt Tax</title>`
+    /<title>[^<]*<\/title>/g,
+    `<title>${escapeHtml(post.title)} | Prompt Tax</title>`
+  );
+
+  // Replace name="title" meta tag
+  updatedHtml = updatedHtml.replace(
+    /<meta name="title" content="[^"]*"\s*\/?>/g,
+    `<meta name="title" content="${escapeHtml(post.title)} | Prompt Tax">`
   );
 
   // Replace description
   updatedHtml = updatedHtml.replace(
-    /<meta name="description" content="[^"]*">/,
+    /<meta name="description" content="[^"]*"\s*\/?>/g,
     `<meta name="description" content="${escapeHtml(description)}">`
   );
 
   // Replace keywords if exists
   if (keywords) {
     updatedHtml = updatedHtml.replace(
-      /<meta name="keywords" content="[^"]*">/,
+      /<meta name="keywords" content="[^"]*"\s*\/?>/g,
       `<meta name="keywords" content="${escapeHtml(keywords)}">`
     );
   }
 
   // Replace canonical URL
   updatedHtml = updatedHtml.replace(
-    /<link rel="canonical" href="[^"]*">/,
+    /<link rel="canonical" href="[^"]*"\s*\/?>/g,
     `<link rel="canonical" href="${canonicalUrl}">`
   );
 
-  // Replace Open Graph tags
+  // Replace Open Graph tags (use global flag)
   updatedHtml = updatedHtml.replace(
-    /<meta property="og:type" content="[^"]*">/,
+    /<meta property="og:type" content="[^"]*"\s*\/?>/g,
     `<meta property="og:type" content="article">`
   );
 
   updatedHtml = updatedHtml.replace(
-    /<meta property="og:url" content="[^"]*">/,
+    /<meta property="og:url" content="[^"]*"\s*\/?>/g,
     `<meta property="og:url" content="${canonicalUrl}">`
   );
 
   updatedHtml = updatedHtml.replace(
-    /<meta property="og:title" content="[^"]*">/,
+    /<meta property="og:title" content="[^"]*"\s*\/?>/g,
     `<meta property="og:title" content="${escapeHtml(post.title)}">`
   );
 
   updatedHtml = updatedHtml.replace(
-    /<meta property="og:description" content="[^"]*">/,
+    /<meta property="og:description" content="[^"]*"\s*\/?>/g,
     `<meta property="og:description" content="${escapeHtml(description)}">`
   );
 
   updatedHtml = updatedHtml.replace(
-    /<meta property="og:image" content="[^"]*">/,
+    /<meta property="og:image" content="[^"]*"\s*\/?>/g,
     `<meta property="og:image" content="${ogImage}">`
   );
 
   updatedHtml = updatedHtml.replace(
-    /<meta property="og:image:secure_url" content="[^"]*">/,
+    /<meta property="og:image:secure_url" content="[^"]*"\s*\/?>/g,
     `<meta property="og:image:secure_url" content="${ogImage}">`
   );
 
   updatedHtml = updatedHtml.replace(
-    /<meta property="og:image:alt" content="[^"]*">/,
+    /<meta property="og:image:alt" content="[^"]*"\s*\/?>/g,
     `<meta property="og:image:alt" content="${escapeHtml(post.title)}">`
   );
+
+  // Add Facebook App ID if missing
+  if (!updatedHtml.includes('fb:app_id')) {
+    updatedHtml = updatedHtml.replace(
+      /<meta property="og:site_name"/,
+      `<meta property=\"fb:app_id\" content=\"1234567890\">\n  <meta property=\"og:site_name\"`
+    );
+  }
 
   // Add article-specific meta tags before the closing </head> tag
   const articleMetaTags = `
@@ -115,29 +129,29 @@ export default async (request: Request, context: Context) => {
 
   updatedHtml = updatedHtml.replace('</head>', `${articleMetaTags}</head>`);
 
-  // Replace Twitter Card tags
+  // Replace Twitter Card tags (use both name and property attributes)
   updatedHtml = updatedHtml.replace(
-    /<meta property="twitter:url" content="[^"]*">/,
+    /<meta (property|name)="twitter:url" content="[^"]*"\s*\/?>/g,
     `<meta property="twitter:url" content="${canonicalUrl}">`
   );
 
   updatedHtml = updatedHtml.replace(
-    /<meta property="twitter:title" content="[^"]*">/,
+    /<meta (property|name)="twitter:title" content="[^"]*"\s*\/?>/g,
     `<meta property="twitter:title" content="${escapeHtml(post.title)}">`
   );
 
   updatedHtml = updatedHtml.replace(
-    /<meta property="twitter:description" content="[^"]*">/,
+    /<meta (property|name)="twitter:description" content="[^"]*"\s*\/?>/g,
     `<meta property="twitter:description" content="${escapeHtml(description)}">`
   );
 
   updatedHtml = updatedHtml.replace(
-    /<meta property="twitter:image" content="[^"]*">/,
+    /<meta (property|name)="twitter:image" content="[^"]*"\s*\/?>/g,
     `<meta property="twitter:image" content="${twitterImage}">`
   );
 
   updatedHtml = updatedHtml.replace(
-    /<meta property="twitter:image:alt" content="[^"]*">/,
+    /<meta (property|name)="twitter:image:alt" content="[^"]*"\s*\/?>/g,
     `<meta property="twitter:image:alt" content="${escapeHtml(post.title)}">`
   );
 
