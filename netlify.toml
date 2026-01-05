@@ -9,17 +9,17 @@
 
 [[edge_functions]]
   function = "blog-meta-injector"
-  path = "/blog/*"
+  path = "/blog/:slug"
 
-# SPA fallback
+# API routes first (higher priority)
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+# SPA fallback for all other routes
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = false
-  
-[[redirects]]
-  force = true
-  from = "/api/*"
-  status = 200
-  to = "/.netlify/functions/api/:splat"

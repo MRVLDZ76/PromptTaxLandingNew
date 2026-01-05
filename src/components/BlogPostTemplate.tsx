@@ -13,8 +13,8 @@ interface BlogPostTemplateProps {
 }
 
 export default function BlogPostTemplate({ metadata, children }: BlogPostTemplateProps) {
-  // Build canonical URL
-  const siteUrl = window.location.origin;
+  // Build canonical URL - use relative path for SSR safety
+  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://prompt.tax';
   const canonicalUrl = `${siteUrl}/blog/${metadata.slug}`;
   
   // Get images with fallbacks

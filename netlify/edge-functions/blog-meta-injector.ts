@@ -86,7 +86,8 @@ export default async (request: Request, context: any) => {
   const url = new URL(request.url);
   const pathname = url.pathname;
 
-  // Only process blog post URLs
+  // Only process blog post URLs, not the blog listing pages
+  // Pattern: /blog/[slug] where slug doesn't contain special paths
   if (!pathname.startsWith('/blog/')) {
     return context.next();
   }
@@ -95,7 +96,8 @@ export default async (request: Request, context: any) => {
   const slug = pathname.replace('/blog/', '').replace(/\/$/, ''); // Remove trailing slash
   
   // Skip if it's the blog index or other non-post pages
-  if (!slug || slug === 'grid' || slug === 'list' || slug === 'single') {
+  // Allow these to be handled by the SPA
+  if (!slug || slug === 'grid' || slug === 'list' || slug === 'single' || slug.includes('/')) {
     return context.next();
   }
 
@@ -103,12 +105,19 @@ export default async (request: Request, context: any) => {
   const post = blogPostsMetadata[slug];
   
   if (!post) {
-    // If post not found, let the app handle it
+    // If post not found, let the SPA handle it (will show 404 or redirect)
     return context.next();
   }
 
   // Get the original HTML response
   const response = await context.next();
+  
+  // Check if response is HTML (not API or asset)
+  const contentType = response.headers.get('content-type') || '';
+  if (!contentType.includes('text/html')) {
+    return response;
+  }
+  
   const html = await response.text();
 
   // Build the dynamic meta tags
@@ -267,13 +276,19 @@ export default async (request: Request, context: any) => {
     `<meta property="twitter:image:alt" content="${post.title}">`
   );
 
-  // Return the modified HTML
+  // Return the modified HTML with proper headers for SPA
   return new Response(updatedHtml, {
+    status: response.status,
     headers: {
       "content-type": "text/html; charset=utf-8",
       "cache-control": "public, max-age=0, must-revalidate",
+      "x-robots-tag": "index, follow",
     },
   });
 };
 
-export const config = { path: "/blog/*" };
+// Only intercept blog post detail pages, not the entire /blog/* path
+export const config = { 
+  path: ["/blog/:slug"],
+  excludedPath: ["/blog/grid", "/blog/list", "/blog/single/*"]
+};

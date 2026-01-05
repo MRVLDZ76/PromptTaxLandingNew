@@ -1,5 +1,5 @@
 import { toggleDocumentAttribute } from '@/utils/layout'
-import { type ReactNode, createContext, useContext, useMemo, useState } from 'react'
+import { type ReactNode, createContext, useContext, useEffect, useMemo, useState } from 'react'
 
 export type LayoutState = {
   theme: 'light' | 'dark' | 'auto'
@@ -25,26 +25,44 @@ const themeKey = 'data-bs-theme'
 
 const LayoutProvider = ({ children }: Readonly<{ children: ReactNode }>) => {
   const getSavedTheme = (): LayoutState['theme'] => {
-    const foundTheme = localStorage.getItem(storageThemeKey)
-    const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    if (foundTheme) {
-      if (foundTheme === 'auto') {
-        toggleDocumentAttribute(themeKey, preferredTheme)
+    // Safely check if we're in browser environment
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+      return 'light'; // Default for SSR
+    }
+    
+    try {
+      const foundTheme = localStorage.getItem(storageThemeKey)
+      const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      if (foundTheme) {
+        if (foundTheme === 'auto') {
+          toggleDocumentAttribute(themeKey, preferredTheme)
+          return preferredTheme
+        }
+        toggleDocumentAttribute(themeKey, foundTheme)
+        return foundTheme == 'dark' ? 'dark' : 'light'
+      } else {
+        localStorage.setItem(storageThemeKey, preferredTheme)
         return preferredTheme
       }
-      toggleDocumentAttribute(themeKey, foundTheme)
-      return foundTheme == 'dark' ? 'dark' : 'light'
-    } else {
-      localStorage.setItem(storageThemeKey, preferredTheme)
-      return preferredTheme
+    } catch (error) {
+      console.error('Error accessing localStorage:', error);
+      return 'light'; // Fallback
     }
   }
 
   const INIT_STATE: LayoutState = {
-    theme: getSavedTheme()
+    theme: 'light' // Initialize with safe default
   }
 
   const [settings, setSettings] = useState<LayoutState>(INIT_STATE)
+  
+  // Load theme after mount to avoid hydration mismatch
+  useEffect(() => {
+    const savedTheme = getSavedTheme();
+    if (savedTheme !== settings.theme) {
+      setSettings({ ...settings, theme: savedTheme });
+    }
+  }, []); // Only run once on mount
 
   const updateSettings = (_newSettings: Partial<LayoutState>) => setSettings({ ...settings, ..._newSettings })
 
