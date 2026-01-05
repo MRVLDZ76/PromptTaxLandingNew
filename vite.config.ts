@@ -13,6 +13,19 @@ export default defineConfig(({ mode }) => {
         "@shared": resolve(__dirname, "shared"),
       },
     },
-    base: process.env.VITE_BASE_URL ?? ''
+    // Force absolute paths - never use empty string
+    base: process.env.VITE_BASE_URL || '/',
+    build: {
+      outDir: 'dist/spa',
+      emptyOutDir: true,
+      sourcemap: false,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom', 'react-router-dom'],
+          },
+        },
+      },
+    },
   }
 })
