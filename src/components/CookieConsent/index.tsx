@@ -1,200 +1,296 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCookieConsent, CookiePreferences } from '@/hooks/useCookieConsent';
-import { BsCheckCircle, BsXCircle } from 'react-icons/bs';
+import { FaShieldAlt, FaChartLine, FaBullhorn, FaCheckCircle, FaTimes } from 'react-icons/fa';
 
 const CookieConsent = () => {
   const { showBanner, acceptAll, acceptNecessary, setCustomPreferences, preferences } = useCookieConsent();
   const [showDetails, setShowDetails] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [customPrefs, setCustomPrefs] = useState<CookiePreferences>({
     necessary: true,
     analytics: preferences?.analytics ?? false,
     marketing: preferences?.marketing ?? false,
   });
 
-  if (!showBanner) return null;
+  useEffect(() => {
+    // Delay showing banner to avoid conflict with splash screen
+    if (showBanner) {
+      const timer = setTimeout(() => setIsVisible(true), 2000);
+      return () => clearTimeout(timer);
+    } else {
+      setIsVisible(false);
+    }
+  }, [showBanner]);
 
   const handleSaveCustom = () => {
     setCustomPreferences(customPrefs);
   };
 
-  return (
-    <div className="fixed inset-0 z-[9999] flex items-end justify-center pointer-events-none">
-      <div className="pointer-events-auto w-full max-w-7xl mx-auto p-4 sm:p-6">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
-          {!showDetails ? (
-            // Simple Banner View
-            <div className="p-6 sm:p-8">
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                    🍪 We Value Your Privacy
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                    We use cookies to enhance your experience, analyze site traffic, and personalize content. 
-                    By clicking "Accept All," you consent to our use of cookies. You can manage your preferences or learn more in our{' '}
-                    <a href="/privacy-policy" className="text-primary underline hover:text-primary-600">
-                      Privacy Policy
-                    </a>.
-                  </p>
-                </div>
+  if (!showBanner || !isVisible) return null;
 
-                <div className="flex flex-col sm:flex-row gap-3 lg:flex-shrink-0">
-                  <button
-                    onClick={() => setShowDetails(true)}
-                    className="px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
-                  >
-                    Customize
-                  </button>
-                  <button
-                    onClick={acceptNecessary}
-                    className="px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
-                  >
-                    Necessary Only
-                  </button>
-                  <button
-                    onClick={acceptAll}
-                    className="px-6 py-3 text-sm font-medium text-white bg-primary hover:bg-primary-600 rounded-lg transition-colors shadow-sm"
-                  >
-                    Accept All
-                  </button>
+  return (
+    <>
+      {/* Animations */}
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes slideUp {
+          from { 
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to { 
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+
+      {/* Cookie Banner */}
+      <div 
+        className="position-fixed bottom-0 start-0 end-0 p-3 p-md-4"
+        style={{ animation: 'slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)', zIndex: 9999 }}
+      >
+        <div className="container" style={{ maxWidth: '1140px' }}>
+          <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] border border-gray-200/50 dark:border-gray-700/50 overflow-hidden backdrop-blur-xl">
+            {!showDetails ? (
+              // Simple Banner View
+              <div className="position-relative">
+              {/* Gradient accent line */}
+              <div className="position-absolute top-0 start-0 end-0 bg-primary" style={{ height: '3px' }} />
+              
+              <div className="p-4 p-sm-5">
+                <div className="d-flex flex-column flex-lg-row align-items-lg-start justify-content-lg-between gap-4">
+                  <div className="flex-fill">
+                    <div className="d-flex align-items-center gap-3 mb-3">
+                      <div className="flex-shrink-0 icon-lg bg-primary bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center" style={{ width: '48px', height: '48px' }}>
+                        <FaShieldAlt className="text-primary" style={{ fontSize: '24px' }} />
+                      </div>
+                      <div>
+                        <h3 className="h4 mb-1">
+                          Your Privacy Matters
+                        </h3>
+                        <p className="mb-0 small text-body-secondary">
+                          We respect your data and give you control
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <p className="mb-3">
+                      We use cookies to enhance your experience, analyze site traffic, and personalize content. 
+                      Your preferences are saved and can be changed anytime. Learn more in our{' '}
+                      <a 
+                        href="/privacy-policy" 
+                        className="text-primary fw-semibold text-decoration-underline"
+                      >
+                        Privacy Policy
+                      </a>.
+                    </p>
+
+                    <div className="d-flex flex-wrap gap-2">
+                      <span className="badge bg-success bg-opacity-10 text-success">
+                        <FaCheckCircle className="me-1" style={{ fontSize: '12px' }} />
+                        GDPR Compliant
+                      </span>
+                      <span className="badge bg-info bg-opacity-10 text-info">
+                        <FaShieldAlt className="me-1" style={{ fontSize: '12px' }} />
+                        Secure
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="d-flex flex-column gap-2" style={{ minWidth: '280px' }}>
+                    <button
+                      onClick={acceptAll}
+                      className="btn btn-primary mb-0"
+                    >
+                      Accept All Cookies
+                    </button>
+                    
+                    <button
+                      onClick={() => setShowDetails(true)}
+                      className="btn btn-light mb-0"
+                    >
+                      Customize Preferences
+                    </button>
+                    
+                    <button
+                      onClick={acceptNecessary}
+                      className="btn btn-link text-body-secondary mb-0 p-2"
+                    >
+                      Only Necessary
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           ) : (
             // Detailed Preferences View
-            <div className="p-6 sm:p-8">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-                  Cookie Preferences
-                </h3>
-                <button
-                  onClick={() => setShowDetails(false)}
-                  className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
-                  aria-label="Close preferences"
-                >
-                  <BsXCircle className="w-6 h-6" />
-                </button>
-              </div>
-
-              <div className="space-y-6 mb-8">
-                {/* Necessary Cookies */}
-                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <BsCheckCircle className="w-5 h-5 text-green-600" />
-                        <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-                          Necessary Cookies
-                        </h4>
-                        <span className="text-xs font-medium px-2 py-1 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded">
-                          Always Active
-                        </span>
-                      </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Essential cookies required for the website to function properly. These enable core features like security, 
-                        authentication, and basic navigation. These cannot be disabled.
-                      </p>
-                    </div>
+            <div className="position-relative">
+              {/* Gradient accent line */}
+              <div className="position-absolute top-0 start-0 end-0 bg-primary" style={{ height: '3px' }} />
+              
+              <div className="p-4 p-sm-5">
+                <div className="d-flex align-items-center justify-content-between mb-4">
+                  <div>
+                    <h3 className="h3 mb-1">
+                      Cookie Preferences
+                    </h3>
+                    <p className="mb-0 small text-body-secondary">
+                      Manage your cookie settings and privacy preferences
+                    </p>
                   </div>
+                  <button
+                    onClick={() => setShowDetails(false)}
+                    className="btn btn-sm btn-icon btn-light rounded-circle flex-shrink-0"
+                    aria-label="Close preferences"
+                  >
+                    <FaTimes style={{ fontSize: '16px' }} />
+                  </button>
                 </div>
 
-                {/* Analytics Cookies */}
-                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        Analytics Cookies
-                      </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                        Help us understand how visitors interact with our website by collecting and reporting information anonymously. 
-                        Includes Google Analytics with IP anonymization for GDPR compliance.
-                      </p>
-                      <div className="flex items-center gap-3">
-                        <label className="relative inline-flex items-center cursor-pointer">
-                          <input
-                            type="checkbox"
-                            checked={customPrefs.analytics}
-                            onChange={(e) =>
-                              setCustomPrefs({ ...customPrefs, analytics: e.target.checked })
-                            }
-                            className="sr-only peer"
-                          />
-                          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/40 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
-                          <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-                            {customPrefs.analytics ? 'Enabled' : 'Disabled'}
-                          </span>
-                        </label>
+                  <div className="vstack gap-3 mb-4">
+                    {/* Necessary Cookies */}
+                    <div className="card bg-success bg-opacity-10 border-success border-2 rounded-3">
+                      <div className="card-body">
+                        <div className="d-flex align-items-start gap-3">
+                          <div className="flex-shrink-0 icon-lg bg-success rounded-3 d-flex align-items-center justify-content-center shadow-sm" style={{ width: '48px', height: '48px' }}>
+                            <FaShieldAlt className="text-white" style={{ fontSize: '22px' }} />
+                          </div>
+                          <div className="flex-fill">
+                            <div className="d-flex align-items-center gap-2 mb-2">
+                              <h4 className="h6 mb-0">
+                                Necessary Cookies
+                              </h4>
+                              <span className="badge bg-success text-white">
+                                <FaCheckCircle className="me-1" style={{ fontSize: '10px' }} />
+                                Always Active
+                              </span>
+                            </div>
+                            <p className="mb-0 small">
+                              Essential for core website functionality including security, authentication, and navigation. 
+                              Required for the site to work properly and cannot be disabled.
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Marketing Cookies */}
-                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-5">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        Marketing Cookies
-                      </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                        Used to deliver personalized advertisements and track advertising effectiveness. 
-                        These cookies may track your activity across different websites.
-                      </p>
-                      <div className="flex items-center gap-3">
-                        <label className="relative inline-flex items-center cursor-pointer">
-                          <input
-                            type="checkbox"
-                            checked={customPrefs.marketing}
-                            onChange={(e) =>
-                              setCustomPrefs({ ...customPrefs, marketing: e.target.checked })
-                            }
-                            className="sr-only peer"
-                          />
-                          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/40 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
-                          <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-                            {customPrefs.marketing ? 'Enabled' : 'Disabled'}
-                          </span>
-                        </label>
+                    {/* Analytics Cookies */}
+                    <div className="card border-2 rounded-3">
+                      <div className="card-body">
+                        <div className="d-flex align-items-start gap-3">
+                          <div className="flex-shrink-0 icon-lg bg-info rounded-3 d-flex align-items-center justify-content-center shadow-sm" style={{ width: '48px', height: '48px' }}>
+                            <FaChartLine className="text-white" style={{ fontSize: '22px' }} />
+                          </div>
+                          <div className="flex-fill">
+                            <div className="d-flex align-items-center justify-content-between gap-3 mb-2">
+                              <h4 className="h6 mb-0">
+                                Analytics Cookies
+                              </h4>
+                              <div className="form-check form-switch">
+                                <input
+                                  type="checkbox"
+                                  className="form-check-input"
+                                  checked={customPrefs.analytics}
+                                  onChange={(e) =>
+                                    setCustomPrefs({ ...customPrefs, analytics: e.target.checked })
+                                  }
+                                  id="analyticsSwitch"
+                                />
+                              </div>
+                            </div>
+                            <p className="mb-2 small">
+                              Help us understand visitor behavior through anonymous data collection. 
+                              Includes Google Analytics with IP anonymization for GDPR compliance.
+                            </p>
+                            <span className={`badge ${customPrefs.analytics ? 'bg-success' : 'bg-secondary'}`}>
+                              {customPrefs.analytics ? '✓ Enabled' : '✗ Disabled'}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Marketing Cookies */}
+                    <div className="card border-2 rounded-3">
+                      <div className="card-body">
+                        <div className="d-flex align-items-start gap-3">
+                          <div className="flex-shrink-0 icon-lg bg-danger rounded-3 d-flex align-items-center justify-content-center shadow-sm" style={{ width: '48px', height: '48px' }}>
+                            <FaBullhorn className="text-white" style={{ fontSize: '22px' }} />
+                          </div>
+                          <div className="flex-fill">
+                            <div className="d-flex align-items-center justify-content-between gap-3 mb-2">
+                              <h4 className="h6 mb-0">
+                                Marketing Cookies
+                              </h4>
+                              <div className="form-check form-switch">
+                                <input
+                                  type="checkbox"
+                                  className="form-check-input"
+                                  checked={customPrefs.marketing}
+                                  onChange={(e) =>
+                                    setCustomPrefs({ ...customPrefs, marketing: e.target.checked })
+                                  }
+                                  id="marketingSwitch"
+                                />
+                              </div>
+                            </div>
+                            <p className="mb-2 small">
+                              Enable personalized advertisements and track campaign effectiveness. 
+                              May track your activity across different websites.
+                            </p>
+                            <span className={`badge ${customPrefs.marketing ? 'bg-success' : 'bg-secondary'}`}>
+                              {customPrefs.marketing ? '✓ Enabled' : '✗ Disabled'}
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-gray-200 dark:border-gray-700">
-                <button
-                  onClick={acceptNecessary}
-                  className="flex-1 px-6 py-3 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors"
-                >
-                  Reject All
-                </button>
-                <button
-                  onClick={handleSaveCustom}
-                  className="flex-1 px-6 py-3 text-sm font-medium text-white bg-primary hover:bg-primary-600 rounded-lg transition-colors shadow-sm"
-                >
-                  Save Preferences
-                </button>
-                <button
-                  onClick={acceptAll}
-                  className="flex-1 px-6 py-3 text-sm font-medium text-white bg-primary hover:bg-primary-600 rounded-lg transition-colors shadow-sm"
-                >
-                  Accept All
-                </button>
-              </div>
+                  <div className="d-flex flex-column flex-sm-row gap-2 pt-4 mt-4 border-top">
+                    <button
+                      onClick={acceptNecessary}
+                      className="btn btn-light flex-fill mb-0"
+                    >
+                      Reject All
+                    </button>
+                    <button
+                      onClick={handleSaveCustom}
+                      className="btn btn-primary flex-fill mb-0"
+                    >
+                      Save My Preferences
+                    </button>
+                    <button
+                      onClick={acceptAll}
+                      className="btn btn-success flex-fill mb-0"
+                    >
+                      Accept All
+                    </button>
+                  </div>
 
-              <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-4">
-                You can change these settings at any time. View our{' '}
-                <a href="/privacy-policy" className="text-primary underline hover:text-primary-600">
-                  Privacy Policy
-                </a>{' '}
-                for more information.
-              </p>
-            </div>
-          )}
+                  <div className="alert alert-light mb-0 mt-3" role="alert">
+                    <p className="mb-0 small text-center">
+                      Your preferences are saved locally and can be updated anytime. For details on data handling, see our{' '}
+                      <a 
+                        href="/privacy-policy" 
+                        className="alert-link fw-semibold"
+                      >
+                        Privacy Policy
+                      </a>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
