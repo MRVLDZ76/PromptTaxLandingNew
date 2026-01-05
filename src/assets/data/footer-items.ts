@@ -159,6 +159,11 @@ export const communityLinks: FooterLinkType[] = [
   },
   {
     name: "Privacy Policy",
+    link: "/privacy-policy"
+  },
+  {
+    name: "Cookie Preferences",
+    link: "#cookie-preferences"
   },
   {
     name: "News and blogs",

@@ -5,6 +5,7 @@ import DecorationPattern from './components/DecorationPattern'
 import CreditWithLanguage from './components/CreditWithLanguage'
 import { useLaunchModal } from '@/hooks/useLaunchModal'
 import LaunchCountdownModal from '@/components/LaunchCountdownModal'
+import { useCookieConsent } from '@/hooks/useCookieConsent'
  
 import decorationPattern2 from '@/assets/images/elements/decoration-pattern-2.svg'
  
@@ -12,6 +13,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 
 const Footer1 = () => {
   const { showModal, openModal, closeModal } = useLaunchModal();
+  const { openPreferences } = useCookieConsent();
   return (
     <footer className="bg-dark position-relative overflow-hidden pb-0 pt-6 pt-lg-8" data-bs-theme="dark">
 
@@ -61,10 +63,17 @@ const Footer1 = () => {
                     const Icon = item.icon
                     return (
                       <li key={(item.link ?? '') + idx} className="nav-item">
-                        <Link className="nav-link" to={item.link ?? ''}>
-                          {item.name}
-                          {Icon && <Icon size={13} className="ms-2" />}
-                        </Link>
+                        {item.link === '#cookie-preferences' ? (
+                          <a href="#" className="nav-link" onClick={(e) => { e.preventDefault(); openPreferences(); }}>
+                            {item.name}
+                            {Icon && <Icon size={13} className="ms-2" />}
+                          </a>
+                        ) : (
+                          <Link className="nav-link" to={item.link ?? ''}>
+                            {item.name}
+                            {Icon && <Icon size={13} className="ms-2" />}
+                          </Link>
+                        )}
                       </li>
                     )
                   })}

@@ -5,8 +5,10 @@ import { AuthProvider } from './states/useAuthContext'
 import { LayoutProvider } from './states/useLayoutContext'
 import { ShopProvider } from './states/useShoppingContext'
 import { NotificationProvider } from './states/useNotificationContext'
+import { CookieConsentProvider } from './hooks/useCookieConsent'
 
 import BackToTop from './components/BackToTop'
+import CookieConsent from './components/CookieConsent'
 import configureFakeBackend from './helpers/fake-backend'
 import AppRouter from './routes/router'
 
@@ -21,21 +23,25 @@ const App = () => {
 
   return (
     <HelmetProvider>
-      <NotificationProvider>
-        <LayoutProvider>
-          <AuthProvider>
-            <ShopProvider>
+      <CookieConsentProvider>
+        <NotificationProvider>
+          <LayoutProvider>
+            <AuthProvider>
+              <ShopProvider>
 
-              <AppRouter />
+                <AppRouter />
 
-              <BackToTop />
+                <BackToTop />
 
-              <ToastContainer />
+                <CookieConsent />
 
-            </ShopProvider>
-          </AuthProvider>
-        </LayoutProvider>
-      </NotificationProvider>
+                <ToastContainer />
+
+              </ShopProvider>
+            </AuthProvider>
+          </LayoutProvider>
+        </NotificationProvider>
+      </CookieConsentProvider>
     </HelmetProvider>
   )
 }
