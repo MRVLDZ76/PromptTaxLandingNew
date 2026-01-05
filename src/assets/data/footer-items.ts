@@ -53,11 +53,13 @@ export const quickLinks: FooterLinkType[] = [
   },
   {
     name: "Sign in",
-    link: "/auth/sign-in",
+    link: "#coming-soon",
+    badge: "Coming Soon"
   },
   {
     name: "Sign up",
-    link: "/auth/sign-up",
+    link: "#coming-soon",
+    badge: "Coming Soon"
   }
 ]
 

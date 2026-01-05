@@ -4,9 +4,12 @@ import { Link } from "react-router-dom"
 
 import { communityLinks, contactDetail, quickLinks, socialMediaLinks } from "@/assets/data/footer-items"
 import CreditWithLogo from './components/CreditWithLogo'
+import { useLaunchModal } from '@/hooks/useLaunchModal'
+import LaunchCountdownModal from '@/components/LaunchCountdownModal'
  
 
 const Footer8 = () => {
+  const { showModal, openModal, closeModal } = useLaunchModal();
   return (
     <footer className="bg-dark pt-6" data-bs-theme="dark">
       <Container className="position-relative mt-sm-5">
@@ -19,10 +22,17 @@ const Footer8 = () => {
 
                   {quickLinks.map((item, idx) => (
                     <li key={(item.link ?? '') + idx} className="nav-item">
-                      <Link className={`nav-link${idx === 0 ? ' pt-0' : ''}`} to={item.link ?? ''}>
-                        {item.name}
-                        {item.badge && <span className="badge text-bg-danger ms-2">{item.badge}</span>}
-                      </Link>
+                      {item.link === '#coming-soon' ? (
+                        <a href="#" className={`nav-link${idx === 0 ? ' pt-0' : ''}`} onClick={openModal}>
+                          {item.name}
+                          {item.badge && <span className="badge text-bg-primary ms-2">{item.badge}</span>}
+                        </a>
+                      ) : (
+                        <Link className={`nav-link${idx === 0 ? ' pt-0' : ''}`} to={item.link ?? ''}>
+                          {item.name}
+                          {item.badge && <span className="badge text-bg-danger ms-2">{item.badge}</span>}
+                        </Link>
+                      )}
                     </li>
                   ))}
 
@@ -93,6 +103,8 @@ const Footer8 = () => {
         <CreditWithLogo />
 
       </Container>
+      
+      <LaunchCountdownModal show={showModal} onHide={closeModal} />
     </footer>
   )
 }

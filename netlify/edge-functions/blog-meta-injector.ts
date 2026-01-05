@@ -124,6 +124,18 @@ export default async (request: Request, context: any) => {
   // Replace the default meta tags with blog-specific ones
   let updatedHtml = html;
 
+  // Ensure favicons are present (add if missing or verify existing ones are correct)
+  if (!updatedHtml.includes('favicon_io/favicon')) {
+    const faviconTags = `
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/favicon_io/site.webmanifest">
+  `;
+    updatedHtml = updatedHtml.replace('<meta charset="UTF-8" />', `<meta charset="UTF-8" />${faviconTags}`);
+  }
+
   // Replace title (use global flag to catch all instances)
   updatedHtml = updatedHtml.replace(
     /<title>[^<]*<\/title>/g,
@@ -192,11 +204,30 @@ export default async (request: Request, context: any) => {
     `<meta property="og:image:alt" content="${post.title}">`
   );
 
-  // Add Facebook App ID if missing
-  if (!updatedHtml.includes('fb:app_id')) {
+  // Ensure og:site_name is set
+  if (updatedHtml.includes('og:site_name')) {
     updatedHtml = updatedHtml.replace(
-      /<meta property="og:site_name"/,
-      `<meta property=\"fb:app_id\" content=\"1234567890\">\n  <meta property=\"og:site_name\"`
+      /<meta property="og:site_name" content="[^"]*"\s*\/?>/g,
+      `<meta property="og:site_name" content="Prompt Tax">`
+    );
+  } else {
+    updatedHtml = updatedHtml.replace(
+      /<meta property="og:image:alt"/,
+      `<meta property="og:site_name" content="Prompt Tax">\n  <meta property="og:image:alt"`
+    );
+  }
+
+  // Replace or add Facebook App ID
+  if (updatedHtml.includes('fb:app_id')) {
+    updatedHtml = updatedHtml.replace(
+      /<meta property="fb:app_id" content="[^"]*"\s*\/?>/g,
+      `<meta property="fb:app_id" content="1234567890">`
+    );
+  } else {
+    // Insert before og:type meta tag
+    updatedHtml = updatedHtml.replace(
+      /<meta property="og:type"/,
+      `<meta property="fb:app_id" content="1234567890">\n  <meta property="og:type"`
     );
   }
 

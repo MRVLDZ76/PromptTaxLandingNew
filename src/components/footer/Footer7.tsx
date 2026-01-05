@@ -2,8 +2,11 @@ import { quickLinks, socialMediaLinks } from '@/assets/data/footer-items'
 import LogoBox from '../LogoBox'
 import { Link } from 'react-router-dom'
 import { Col, Container, Row } from 'react-bootstrap'
+import { useLaunchModal } from '@/hooks/useLaunchModal'
+import LaunchCountdownModal from '@/components/LaunchCountdownModal'
 
 const Footer7 = () => {
+  const { showModal, openModal, closeModal } = useLaunchModal();
   return (
     <footer>
       <Container>
@@ -18,9 +21,16 @@ const Footer7 = () => {
               <ul className="nav justify-content-center mt-4 mt-md-0">
                 {quickLinks.map((item, idx) => (
                   <li key={(item.link ?? '') + idx} className="nav-item">
-                    <Link className="nav-link px-3 pb-0" to={item.link ?? ''}>
-                      {item.name}
-                    </Link>
+                    {item.link === '#coming-soon' ? (
+                      <a href="#" className="nav-link px-3 pb-0" onClick={openModal}>
+                        {item.name}
+                        {item.badge && <span className="badge text-bg-primary ms-2">{item.badge}</span>}
+                      </a>
+                    ) : (
+                      <Link className="nav-link px-3 pb-0" to={item.link ?? ''}>
+                        {item.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -40,6 +50,8 @@ const Footer7 = () => {
           </Row>
         </div>
       </Container>
+      
+      <LaunchCountdownModal show={showModal} onHide={closeModal} />
     </footer>
   )
 }

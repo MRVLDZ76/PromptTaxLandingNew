@@ -2,9 +2,14 @@ import { communityLinks, quickLinks, socialMediaLinks } from '@/assets/data/foot
 import LogoBox from '@/components/LogoBox'
 import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useLaunchModal } from '@/hooks/useLaunchModal'
+import LaunchCountdownModal from '@/components/LaunchCountdownModal'
 
 const LinksAround = () => {
+  const { showModal, openModal, closeModal } = useLaunchModal();
+  
   return (
+    <>
     <Row className="g-4 justify-content-between">
     <Col lg={5}>
 
@@ -33,10 +38,17 @@ const LinksAround = () => {
 
             {quickLinks.map((item, idx) => (
               <li key={(item.link ?? '') + idx} className="nav-item">
-                <Link className="nav-link" to={item.link ?? ''}>
-                  {item.name}
-                  {item.badge && <span className="badge text-bg-danger ms-2">{item.badge}</span>}
-                </Link>
+                {item.link === '#coming-soon' ? (
+                  <a href="#" className="nav-link" onClick={openModal}>
+                    {item.name}
+                    {item.badge && <span className="badge text-bg-primary ms-2">{item.badge}</span>}
+                  </a>
+                ) : (
+                  <Link className="nav-link" to={item.link ?? ''}>
+                    {item.name}
+                    {item.badge && <span className="badge text-bg-danger ms-2">{item.badge}</span>}
+                  </Link>
+                )}
               </li>
             ))}
 
@@ -62,6 +74,9 @@ const LinksAround = () => {
       </Row>
     </Col>
   </Row>
+  
+  <LaunchCountdownModal show={showModal} onHide={closeModal} />
+  </>
   )
 }
 

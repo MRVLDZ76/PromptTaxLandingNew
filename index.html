@@ -127,14 +127,32 @@
 <body>
   <div id="root"></div>
   <div id="splash-screen">
-    <img alt="Prompt Tax - AI Tax Automation" class="light" src="/logos/default.png" style="height: 15%; max-width: 400px; object-fit: contain;" />
+    <img alt="Prompt Tax - AI Tax Automation" class="light" src="/logos/default.png" style="height: 7.5%; max-width: 200px; object-fit: contain;" />
   </div>
   <script type="module" src="/src/main"></script>
   <script>
-    const rootEl = document.querySelector('#root')
-    new MutationObserver(() => {
-      document.querySelector('#splash-screen')?.classList.add('remove');
-    }).observe(rootEl, { childList: true });
+    const rootEl = document.querySelector('#root');
+    const splashScreen = document.querySelector('#splash-screen');
+    
+    // Remove splash screen when root has content
+    const observer = new MutationObserver(() => {
+      if (rootEl && rootEl.childNodes.length > 0) {
+        splashScreen?.classList.add('remove');
+        observer.disconnect();
+      }
+    });
+    
+    if (rootEl) {
+      observer.observe(rootEl, { childList: true, subtree: true });
+    }
+    
+    // Failsafe: Remove splash screen after 5 seconds regardless
+    setTimeout(() => {
+      if (splashScreen && !splashScreen.classList.contains('remove')) {
+        splashScreen.classList.add('remove');
+        observer.disconnect();
+      }
+    }, 5000);
   </script>
 </body>
 
