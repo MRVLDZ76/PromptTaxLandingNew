@@ -12,9 +12,9 @@ const Testimonials = () => {
             <h2 className="mb-4">Success stories from crypto users</h2>
             <p className="mb-4">Read what our satisfied clients have to say about their experiences using PromptTax for calculating crypto taxes, K-1 forms, and 1040 CPA review.</p>
             <Link className="btn btn-lg btn-primary icon-link icon-link-hover mb-4 mb-lg-8"
-              to="/customer/stories">View all reviews<BsArrowRight className="bi" /> </Link>
+              to="/">View all reviews<BsArrowRight className="bi" /> </Link>
 
-            <h6 className="mb-2">Trusted by 15K+ crypto users</h6>
+            <h6 className="mb-2">Trusted by 1.5K+ crypto users</h6>
             <div className="d-flex">
 
               <ul className="list-inline icons-center">
@@ -31,7 +31,7 @@ const Testimonials = () => {
                 <li className="list-inline-item heading-color fw-normal me-0">4.4/5.0</li>
               </ul>
               <span className="text-secondary mx-2 mx-sm-3">|</span>
-              <p className="mb-0">3,857 Reviews</p>
+              <p className="mb-0">257 Reviews</p>
             </div>
           </Col>
 
