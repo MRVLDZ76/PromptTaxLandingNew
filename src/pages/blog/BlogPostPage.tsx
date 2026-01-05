@@ -1,54 +1,38 @@
 import { useParams, Navigate } from 'react-router-dom';
 import { getPostBySlug } from '@/types/blog';
-import { lazy, Suspense, useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { lazy, Suspense } from 'react';
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
-  const [hasError, setHasError] = useState(false);
-  
-  // Reset error state when slug changes
-  useEffect(() => {
-    setHasError(false);
-  }, [slug]);
   
   if (!slug) {
-    return <Navigate to="/blog" replace />;
+    return <Navigate to="/blog/grid" replace />;
   }
 
   const postMetadata = getPostBySlug(slug);
   
   if (!postMetadata) {
-    return <Navigate to="/blog" replace />;
-  }
-
-  // Error boundary fallback
-  if (hasError) {
-    return (
-      <Container className="py-8 text-center">
-        <h2>Unable to load post</h2>
-        <p className="text-muted mb-4">This post is temporarily unavailable.</p>
-        <a href="/blog" className="btn btn-primary">Return to Blog</a>
-      </Container>
-    );
+    return <Navigate to="/blog/grid" replace />;
   }
 
   // Dynamically import the post content component
+  // Error handling is done by ErrorBoundary in BlogLayout
   const PostContent = lazy(() => 
     import(`./posts/${slug}.tsx`)
       .catch((error) => {
-        console.error('Failed to load post:', error);
-        setHasError(true);
-        return import('./posts/PostNotFound').catch(() => {
-          // Ultimate fallback
-          return { default: () => (
-            <Container className="py-8 text-center">
-              <h2>Post Not Found</h2>
-              <p className="text-muted mb-4">The post you're looking for doesn't exist.</p>
-              <a href="/blog" className="btn btn-primary">Return to Blog</a>
-            </Container>
-          )};
-        });
+        console.error('Failed to load blog post:', slug, error);
+        // Return a fallback component instead of trying to set state
+        return {
+          default: () => (
+            <div className="container py-8 text-center">
+              <h2>Post Not Available</h2>
+              <p className="text-muted mb-4">
+                We're having trouble loading this post. Please try again later.
+              </p>
+              <a href="/blog/grid" className="btn btn-primary">Return to Blog</a>
+            </div>
+          )
+        };
       })
   );
 
