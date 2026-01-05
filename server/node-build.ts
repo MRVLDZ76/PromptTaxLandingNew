@@ -8,7 +8,8 @@ const port = Number(process.env.PORT || 3000);
 
 // In production, serve the built SPA files
 const __dirname = import.meta.dirname;
-const distPath = path.join(__dirname, "..");
+// Point to the spa directory where Vite outputs the build
+const distPath = path.join(__dirname, "..", "spa");
 
 // Serve static files
 app.use(express.static(distPath));
