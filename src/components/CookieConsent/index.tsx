@@ -53,7 +53,7 @@ const CookieConsent = () => {
         className="position-fixed bottom-0 start-0 end-0 p-3 p-md-4"
         style={{ animation: 'slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)', zIndex: 9999 }}
       >
-        <div className="container" style={{ maxWidth: '1140px' }}>
+
           <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] border border-gray-200/50 dark:border-gray-700/50 overflow-hidden backdrop-blur-xl">
             {!showDetails ? (
               // Simple Banner View
@@ -288,7 +288,7 @@ const CookieConsent = () => {
               </div>
             )}
           </div>
-        </div>
+     
       </div>
     </>
   );
