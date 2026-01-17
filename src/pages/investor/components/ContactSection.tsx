@@ -21,27 +21,30 @@ const ContactSection = () => {
     setErrorMessage('')
 
     try {
-      const response = await fetch('https://backend.prompt.tax/api/contact/landing/', {
+      const response = await fetch('/.netlify/functions/investment-inquiry', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: 'Investment Inquiry',
-          message: `Investment Amount: ${formData.amount}\n\nMessage: ${formData.message}\n\nLanguage: ${language}`,
-          company: formData.amount, // Store investment amount in company field for reference
+          data: {
+            name: formData.name,
+            email: formData.email,
+            investmentAmount: formData.amount,
+            message: formData.message,
+            language: language,
+          },
+          timestamp: Date.now(),
         }),
       })
 
       const result = await response.json()
 
-      if (result.success) {
+      if (response.ok) {
         setSubmitStatus('success')
-        alert(language === 'es' 
+        alert(result.message || (language === 'es' 
           ? '¡Gracias! Su solicitud ha sido enviada exitosamente. Recibirá un correo de confirmación pronto.'
-          : 'Thank you! Your inquiry has been submitted successfully. You will receive a confirmation email shortly.')
+          : 'Thank you! Your inquiry has been submitted successfully. You will receive a confirmation email shortly.'))
         setFormData({ name: '', email: '', amount: '', message: '' })
       } else {
         setSubmitStatus('error')
