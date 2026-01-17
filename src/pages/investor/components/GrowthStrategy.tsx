@@ -1,6 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext'
 import { useState, useEffect, useRef } from 'react'
 import Chart from 'chart.js/auto'
+import { AlertTriangle } from 'lucide-react'
 
 const GrowthStrategy = () => {
   const { t } = useLanguage()
@@ -94,11 +95,12 @@ const GrowthStrategy = () => {
   }, [adChannels])
 
   return (
-    <section id="investment" className="text-white investor-section bg-dark text-white position-relative overflow-hidden">
+    <section id="investment" className="investor-section bg-body-tertiary position-relative overflow-hidden">
       <div className="container position-relative">
         <div className="text-center mb-5">
-          <h2 className="display-5 text-white fw-bold mb-3">{t('growth.title')}</h2>
-          <p className="text-white-50 mx-auto" style={{maxWidth: '600px'}}>
+          <span className="badge bg-primary bg-opacity-10 text-primary mb-3 text-uppercase">Growth Strategy</span>
+          <h2 className="display-5 fw-bold mb-3">{t('growth.title')}</h2>
+          <p className="text-muted mx-auto" style={{maxWidth: '600px'}}>
             {t('growth.subtitle')}
           </p>
         </div>
@@ -106,10 +108,10 @@ const GrowthStrategy = () => {
         <div className="row g-4">
           {/* Ad Strategy (Left Col) */}
           <div className="col-lg-4">
-            <div className="card bg-black bg-opacity-50 border-secondary">
+            <div className="card border shadow-sm">
               <div className="card-body p-4">
-                <h3 className="h5 fw-bold text-white mb-3">{t('growth.adStrategyTitle')}</h3>
-                <p className="small text-white-50 mb-4">{t('growth.adStrategySubtitle')}</p>
+                <h3 className="h5 fw-bold mb-3">{t('growth.adStrategyTitle')}</h3>
+                <p className="small text-muted mb-4">{t('growth.adStrategySubtitle')}</p>
                 <div className="position-relative" style={{ height: '250px' }}>
                   <canvas ref={chartRef}></canvas>
                 </div>
@@ -117,7 +119,7 @@ const GrowthStrategy = () => {
                   {adChannels.map((channel: any, index: number) => (
                     <div key={index}>
                       <div className="d-flex justify-content-between align-items-center small mb-1">
-                        <span className="text-white-50">{channel.name}</span>
+                        <span className="text-muted">{channel.name}</span>
                         <div className="d-flex align-items-center gap-2">
                           <input
                             type="number"
@@ -127,7 +129,7 @@ const GrowthStrategy = () => {
                             value={channel.percent}
                             onChange={(e) => handleChannelChange(index, Number(e.target.value))}
                             className="form-control form-control-sm text-center"
-                            style={{ width: '60px', backgroundColor: 'rgba(255,255,255,0.1)', color: channel.color, border: `1px solid ${channel.color}` }}
+                            style={{ width: '60px', border: `1px solid ${channel.color}` }}
                           />
                           <span className="fw-bold" style={{ color: channel.color }}>%</span>
                         </div>
@@ -141,8 +143,8 @@ const GrowthStrategy = () => {
                     </div>
                   ))}
                   <div className="text-center mt-2">
-                    <small className={`badge ${totalAllocation === 100 ? 'bg-success' : 'bg-warning'}`}>
-                      Total: {totalAllocation}% {totalAllocation !== 100 && '⚠️'}
+                    <small className={`badge ${totalAllocation === 100 ? 'bg-success bg-opacity-10 text-success' : 'bg-warning bg-opacity-10 text-warning'}`}>
+                      Total: {totalAllocation}% {totalAllocation !== 100 && <AlertTriangle size={12} className="ms-1" />}
                     </small>
                   </div>
                 </div>
@@ -152,11 +154,11 @@ const GrowthStrategy = () => {
 
           {/* ROI Calculator (Right Col) */}
           <div className="col-lg-8">
-            <div className="card bg-white border-secondary shadow-lg">
+            <div className="card border shadow-sm">
               <div className="card-body p-4">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <h3 className="h4 fw-bold mb-0">{t('growth.calculatorTitle')}</h3>
-                  <span className="badge bg-success text-uppercase small">
+                  <span className="badge bg-success bg-opacity-10 text-success text-uppercase small">
                     {t('growth.calculatorBadge')}
                   </span>
                 </div>
@@ -273,7 +275,7 @@ const GrowthStrategy = () => {
                 
                 <div className="text-center">
                   <button
-                    className="btn btn-dark btn-lg px-5 shadow"
+                    className="btn btn-primary btn-lg px-5 shadow"
                     onClick={() => alert('For full financials, contact hi@prompt.tax')}
                   >
                     {t('growth.cta')}

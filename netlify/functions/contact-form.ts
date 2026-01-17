@@ -132,6 +132,97 @@ This message was sent from the prompt.tax contact form.
       console.error("Error sending SendGrid email:", err);
     }
 
+    // Send personalized thank you email to the contact submitter
+    try {
+      if (process.env.SENDGRID_API_KEY) {
+        const thankYouContent = `
+Hello ${firstName},
+
+Thank you for reaching out to prompt.tax!
+
+We've received your ${inquiryType || 'general'} inquiry and our team is reviewing your message.
+
+WHAT HAPPENS NEXT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Our team will review your inquiry within 24 hours
+• We'll respond directly to this email address: ${email}
+• For urgent matters, you can also call us or schedule a meeting
+
+YOUR SUBMISSION DETAILS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Name: ${firstName} ${lastName}
+Company: ${company}
+Inquiry Type: ${inquiryType || 'General'}
+${phone ? `Phone: ${phone}` : ''}
+
+HOW PROMPT.TAX CAN HELP:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ AI-powered tax preparation and filing
+✓ Cryptocurrency and digital asset tax expertise
+✓ Real-time tax calculations and insights
+✓ Dedicated support from tax professionals
+✓ Automated compliance and reporting
+
+In the meantime, feel free to explore:
+• Our Platform: https://prompt.tax
+• Help Center: https://prompt.tax/help
+• Schedule a Demo: https://prompt.tax/demo
+
+If you have any additional questions, simply reply to this email.
+
+Best regards,
+The prompt.tax Team
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+prompt.tax | AI-Powered Tax Made Simple
+Web: https://prompt.tax
+Email: hi@prompt.tax
+Phone: +1 (555) 123-4567
+        `.trim();
+
+        const confirmationRes = await fetch(
+          "https://api.sendgrid.com/v3/mail/send",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              personalizations: [
+                {
+                  to: [{ email: email, name: `${firstName} ${lastName}` }],
+                  subject: `Thank You for Contacting prompt.tax - We'll Be in Touch Soon`,
+                },
+              ],
+              from: {
+                email: process.env.SENDGRID_FROM_EMAIL || "hi@prompt.tax",
+                name: "prompt.tax Team",
+              },
+              reply_to: {
+                email: "hi@prompt.tax",
+                name: "prompt.tax Support",
+              },
+              content: [
+                {
+                  type: "text/plain",
+                  value: thankYouContent,
+                },
+              ],
+            }),
+          },
+        );
+
+        if (!confirmationRes.ok) {
+          console.error("SendGrid confirmation email error:", await confirmationRes.text());
+        } else {
+          console.log("Confirmation email sent to contact successfully");
+        }
+      }
+    } catch (err) {
+      console.error("Error sending confirmation email:", err);
+    }
+
     // Try to forward submission to Zapier webhook if configured
     try {
       if (process.env.ZAPIER_WEBHOOK_URL) {

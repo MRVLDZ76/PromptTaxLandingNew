@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { 
   Shield, TrendingDown, Eye, RefreshCcw, BarChart3, 
   TestTube2, Rocket, AlertCircle, CheckCircle2,
-  Calendar} from 'lucide-react'
+  Calendar, AlertTriangle} from 'lucide-react'
 
 const ExitStrategySection = () => {
   const { t } = useLanguage()
@@ -185,7 +185,7 @@ const ExitStrategySection = () => {
                           <ul className="list-unstyled d-flex flex-column gap-2">
                             {phase.failureTriggers.triggers.map((trigger: string, idx: number) => (
                               <li key={idx} className="d-flex align-items-start text-danger" style={{fontSize: '0.85rem'}}>
-                                <span className="me-2">⚠️</span>
+                                <AlertTriangle size={14} className="me-2 flex-shrink-0 mt-1" />
                                 <span>{trigger}</span>
                               </li>
                             ))}
@@ -212,7 +212,10 @@ const ExitStrategySection = () => {
                       {/* Max Burn & Exit Process */}
                       {phase.maxBurn && (
                         <div className="border-top pt-3">
-                          <p className="small mb-2"><strong>⚠️ {phase.maxBurn}</strong></p>
+                          <p className="small mb-2 d-flex align-items-center">
+                            <AlertTriangle size={14} className="me-2 text-warning" />
+                            <strong>{phase.maxBurn}</strong>
+                          </p>
                           {phase.exitProcess && (
                             <p className="small text-muted bg-light p-3 rounded-3">{phase.exitProcess}</p>
                           )}

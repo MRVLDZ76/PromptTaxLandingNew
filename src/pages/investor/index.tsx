@@ -8,8 +8,7 @@ import SolutionSection from './components/SolutionSection'
 import CompetitionSection from './components/CompetitionSection'
 import MarketOpportunitySection from './components/MarketOpportunitySection'
 import ReturnsCalculator from './components/ReturnsCalculator'
-import SeedRoundSection from './components/SeedRoundSection' 
-import ExitStrategySection from './components/ExitStrategySection'
+import SeedRoundSection from './components/SeedRoundSection'  
 import GrowthStrategy from './components/GrowthStrategy'
 import ContactSection from './components/ContactSection'
 import { useLanguage } from '@/contexts/LanguageContext'
@@ -44,8 +43,7 @@ const InvestorPageContent = () => {
           <MarketOpportunitySection />
           <CompetitionSection />
           <ReturnsCalculator />
-          <SeedRoundSection />
-          <ExitStrategySection />
+          <SeedRoundSection /> 
       
           <GrowthStrategy />
           <ContactSection />

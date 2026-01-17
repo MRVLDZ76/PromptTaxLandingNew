@@ -91,15 +91,15 @@ const CompetitionSection = () => {
               {t('competition.description')}
             </p>
             
-            <div className="card bg-body p-4 border shadow-sm mb-4">
-              <h4 className="fw-bold mb-3 text-body">
+            <div className="card border shadow-sm p-4 mb-4">
+              <h4 className="fw-bold mb-3">
                 {t('competition.positioningTitle')}
               </h4>
               <ul className="list-unstyled mb-0">
                 {positioning.map((item: any, index: number) => (
                   <li key={index} className="d-flex align-items-start mb-3">
                     <span className={`badge ${item.color} me-2 mt-1 flex-shrink-0`} style={{ minWidth: '8px', minHeight: '8px' }}></span>
-                    <span><strong className="text-body">{item.label}:</strong> <span className="text-body-secondary">{item.description}</span></span>
+                    <span><strong>{item.label}:</strong> <span className="text-muted">{item.description}</span></span>
                   </li>
                 ))}
               </ul>
@@ -108,13 +108,13 @@ const CompetitionSection = () => {
 
           {/* Radar Chart */}
           <div className="col-lg-6 order-1 order-lg-2">
-            <div className="card bg-body border shadow-lg">
+            <div className="card border shadow-sm">
               <div className="card-body p-4">
                 <div className="d-flex justify-content-between align-items-center mb-3">
-                  <h5 className="fw-bold mb-0 text-body">
+                  <h5 className="fw-bold mb-0">
                     {t('competition.chartTitle')}
                   </h5>
-                  <span className="badge bg-primary text-white small">Interactive</span>
+                  <span className="badge bg-primary bg-opacity-10 text-primary small">Interactive</span>
                 </div>
                 
                 {/* Competitor Toggles */}

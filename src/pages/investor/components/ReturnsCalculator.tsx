@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext'
 import { useState, useEffect } from 'react'
-import { AlertCircle, Info, TrendingUp, DollarSign, Target, BarChart3, PieChart } from 'lucide-react'
+import { AlertCircle, Info, TrendingUp, DollarSign, Target, BarChart3, PieChart, Settings } from 'lucide-react'
 
 // Ad channel data structure matching AdsForecast
 const BASE_CHANNEL_DATA = {
@@ -69,7 +69,7 @@ const ReturnsCalculator = () => {
   const [errorMargin, setErrorMargin] = useState(30)
   const [scenario, setScenario] = useState<'pessimistic' | 'baseline' | 'optimistic'>('baseline')
   const [cpaShare, setCpaShare] = useState(35)
-  const [avgTicket, setAvgTicket] = useState(324)
+  const [avgTicket, setAvgTicket] = useState(189)
   const [activeChannels, setActiveChannels] = useState({
     facebook: true,
     instagram: true,
@@ -232,179 +232,201 @@ const ReturnsCalculator = () => {
                 <BarChart3 size={20} className="text-muted" />
               </div>
             </div>
-            <div className="card-body p-4">
+            <div className="card-body p-4 p-md-5">
               
-              {/* Campaign Controls */}
+              {/* Primary Controls - More Prominent */}
               <div className="row g-4 mb-4">
-                <div className="col-md-3">
-                  <label className="small fw-semibold d-flex align-items-center">
-                    Daily Budget
-                    <Tooltip text="Amount spent per day on ads across all channels. Tax season is 90 days (Feb-Apr)." />
-                  </label>
-                  <div className="fw-bold text-primary mb-2">{formatCurrency(dailyBudget)}</div>
-                  <input
-                    type="range"
-                    min="200"
-                    max="2000"
-                    step="50"
-                    value={dailyBudget}
-                    onChange={(e) => setDailyBudget(Number(e.target.value))}
-                    className="form-range"
-                  />
+                <div className="col-md-6">
+                  <div className="card bg-body-tertiary border-0">
+                    <div className="card-body p-3">
+                      <label className="small text-uppercase fw-bold text-muted mb-2 d-flex align-items-center">
+                        Daily Budget
+                        <Tooltip text="Amount spent per day on ads across all channels. Tax season is 90 days (Feb-Apr)." />
+                      </label>
+                      <div className="display-6 fw-bold text-primary mb-3">{formatCurrency(dailyBudget)}</div>
+                      <input
+                        type="range"
+                        min="200"
+                        max="2000"
+                        step="50"
+                        value={dailyBudget}
+                        onChange={(e) => setDailyBudget(Number(e.target.value))}
+                        className="form-range"
+                      />
+                      <div className="d-flex justify-content-between small text-muted mt-1">
+                        <span>$200</span>
+                        <span>$2,000</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 
-                <div className="col-md-3">
-                  <label className="small fw-semibold d-flex align-items-center">
-                    Duration (Days)
-                    <Tooltip text="Campaign length. Full tax season = 90 days. Individual months: Feb=28, Mar=31, Apr=30." />
-                  </label>
-                  <div className="fw-bold text-primary mb-2">{duration} days</div>
-                  <select 
-                    className="form-select form-select-sm"
-                    value={duration}
-                    onChange={(e) => setDuration(Number(e.target.value))}
-                  >
-                    <option value={90}>All (Feb-Apr): 90 days</option>
-                    <option value={28}>February: 28 days</option>
-                    <option value={31}>March: 31 days</option>
-                    <option value={30}>April: 30 days</option>
-                  </select>
-                </div>
-
-                <div className="col-md-3">
-                  <label className="small fw-semibold d-flex align-items-center">
-                    Avg Ticket
-                    <Tooltip text="Average price per customer. DIY marketplace range: $150-$499 for crypto/K-1/complex returns." />
-                  </label>
-                  <div className="fw-bold text-primary mb-2">{formatCurrency(avgTicket)}</div>
-                  <input
-                    type="range"
-                    min="39"
-                    max="1000"
-                    step="25"
-                    value={avgTicket}
-                    onChange={(e) => setAvgTicket(Number(e.target.value))}
-                    className="form-range"
-                  />
-                </div>
-
-                <div className="col-md-3">
-                  <label className="small fw-semibold d-flex align-items-center">
-                    CPA Share (%)
-                    <Tooltip text="Revenue percentage paid to CPAs for review. Higher share = lower net revenue per sale." />
-                  </label>
-                  <div className="fw-bold text-primary mb-2">{cpaShare}%</div>
-                  <input
-                    type="range"
-                    min="0"
-                    max="50"
-                    step="5"
-                    value={cpaShare}
-                    onChange={(e) => setCpaShare(Number(e.target.value))}
-                    className="form-range"
-                  />
-                  <small className="text-muted">Net: {formatCurrency(avgTicket * (1 - cpaShare/100))}/sale</small>
-                </div>
-              </div>
-
-              {/* Error Margin & Scenario */}
-              <div className="row g-4 mb-4">
                 <div className="col-md-6">
-                  <label className="small fw-semibold d-flex align-items-center">
-                    Error Margin (±)
-                    <Tooltip text="Potential variance in CTR/CVR. Can be positive (optimistic) or negative (pessimistic). Affects all channel performance." />
-                  </label>
-                  <div className="input-group">
-                    <span className="input-group-text">±</span>
-                    <input
-                      type="number"
-                      min="0"
-                      max="50"
-                      value={errorMargin}
-                      onChange={(e) => setErrorMargin(Number(e.target.value))}
-                      className="form-control"
-                    />
-                    <span className="input-group-text">%</span>
-                  </div>
-                </div>
-
-                <div className="col-md-6">
-                  <label className="small fw-semibold d-flex align-items-center">
-                    Scenario
-                    <Tooltip text="Pessimistic applies -margin, Baseline uses exact values, Optimistic applies +margin to performance metrics." />
-                  </label>
-                  <div className="btn-group w-100" role="group">
-                    {(['pessimistic', 'baseline', 'optimistic'] as const).map((s) => (
-                      <button
-                        key={s}
-                        type="button"
-                        className={`btn btn-sm ${scenario === s ? 'btn-primary' : 'btn-outline-secondary'}`}
-                        onClick={() => setScenario(s)}
-                      >
-                        {s === 'pessimistic' && <>Pessimistic (-{errorMargin}%)</>}
-                        {s === 'baseline' && <>Baseline</>}
-                        {s === 'optimistic' && <>Optimistic (+{errorMargin}%)</>}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Channel Toggles */}
-              <div className="border-top pt-3 mb-4">
-                <label className="small fw-semibold mb-2">Active Ad Channels:</label>
-                <div className="d-flex flex-wrap gap-3">
-                  {Object.entries(BASE_CHANNEL_DATA).map(([key, data]) => (
-                    <div key={key} className="form-check">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        id={`channel-${key}`}
-                        checked={activeChannels[key as keyof typeof activeChannels]}
-                        onChange={(e) =>
-                          setActiveChannels((prev) => ({ ...prev, [key]: e.target.checked }))
-                        }
-                      />
-                      <label className="form-check-label small" htmlFor={`channel-${key}`}>
-                        <span style={{ color: data.color }}>●</span> {data.name}
-                        <Tooltip text={data.tooltip} />
+                  <div className="card bg-body-tertiary border-0">
+                    <div className="card-body p-3">
+                      <label className="small text-uppercase fw-bold text-muted mb-2 d-flex align-items-center">
+                        Campaign Duration
+                        <Tooltip text="Campaign length. Full tax season = 90 days. Individual months: Feb=28, Mar=31, Apr=30." />
                       </label>
+                      <div className="display-6 fw-bold text-primary mb-3">{duration} days</div>
+                      <select 
+                        className="form-select"
+                        value={duration}
+                        onChange={(e) => setDuration(Number(e.target.value))}
+                      >
+                        <option value={90}>Full Tax Season (Feb-Apr): 90 days</option>
+                        <option value={28}>February Only: 28 days</option>
+                        <option value={31}>March Only: 31 days</option>
+                        <option value={30}>April Only: 30 days</option>
+                      </select>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
+
+              {/* Secondary Controls - Collapsible/Less Prominent */}
+              <details className="mb-4" open>
+                <summary className="btn btn-outline-secondary btn-sm mb-3" style={{cursor: 'pointer'}}>
+                  <Settings size={14} className="me-1" />
+                  <small>Advanced Settings (Pricing & Performance)</small>
+                </summary>
+                <div className="border rounded p-3 bg-light">
+                  <div className="row g-3 mb-3">
+                    <div className="col-md-6">
+                      <label className="small fw-semibold d-flex align-items-center">
+                        Average Ticket Price
+                        <Tooltip text="Average price per customer. DIY marketplace range: $150-$499 for crypto/K-1/complex returns." />
+                      </label>
+                      <div className="fw-bold text-primary mb-2">{formatCurrency(avgTicket)}</div>
+                      <input
+                        type="range"
+                        min="39"
+                        max="1000"
+                        step="25"
+                        value={avgTicket}
+                        onChange={(e) => setAvgTicket(Number(e.target.value))}
+                        className="form-range"
+                      />
+                    </div>
+
+                    <div className="col-md-6">
+                      <label className="small fw-semibold d-flex align-items-center">
+                        CPA Revenue Share
+                        <Tooltip text="Revenue percentage paid to CPAs for review. Higher share = lower net revenue per sale." />
+                      </label>
+                      <div className="fw-bold text-primary mb-2">{cpaShare}%</div>
+                      <input
+                        type="range"
+                        min="0"
+                        max="50"
+                        step="5"
+                        value={cpaShare}
+                        onChange={(e) => setCpaShare(Number(e.target.value))}
+                        className="form-range"
+                      />
+                      <small className="text-muted">Net per sale: {formatCurrency(avgTicket * (1 - cpaShare/100))}</small>
+                    </div>
+                  </div>
+
+                  <div className="row g-3 mb-3">
+                    <div className="col-md-6">
+                      <label className="small fw-semibold d-flex align-items-center">
+                        Performance Variance (±)
+                        <Tooltip text="Potential variance in CTR/CVR. Can be positive (optimistic) or negative (pessimistic). Affects all channel performance." />
+                      </label>
+                      <div className="input-group input-group-sm">
+                        <span className="input-group-text">±</span>
+                        <input
+                          type="number"
+                          min="0"
+                          max="50"
+                          value={errorMargin}
+                          onChange={(e) => setErrorMargin(Number(e.target.value))}
+                          className="form-control"
+                        />
+                        <span className="input-group-text">%</span>
+                      </div>
+                    </div>
+
+                    <div className="col-md-6">
+                      <label className="small fw-semibold d-flex align-items-center">
+                        Scenario Projection
+                        <Tooltip text="Pessimistic applies -margin, Baseline uses exact values, Optimistic applies +margin to performance metrics." />
+                      </label>
+                      <div className="btn-group btn-group-sm w-100" role="group">
+                        {(['pessimistic', 'baseline', 'optimistic'] as const).map((s) => (
+                          <button
+                            key={s}
+                            type="button"
+                            className={`btn ${scenario === s ? 'btn-primary' : 'btn-outline-secondary'}`}
+                            onClick={() => setScenario(s)}
+                          >
+                            {s === 'pessimistic' && <>Low (-{errorMargin}%)</>}
+                            {s === 'baseline' && <>Base</>}
+                            {s === 'optimistic' && <>High (+{errorMargin}%)</>}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="border-top pt-3">
+                    <label className="small fw-semibold mb-2 text-center d-block">Active Ad Channels:</label>
+                    <div className="d-flex flex-wrap gap-2 justify-content-center">
+                      {Object.entries(BASE_CHANNEL_DATA).map(([key, data]) => (
+                        <div key={key} className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            id={`channel-${key}`}
+                            checked={activeChannels[key as keyof typeof activeChannels]}
+                            onChange={(e) =>
+                              setActiveChannels((prev) => ({ ...prev, [key]: e.target.checked }))
+                            }
+                          />
+                          <label className="form-check-label small" htmlFor={`channel-${key}`}>
+                            <span style={{ color: data.color }}>●</span> {data.name}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </details>
 
               {/* Results Summary */}
-              <div className="alert alert-light border">
-                <h6 className="fw-bold mb-3 d-flex align-items-center gap-2">
-                  <TrendingUp size={18} />
-                  Campaign Totals ({duration} days @ {formatCurrency(dailyBudget)}/day)
-                </h6>
-                <div className="row g-3 text-center">
-                  <div className="col-6 col-md-2">
-                    <div className="small text-muted">Total Spend</div>
-                    <div className="fw-bold">{formatCurrency(totals.spend)}</div>
-                  </div>
-                  <div className="col-6 col-md-2">
-                    <div className="small text-muted">Impressions</div>
-                    <div className="fw-bold">{formatNumber(totals.impressions)}</div>
-                  </div>
-                  <div className="col-6 col-md-2">
-                    <div className="small text-muted">Clicks</div>
-                    <div className="fw-bold">{formatNumber(totals.clicks)}</div>
-                  </div>
-                  <div className="col-6 col-md-2">
-                    <div className="small text-muted">Conversions</div>
-                    <div className="fw-bold text-primary">{formatNumber(totals.conversions)}</div>
-                  </div>
-                  <div className="col-6 col-md-2">
-                    <div className="small text-muted">Gross Revenue</div>
-                    <div className="fw-bold text-info">{formatCurrency(totals.revenue)}</div>
-                  </div>
-                  <div className="col-6 col-md-2">
-                    <div className="small text-muted">Net Profit</div>
-                    <div className={`fw-bold ${totals.netProfit >= 0 ? 'text-success' : 'text-danger'}`}>
-                      {formatCurrency(totals.netProfit)}
+              <div className="card border-2 border-primary bg-primary bg-opacity-10">
+                <div className="card-body p-3">
+                  <h6 className="fw-bold mb-3 d-flex align-items-center gap-2">
+                    <TrendingUp size={18} />
+                    Campaign Results ({duration} days @ {formatCurrency(dailyBudget)}/day)
+                  </h6>
+                  <div className="row g-3 text-center">
+                    <div className="col-6 col-lg-2">
+                      <div className="small text-muted mb-1">Total Spend</div>
+                      <div className="h6 fw-bold mb-0">{formatCurrency(totals.spend)}</div>
+                    </div>
+                    <div className="col-6 col-lg-2">
+                      <div className="small text-muted mb-1">Impressions</div>
+                      <div className="h6 fw-bold mb-0">{formatNumber(totals.impressions)}</div>
+                    </div>
+                    <div className="col-6 col-lg-2">
+                      <div className="small text-muted mb-1">Clicks</div>
+                      <div className="h6 fw-bold mb-0">{formatNumber(totals.clicks)}</div>
+                    </div>
+                    <div className="col-6 col-lg-2">
+                      <div className="small text-muted mb-1">Conversions</div>
+                      <div className="h6 fw-bold text-primary mb-0">{formatNumber(totals.conversions)}</div>
+                    </div>
+                    <div className="col-6 col-lg-2">
+                      <div className="small text-muted mb-1">Gross Revenue</div>
+                      <div className="h6 fw-bold text-info mb-0">{formatCurrency(totals.revenue)}</div>
+                    </div>
+                    <div className="col-6 col-lg-2">
+                      <div className="small text-muted mb-1">Net Profit</div>
+                      <div className={`h6 fw-bold mb-0 ${totals.netProfit >= 0 ? 'text-success' : 'text-danger'}`}>
+                        {formatCurrency(totals.netProfit)}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -428,100 +450,102 @@ const ReturnsCalculator = () => {
             <div className="card-body p-4 p-md-5">
               
               {/* Revenue Share Control */}
-              <div className="alert alert-info mb-4">
-                <div className="d-flex align-items-center gap-2 mb-2">
-                  <AlertCircle size={18} />
-                  <strong>Investment Structure</strong>
-                </div>
-                <p className="small mb-2">
-                  Based on the ad campaign above generating <strong>{formatCurrency(totals.revenue)}</strong> total revenue,
-                  investors receive <strong>{profitSharePercent}%</strong> of total revenue proportional to their investment.
-                </p>
-                <div className="row g-3">
-                  <div className="col-md-4">
-                    <label className="small fw-semibold d-flex align-items-center">
-                      Revenue Share (%)
-                      <Tooltip text="Percentage of total revenue distributed to all investors. This comes from gross revenue before expenses." />
-                    </label>
-                    <input
-                      type="range"
-                      min="10"
-                      max="100"
-                      step="5"
-                      value={profitSharePercent}
-                      onChange={(e) => setProfitSharePercent(Number(e.target.value))}
-                      className="form-range"
-                    />
-                    <div className="fw-bold text-primary">{profitSharePercent}%</div>
+              <div className="card bg-body-tertiary border-0 mb-4">
+                <div className="card-body p-3">
+                  <div className="d-flex align-items-center gap-2 mb-2">
+                    <AlertCircle size={18} className="text-muted" />
+                    <strong className="small text-uppercase text-muted">Investment Structure</strong>
                   </div>
-                  <div className="col-md-4">
-                    <label className="small fw-semibold">Total Revenue</label>
-                    <div className="fw-bold text-info">{formatCurrency(totals.revenue)}</div>
-                    <small className="text-muted">From {formatNumber(totals.conversions)} conversions</small>
-                  </div>
-                  <div className="col-md-4">
-                    <label className="small fw-semibold">Total Investor Pool</label>
-                    <div className="fw-bold text-success">{formatCurrency(totalRevenueSharePool)}</div>
-                    <small className="text-muted">= {formatCurrency(totals.revenue)} × {profitSharePercent}%</small>
+                  <p className="small text-muted mb-3">
+                    Based on the ad campaign above generating <strong className="text-dark">{formatCurrency(totals.revenue)}</strong> total revenue,
+                    investors receive <strong className="text-dark">{profitSharePercent}%</strong> of total revenue proportional to their investment.
+                  </p>
+                  <div className="row g-3">
+                    <div className="col-md-4">
+                      <label className="small fw-semibold text-muted d-flex align-items-center">
+                        Revenue Share (%)
+                        <Tooltip text="Percentage of total revenue distributed to all investors. This comes from gross revenue before expenses." />
+                      </label>
+                      <input
+                        type="range"
+                        min="10"
+                        max="100"
+                        step="5"
+                        value={profitSharePercent}
+                        onChange={(e) => setProfitSharePercent(Number(e.target.value))}
+                        className="form-range"
+                      />
+                      <div className="fw-bold text-primary">{profitSharePercent}%</div>
+                    </div>
+                    <div className="col-md-4">
+                      <label className="small fw-semibold text-muted">Total Revenue</label>
+                      <div className="fw-bold text-info">{formatCurrency(totals.revenue)}</div>
+                      <small className="text-muted">From {formatNumber(totals.conversions)} conversions</small>
+                    </div>
+                    <div className="col-md-4">
+                      <label className="small fw-semibold text-muted">Total Investor Pool</label>
+                      <div className="fw-bold text-success">{formatCurrency(totalRevenueSharePool)}</div>
+                      <small className="text-muted">= {formatCurrency(totals.revenue)} × {profitSharePercent}%</small>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Investment Amount Input */}
-              <div className="mb-4">
-                <div className="d-flex justify-content-between align-items-end mb-3">
-                  <label className="h5 fw-bold mb-0 d-flex align-items-center">
-                    {t('returnsCalculator.investmentLabel')}
-                    <Tooltip text="Your personal investment amount. You'll receive this back in full plus your share of profits." />
-                  </label>
-                  <span className="display-6 fw-bold text-primary">
-                    {formatCurrency(investmentAmount)}
-                  </span>
-                </div>
-                <input
-                  type="range"
-                  min="1000"
-                  max="100000"
-                  step="1000"
-                  value={investmentAmount}
-                  onChange={(e) => setInvestmentAmount(Number(e.target.value))}
-                  className="form-range"
-                />
-                <div className="d-flex justify-content-between small text-muted mt-2">
-                  <span>{formatCurrency(1000)}</span>
-                  <span>Your share: {((investorSharePercent) * 100).toFixed(2)}% of pool</span>
-                  <span>{formatCurrency(100000)}</span>
+              <div className="card bg-body-tertiary border-0 mb-4">
+                <div className="card-body p-3">
+                  <div className="d-flex justify-content-between align-items-end mb-3">
+                    <label className="h6 fw-bold mb-0 d-flex align-items-center">
+                      {t('returnsCalculator.investmentLabel')}
+                      <Tooltip text="Your personal investment amount. You'll receive this back in full plus your share of profits." />
+                    </label>
+                    <span className="display-6 fw-bold text-primary">
+                      {formatCurrency(investmentAmount)}
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="1000"
+                    max="100000"
+                    step="1000"
+                    value={investmentAmount}
+                    onChange={(e) => setInvestmentAmount(Number(e.target.value))}
+                    className="form-range"
+                  />
+                  <div className="d-flex justify-content-between small text-muted mt-2">
+                    <span>{formatCurrency(1000)}</span>
+                    <span>Your share: {((investorSharePercent) * 100).toFixed(2)}% of pool</span>
+                    <span>{formatCurrency(100000)}</span>
+                  </div>
                 </div>
               </div>
 
               {/* Returns Breakdown */}
-              <div className="row g-4 mb-4">
+              <div className="row g-3 mb-4">
                 <div className="col-md-3">
-                  <div className="card border-2 border-secondary h-100">
-                    <div className="card-body text-center p-4">
-                      <div className="text-muted small text-uppercase fw-bold mb-3 d-flex align-items-center justify-content-center gap-1">
+                  <div className="card border h-100">
+                    <div className="card-body text-center p-3">
+                      <div className="text-muted small text-uppercase fw-bold mb-2">
                         Principal Returned
-                        <Tooltip text="Your full investment amount returned to you." />
                       </div>
-                      <div className="display-6 fw-bold text-secondary mb-3">
+                      <div className="h4 fw-bold text-secondary mb-2">
                         {formatCurrency(principal)}
                       </div>
-                      <div className="small text-muted">100% of your investment</div>
+                      <div className="small text-muted">100% of investment</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="col-md-3">
-                  <div className="card border-2 border-info h-100">
-                    <div className="card-body text-center p-4">
-                      <div className="text-info small text-uppercase fw-bold mb-3 d-flex align-items-center justify-content-center gap-1">
+                  <div className="card border h-100">
+                    <div className="card-body text-center p-3">
+                      <div className="text-muted small text-uppercase fw-bold mb-2">
                         Your Share %
-                        <Tooltip text={`Your investment represents ${((investorSharePercent) * 100).toFixed(2)}% of the total $${formatCurrency(TOTAL_INVESTMENT_POOL)} investment pool.`} />
                       </div>
-                      <div className="display-6 fw-bold text-info mb-3">
+                      <div className="h4 fw-bold text-info mb-2">
                         {((investorSharePercent) * 100).toFixed(2)}%
                       </div>
-                      <div className="small text-info">
+                      <div className="small text-muted">
                         of {formatCurrency(TOTAL_INVESTMENT_POOL)} pool
                       </div>
                     </div>
@@ -529,16 +553,15 @@ const ReturnsCalculator = () => {
                 </div>
 
                 <div className="col-md-3">
-                  <div className="card border-2 border-success h-100">
-                    <div className="card-body text-center p-4">
-                      <div className="text-success small text-uppercase fw-bold mb-3 d-flex align-items-center justify-content-center gap-1">
+                  <div className="card border h-100">
+                    <div className="card-body text-center p-3">
+                      <div className="text-muted small text-uppercase fw-bold mb-2">
                         Revenue Share
-                        <Tooltip text={`Your ${(investorSharePercent * 100).toFixed(2)}% share of the ${profitSharePercent}% revenue pool (${formatCurrency(totalRevenueSharePool)}).`} />
                       </div>
-                      <div className="display-6 fw-bold text-success mb-3">
+                      <div className="h4 fw-bold text-success mb-2">
                         {formatCurrency(profit)}
                       </div>
-                      <div className="small text-success">
+                      <div className="small text-muted">
                         {((investorSharePercent) * 100).toFixed(2)}% × {formatCurrency(totalRevenueSharePool)}
                       </div>
                     </div>
@@ -546,13 +569,13 @@ const ReturnsCalculator = () => {
                 </div>
 
                 <div className="col-md-3">
-                  <div className="card border-4 border-success h-100 shadow">
-                    <div className="card-body text-center p-4">
-                      <div className="small text-uppercase fw-bold mb-3 opacity-90">
+                  <div className="card border-2 border-success h-100">
+                    <div className="card-body text-center p-3">
+                      <div className="small text-uppercase fw-bold mb-2 text-muted">
                         Total Return
                       </div>
-                      <div className="display-6 fw-bold mb-3">{formatCurrency(total)}</div>
-                      <div className="fw-semibold text-success fs-5">
+                      <div className="h4 fw-bold mb-2">{formatCurrency(total)}</div>
+                      <div className="fw-semibold text-success">
                         +{roi.toFixed(1)}% ROI
                       </div>
                     </div>
@@ -561,51 +584,60 @@ const ReturnsCalculator = () => {
               </div>
 
               {/* Assumptions Note */}
-              <div className="alert alert-warning">
-                <div className="row g-4">
-                  <div className="col-md-6">
-                    <p className="small mb-2 d-flex align-items-center gap-2">
-                      <PieChart size={16} />
-                      <strong>How It Works:</strong>
-                    </p>
-                    <ul className="small mb-0">
-                      <li>Ads generate <strong>{formatCurrency(totals.revenue)}</strong> total revenue</li>
-                      <li><strong>{profitSharePercent}%</strong> of revenue = <strong>{formatCurrency(totalRevenueSharePool)}</strong> distributed to investors</li>
-                      <li>Your <strong>{formatCurrency(investmentAmount)}</strong> = <strong>{((investorSharePercent) * 100).toFixed(2)}%</strong> of {formatCurrency(TOTAL_INVESTMENT_POOL)} pool</li>
-                      <li>You receive: <strong>{formatCurrency(principal)}</strong> (principal) + <strong>{formatCurrency(profit)}</strong> (revenue share) = <strong>{formatCurrency(total)}</strong></li>
-                    </ul>
-                  </div>
-                  <div className="col-md-6">
-                    <p className="small mb-2 d-flex align-items-center gap-2">
-                      <Target size={16} />
-                      <strong>Example Calculation:</strong>
-                    </p>
-                    <div className="small">
-                      <div className="d-flex justify-content-between mb-1">
-                        <span>Total Revenue:</span>
-                        <strong>{formatCurrency(totals.revenue)}</strong>
+              <details className="mb-4" open>
+                <summary className="btn btn-outline-secondary btn-sm mb-3" style={{cursor: 'pointer'}}>
+                  <BarChart3 size={14} className="me-1" />
+                  <small>View Detailed Breakdown</small>
+                </summary>
+                <div className="card border bg-light">
+                  <div className="card-body p-3">
+                    <div className="row g-3">
+                      <div className="col-md-6">
+                        <p className="small mb-2 fw-bold text-muted">
+                          <PieChart size={16} className="me-1" />
+                          How It Works:
+                        </p>
+                        <ul className="small mb-0 text-muted">
+                          <li>Ads generate <strong className="text-dark">{formatCurrency(totals.revenue)}</strong> total revenue</li>
+                          <li><strong className="text-dark">{profitSharePercent}%</strong> of revenue = <strong className="text-dark">{formatCurrency(totalRevenueSharePool)}</strong> distributed to investors</li>
+                          <li>Your <strong className="text-dark">{formatCurrency(investmentAmount)}</strong> = <strong className="text-dark">{((investorSharePercent) * 100).toFixed(2)}%</strong> of {formatCurrency(TOTAL_INVESTMENT_POOL)} pool</li>
+                          <li>You receive: <strong className="text-dark">{formatCurrency(principal)}</strong> (principal) + <strong className="text-dark">{formatCurrency(profit)}</strong> (revenue share) = <strong className="text-success">{formatCurrency(total)}</strong></li>
+                        </ul>
                       </div>
-                      <div className="d-flex justify-content-between mb-1">
-                        <span>{profitSharePercent}% to Investors:</span>
-                        <strong>{formatCurrency(totalRevenueSharePool)}</strong>
-                      </div>
-                      <div className="d-flex justify-content-between mb-1">
-                        <span>Your Investment:</span>
-                        <strong>{formatCurrency(investmentAmount)} ({((investorSharePercent) * 100).toFixed(2)}%)</strong>
-                      </div>
-                      <div className="border-top pt-2 mt-2">
-                        <div className="d-flex justify-content-between">
-                          <span className="fw-bold">Your Total Return:</span>
-                          <strong className="text-success">{formatCurrency(total)}</strong>
+                      <div className="col-md-6">
+                        <p className="small mb-2 fw-bold text-muted">
+                          <Target size={16} className="me-1" />
+                          Example Calculation:
+                        </p>
+                        <div className="small text-muted">
+                          <div className="d-flex justify-content-between mb-1">
+                            <span>Total Revenue:</span>
+                            <strong className="text-dark">{formatCurrency(totals.revenue)}</strong>
+                          </div>
+                          <div className="d-flex justify-content-between mb-1">
+                            <span>{profitSharePercent}% to Investors:</span>
+                            <strong className="text-dark">{formatCurrency(totalRevenueSharePool)}</strong>
+                          </div>
+                          <div className="d-flex justify-content-between mb-1">
+                            <span>Your Investment:</span>
+                            <strong className="text-dark">{formatCurrency(investmentAmount)} ({((investorSharePercent) * 100).toFixed(2)}%)</strong>
+                          </div>
+                          <div className="border-top pt-2 mt-2">
+                            <div className="d-flex justify-content-between">
+                              <span className="fw-bold">Your Total Return:</span>
+                              <strong className="text-success">{formatCurrency(total)}</strong>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <em className="d-block mt-3 small opacity-75">
-                  *Projections based on historical ad performance and tax season trends. Actual results may vary.
-                </em>
-              </div>
+              </details>
+
+              <p className="text-center small text-muted mb-4">
+                <em>*Projections based on historical ad performance and tax season trends. Actual results may vary.</em>
+              </p>
 
               <div className="text-center mt-4">
                 <button

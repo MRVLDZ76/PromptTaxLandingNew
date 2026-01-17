@@ -1,4 +1,3 @@
-import fetch from "node-fetch";
 import { Handler } from "@netlify/functions";
 
 // Simple in-memory cache for the lifetime of the function container

@@ -52,20 +52,20 @@ const SeedRoundSection = () => {
 
           {/* Right: Traction Dashboard */}
           <div className="col-lg-6">
-            <div className="card bg-dark text-white border-0 shadow-lg">
+            <div className="card border shadow-sm">
               <div className="card-body p-4">
-                <h3 className="h4 fw-bold mb-3 text-white">{t('seedRound.dashboardTitle')}</h3>
-                <p className="text-white-50 small mb-4">{t('seedRound.dashboardSubtitle')}</p>
+                <h3 className="h4 fw-bold mb-3">{t('seedRound.dashboardTitle')}</h3>
+                <p className="text-muted small mb-4">{t('seedRound.dashboardSubtitle')}</p>
 
                 {/* Metric Cards */}
                 <div className="d-flex flex-column gap-3 mb-4">
                   {metrics.map((metric: any, index: number) => {
                     return (
-                      <div key={index} className="card bg-black bg-opacity-25 border-secondary">
+                      <div key={index} className="card border">
                         <div className="card-body p-3">
                           <div className="d-flex justify-content-between align-items-center">
                             <div>
-                              <div className="text-white-50 small text-uppercase fw-bold mb-1">
+                              <div className="text-muted small text-uppercase fw-bold mb-1">
                                 {metric.label}
                               </div>
                               <div className={`h2 fw-bold mb-0 text-${metric.color === 'emerald' ? 'success' : metric.color === 'sky' ? 'info' : 'warning'}`}>
@@ -76,7 +76,7 @@ const SeedRoundSection = () => {
                               <div className={`fw-bold text-${metric.color === 'emerald' ? 'success' : metric.color === 'sky' ? 'info' : 'warning'}`}>
                                 {metric.growth}
                               </div>
-                              <div className="text-white-50 small">{metric.note}</div>
+                              <div className="text-muted small">{metric.note}</div>
                             </div>
                           </div>
                         </div>
@@ -85,24 +85,25 @@ const SeedRoundSection = () => {
                   })}
                 </div>
 
-                {/* Progress Bar */}\n                <div className="card bg-primary bg-opacity-25 border-primary">
+                {/* Progress Bar */}
+                <div className="card border-2 border-primary">
                   <div className="card-body p-3">
                     <div className="d-flex justify-content-between align-items-center mb-2">
-                      <span className="small fw-semibold text-white">
+                      <span className="small fw-semibold">
                         {t('seedRound.progressLabel')}
                       </span>
-                      <span className="small fw-bold text-white">
+                      <span className="small fw-bold text-primary">
                         {t('seedRound.progressPercent')}%
                       </span>
                     </div>
                     <div className="progress" style={{height: '12px'}}>
                       <div
-                        className="progress-bar bg-success"
+                        className="progress-bar bg-primary"
                         style={{ width: `${t('seedRound.progressPercent')}%` }}
                         role="progressbar"
                       ></div>
                     </div>
-                    <div className="d-flex justify-content-between small text-white-50 mt-2">
+                    <div className="d-flex justify-content-between small text-muted mt-2">
                       <span>{t('seedRound.progressCurrent')}</span>
                       <span>{t('seedRound.progressTarget')}</span>
                     </div>
