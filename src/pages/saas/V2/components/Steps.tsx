@@ -134,7 +134,7 @@ const Steps = () => {
                                  className="me-lg-n8 mx-auto mt-n5 mt-lg-0 z-index-2 position-relative order-2">
                                 <Card className="card-body shadow rounded p-4 overflow-hidden me-3">
                                     {/* AI Processing Dashboard */}
-                                    <div className="bg-primary bg-opacity-10 rounded p-4 mb-3 text-center">
+                                    <div className="bg-light  bg-opacity-10  rounded p-4 mb-3 text-center">
                                         <BsLightning size={48} className="text-primary mb-3"/>
                                         <h5 className="mb-2">AI Processing Tax Return</h5>
                                         <ProgressBar now={85} variant="primary" className="mb-2" style={{height: '8px'}}/>
@@ -158,7 +158,7 @@ const Steps = () => {
                                     </Row>
                                     
                                     {/* Generated Forms */}
-                                    <div className="bg-success bg-opacity-10 rounded p-3">
+                                    <div className="bg-primary bg-opacity-10 rounded p-3 mb-3">
                                         <div className="d-flex align-items-center justify-content-between mb-2">
                                             <div className="d-flex align-items-center gap-2">
                                                 <BsCheckCircle className="text-success"/>
@@ -235,7 +235,7 @@ const Steps = () => {
                                                 <BsDisplay size={19} className="fa-xl"/></div>
 
                                             <div className="ms-3">
-                                                <p className="heading-color fw-bold mb-0">Self-Service ($59)</p>
+                                                <p className="heading-color fw-bold mb-0">Self-Service ($29)</p>
                                                 <small>Download instantly and file yourself</small>
                                             </div>
                                         </li>
@@ -266,7 +266,7 @@ const Steps = () => {
                                             <div className="d-flex align-items-start justify-content-between mb-2">
                                                 <div>
                                                     <h6 className="mb-1">Self-Service</h6>
-                                                    <h4 className="text-primary mb-0">$59</h4>
+                                                    <h4 className="text-primary mb-0">$29</h4>
                                                 </div>
                                                 <BsDownload size={24} className="text-primary"/>
                                             </div>

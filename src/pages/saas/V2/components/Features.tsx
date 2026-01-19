@@ -13,8 +13,8 @@ import {
 } from 'react-icons/bs'
 import trustPilotImg from '@/assets/images/elements/trustpilot.svg'
 import trustStarImg from '@/assets/images/elements/trustpilot-star.svg'
-import about14 from '@/assets/images/about/14.jpg'
-import about14K1 from '@/assets/images/about/20.jpg'
+import about14 from '/images/marketing/import-crypto.png'
+import about14K1 from '@/assets/images/about/generate_k1.png'
 import about17 from '@/assets/images/about/17.jpg'
 import about19 from '@/assets/images/about/19.jpg'
 

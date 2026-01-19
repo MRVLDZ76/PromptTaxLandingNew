@@ -2,7 +2,7 @@ import { splitArray } from "@/utils/array"
 import { Card, CardBody, Col, Container, Row } from "react-bootstrap"
 import { BsChevronRight, BsPatchCheckFill } from "react-icons/bs"
 
-import about14 from '@/assets/images/about/14.jpg'
+import about14 from '/images/marketing/import-crypto.png'
 import { Link } from "react-router-dom"
 import { features } from "../data"
 

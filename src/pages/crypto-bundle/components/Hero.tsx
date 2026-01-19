@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Col, Container, Row } from 'react-bootstrap'
-import { BsFileEarmarkText } from 'react-icons/bs'
 import {useLaunchModal} from '@/hooks/useLaunchModal';
 import LaunchCountdownModal from '@/components/LaunchCountdownModal';
+import ImageSlider from './ImageSlider';
 
 const Hero = () => {
   const {showModal, openModal, closeModal} = useLaunchModal();
@@ -40,13 +40,7 @@ const Hero = () => {
             </div>
           </Col>
           <Col md={5} className="ms-auto">
-            <div className="bg-light rounded-4 p-5 text-center">
-              <div className="mb-4">
-                <BsFileEarmarkText className="text-primary" size={80} />
-              </div>
-              <h4 className="mb-3">Form 8949 + Schedule D</h4>
-              <p className="text-muted mb-0">IRS-compliant crypto tax forms generated in seconds</p>
-            </div>
+            <ImageSlider />
           </Col>
         </Row>
       </Container>

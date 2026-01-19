@@ -13,7 +13,7 @@ import {
 } from 'react-icons/bs'
 import trustPilotImg from '@/assets/images/elements/trustpilot.svg'
 import trustStarImg from '@/assets/images/elements/trustpilot-star.svg'
-import about14 from '@/assets/images/about/14.jpg'
+import about14 from '/images/marketing/import-crypto.png'
 import about17 from '@/assets/images/about/17.jpg'
 
 import avatar2 from '@/assets/images/avatar/02.jpg'

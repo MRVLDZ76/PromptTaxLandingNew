@@ -20,10 +20,10 @@ const LaunchCountdownModal = ({ show, onHide }: LaunchCountdownModalProps) => {
     seconds: 0
   })
 
-  // Countdown timer to January 19, 2026
+  // Countdown timer to January 28, 2026
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const launchDate = new Date('2026-01-19T00:00:00').getTime()
+      const launchDate = new Date('2026-01-28T00:00:00').getTime()
       const now = new Date().getTime()
       const difference = launchDate - now
 
@@ -111,7 +111,7 @@ const LaunchCountdownModal = ({ show, onHide }: LaunchCountdownModalProps) => {
             </div>
             <h2 className="text-white mb-3">Launching Soon!</h2>
             <p className="text-white opacity-8 mb-4">
-              PromptTax is launching on January 19th, 2026. Join our early access list to be the first to know and get exclusive launch benefits!
+              PromptTax is launching on January 28th, 2026. Join our early access list to be the first to know and get exclusive launch benefits!
             </p>
 
             {/* Countdown Timer */}
@@ -149,7 +149,7 @@ const LaunchCountdownModal = ({ show, onHide }: LaunchCountdownModalProps) => {
             <Alert variant="success" className="d-flex align-items-center">
               <BsCheckCircleFill size={24} className="me-3 flex-shrink-0" />
               <div>
-                <strong>Success!</strong> You're on the list. We'll notify you on January 19th, 2026.
+                <strong>Success!</strong> You're on the list. We'll notify you on January 28th, 2026.
               </div>
             </Alert>
           ) : (

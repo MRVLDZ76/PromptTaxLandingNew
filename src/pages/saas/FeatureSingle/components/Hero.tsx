@@ -15,7 +15,7 @@ import avatar5 from '@/assets/images/avatar/05.jpg'
 import avatar2 from '@/assets/images/avatar/02.jpg'
 import avatar3 from '@/assets/images/avatar/03.jpg'
 import avatar4 from '@/assets/images/avatar/04.jpg'
-import about14 from '@/assets/images/about/14.jpg'
+import about14 from '/images/marketing/import-crypto.png'
 
 const clients = [client5, client4, client1, client2, client3, client6]
 

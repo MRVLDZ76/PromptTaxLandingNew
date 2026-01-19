@@ -1,4 +1,4 @@
-import about20 from '@/assets/images/about/20.jpg'
+import about20 from '@/assets/images/about/generate_k1.png'
 import {BsPatchCheck} from "react-icons/bs";
 import {Col, Container, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";

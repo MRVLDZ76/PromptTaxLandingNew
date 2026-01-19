@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 import about17 from '@/assets/images/about/17.jpg'
 import about18 from '@/assets/images/about/18.jpg'
-import about14 from '@/assets/images/about/14.jpg'
+import about14 from '/images/marketing/import-crypto.png'
 import GlightBox from "@/components/GlightBox"
 import { FaPlay } from "react-icons/fa6"
 import Clients from "./Clients"

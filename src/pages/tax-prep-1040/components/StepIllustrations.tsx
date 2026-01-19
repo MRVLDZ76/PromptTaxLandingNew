@@ -1,243 +1,449 @@
-// Professional, clean illustrations for 1040 Tax Prep workflow
+// Realistic UI mockups matching actual interface designs
+import { Check, FileText, Bitcoin, BarChart3, Wallet, Clock, ChartBar } from 'lucide-react'
 
-// Step 1: Chat & Upload Documents - Modern Interface
+// Step 1: Chat & Upload Documents - Real Interface Mockup
 export const ChatUploadIllustration = () => (
-  <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" className="w-100">
-    <defs>
-      <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#FAFBFC" />
-        <stop offset="100%" stopColor="#F3F4F6" />
-      </linearGradient>
-      <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-        <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.08"/>
-      </filter>
-    </defs>
-    
-    <rect width="400" height="300" fill="url(#bgGrad1)"/>
-    
-    {/* Modern Chat Interface */}
-    <g filter="url(#shadow)">
-      <rect x="30" y="40" width="200" height="160" fill="white" stroke="#E5E7EB" strokeWidth="1" rx="12"/>
+  <div className="position-relative" style={{ maxWidth: '100%', margin: '0 auto' }}>
+    <div className="row g-3">
+      {/* Left Side - AI Chat Interface */}
+      <div className="col-md-6">
+        <div className="bg-white rounded-3 shadow-sm border" style={{ minHeight: '320px' }}>
+          {/* Chat Header */}
+          <div className="d-flex align-items-center gap-2 p-3 border-bottom">
+            <div className="position-relative">
+              <div className="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px' }}>
+                <span className="text-primary fw-bold" style={{ fontSize: '14px' }}>AI</span>
+              </div>
+              <div className="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" style={{ width: '10px', height: '10px' }}></div>
+            </div>
+            <div>
+              <div className="fw-semibold text-dark" style={{ fontSize: '13px' }}>AI Tax Assistant</div>
+            </div>
+            <button className="btn btn-sm btn-primary text-white ms-auto" style={{ fontSize: '11px', padding: '4px 12px' }}>continue</button>
+          </div>
+          
+          {/* Chat Messages */}
+          <div className="p-3" style={{ minHeight: '180px' }}>
+            {/* Success Message */}
+            <div className="d-flex align-items-start gap-2 mb-3">
+              <div className="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: '24px', height: '24px' }}>
+                <Check className="text-primary" size={14} />
+              </div>
+              <div className="flex-grow-1">
+                <div className="fw-semibold text-dark mb-1" style={{ fontSize: '12px' }}>K-1 Data Successfully Transferred</div>
+                <div className="text-dark" style={{ fontSize: '11px' }}>Your K-1 partnership income has been transferred to Form 1040 Schedule E.</div>
+              </div>
+            </div>
+            
+            {/* Partnership Income Card */}
+            <div className="bg-light rounded-3 p-3 mb-3">
+              <div className="fw-semibold text-mute mb-2" style={{ fontSize: '12px' }}>Partnership Income (Schedule E)</div>
+              <div className="d-flex justify-content-between mb-1">
+                <span className="text-muted" style={{ fontSize: '11px' }}>LAS OLAS VENTURES SEED FUND I, LLC (Schedule K-1)</span>
+                <span className="text-mute" style={{ fontSize: '11px' }}>$101,621.00</span>
+              </div>
+              <div className="border-top pt-2 mt-2">
+                <div className="d-flex justify-content-between">
+                  <span className="fw-semibold text-white" style={{ fontSize: '12px' }}>Total Schedule E Income</span>
+                  <span className="text-success fw-bold" style={{ fontSize: '12px' }}>$101,621.00</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Next Steps Info */}
+            <div className="bg-primary bg-opacity-5 border border-primary border-opacity-25 rounded-3 p-2">
+              <div style={{ fontSize: '11px' }} className="text-primary">
+                <div className="fw-semibold mb-1 text-white">Let's Complete Your Form 1040</div>
+                <div className="opacity-7 text-white">Now that we have your partnership income, let's add your other income sources:</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Input Message */}
+          <div className="border-top p-2">
+            <input 
+              type="text" 
+              className="form-control form-control-sm border-0 bg-light" 
+              placeholder="What would you like to add next?"
+              style={{ fontSize: '11px' }}
+              disabled
+            />
+          </div>
+        </div>
+      </div>
       
-      {/* Header */}
-      <rect x="30" y="40" width="200" height="40" fill="#FFFFFF" rx="12"/>
-      <rect x="30" y="65" width="200" height="1" fill="#E5E7EB"/>
-      <circle cx="50" cy="60" r="6" fill="#10B981"/>
-      <text x="65" y="65" fill="#111827" fontSize="12" fontWeight="600">PromptTax AI</text>
-      
-      {/* User Message */}
-      <rect x="140" y="95" width="75" height="28" fill="#8B5CF6" rx="14"/>
-      <text x="150" y="112" fill="white" fontSize="11">Crypto taxes?</text>
-      
-      {/* AI Response */}
-      <rect x="45" y="135" width="170" height="50" fill="#F3F4F6" stroke="#E5E7EB" strokeWidth="1" rx="12"/>
-      <text x="55" y="152" fill="#374151" fontSize="10">I'll process your documents</text>
-      <text x="55" y="166" fill="#374151" fontSize="10">and calculate everything</text>
-      <text x="55" y="180" fill="#6B7280" fontSize="9" fontStyle="italic">• Wash sales • Form 8949</text>
-    </g>
-    
-    {/* Document Stack */}
-    <g filter="url(#shadow)">
-      <rect x="250" y="50" width="130" height="150" fill="white" stroke="#E5E7EB" strokeWidth="1" rx="8"/>
-      
-      {/* Documents Grid */}
-      <rect x="265" y="65" width="48" height="32" fill="white" stroke="#3B82F6" strokeWidth="1.5" rx="4"/>
-      <text x="275" y="84" fill="#3B82F6" fontSize="11" fontWeight="600">W-2</text>
-      
-      <rect x="322" y="65" width="48" height="32" fill="white" stroke="#10B981" strokeWidth="1.5" rx="4"/>
-      <text x="328" y="84" fill="#10B981" fontSize="10" fontWeight="600">1099</text>
-      
-      <rect x="265" y="107" width="48" height="32" fill="white" stroke="#EF4444" strokeWidth="1.5" rx="4"/>
-      <text x="275" y="126" fill="#EF4444" fontSize="11" fontWeight="600">K-1</text>
-      
-      <rect x="322" y="107" width="48" height="32" fill="white" stroke="#F59E0B" strokeWidth="1.5" rx="4"/>
-      <text x="332" y="126" fill="#F59E0B" fontSize="14" fontWeight="700">₿</text>
-      
-      {/* Upload Indicator */}
-      <rect x="265" y="155" width="105" height="30" fill="#F9FAFB" stroke="#E5E7EB" strokeWidth="1" rx="6"/>
-      <text x="285" y="174" fill="#6B7280" fontSize="10">Upload files</text>
-      <path d="M 355 167 L 355 177 M 350 172 L 355 167 L 360 172" stroke="#8B5CF6" strokeWidth="2" fill="none" strokeLinecap="round"/>
-    </g>
-    
-    {/* Connection Line */}
-    <path d="M 230 130 L 250 130" stroke="#E5E7EB" strokeWidth="2" strokeDasharray="4,3"/>
-    
-    {/* Status Badge */}
-    <rect x="30" y="220" width="200" height="36" fill="white" stroke="#8B5CF6" strokeWidth="1.5" rx="18" filter="url(#shadow)"/>
-    <circle cx="50" cy="238" r="8" fill="#8B5CF6"/>
-    <text x="65" y="242" fill="#8B5CF6" fontSize="13" fontWeight="600">Ready to Process</text>
-  </svg>
+      {/* Right Side - Document Upload */}
+      <div className="col-md-6">
+        <div className="bg-white rounded-3 shadow-sm border p-3" style={{ minHeight: '320px' }}>
+          <div className="mb-3">
+            <div className="d-flex align-items-center gap-2 mb-2">
+              <div className="bg-primary bg-opacity-10 rounded-2 p-2">
+                <svg width="20" height="20" fill="currentColor" className="text-primary">
+                  <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V7zm2 4a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm0 3a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1z"/>
+                </svg>
+              </div>
+              <div>
+                <div className="fw-semibold text-dark" style={{ fontSize: '13px' }}>Income Information</div>
+                <div className="text-dark" style={{ fontSize: '11px' }}>Upload documents or connect your QuickBooks account</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Document Types */}
+          <div className="d-flex gap-2 mb-3 flex-wrap">
+            <span className="badge bg-light text-dark border" style={{ fontSize: '10px', padding: '4px 8px' }}>
+              <FileText size={10} className="me-1" /> W-2/1099
+            </span>
+            <span className="badge bg-light text-dark border" style={{ fontSize: '10px', padding: '4px 8px' }}>
+              <Bitcoin size={10} className="me-1" /> Crypto
+            </span>
+            <span className="badge bg-light text-dark border" style={{ fontSize: '10px', padding: '4px 8px' }}>
+              <BarChart3 size={10} className="me-1" /> K-1
+            </span>
+            <span className="badge bg-success text-white" style={{ fontSize: '10px', padding: '4px 8px' }}>
+              <Check size={10} className="me-1" /> QuickBooks
+            </span>
+            <span className="badge bg-light text-dark border" style={{ fontSize: '10px', padding: '4px 8px' }}>
+              <Wallet size={10} className="me-1" /> Plaid
+            </span>
+          </div>
+          
+          {/* Upload Area */}
+          <div className="border-2 border-dashed rounded-3 p-4 text-center mb-3" style={{ borderColor: '#E5E7EB' }}>
+            <div className="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style={{ width: '48px', height: '48px' }}>
+              <svg width="24" height="24" fill="currentColor" className="text-primary">
+                <path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5-5m0 0l5 5m-5-5v12"/>
+              </svg>
+            </div>
+            <div className="fw-semibold text-dark mb-1" style={{ fontSize: '12px' }}>Upload 1040 Documents</div>
+            <div className=" text-dark mb-2" style={{ fontSize: '10px' }}>W-2, 1099, or other tax documents</div>
+            <div className=" text-dark" style={{ fontSize: '9px' }}>Drag & drop or click to browse • PDF, PNG, JPG • Max 10MB</div>
+          </div>
+          
+          {/* Uploaded Files Status */}
+          <div className="bg-light rounded-3 p-2">
+            <div className="d-flex align-items-center gap-2">
+              <div className="bg-white rounded-2 p-2">
+                <svg width="16" height="16" fill="currentColor" className="text-muted">
+                  <circle cx="8" cy="8" r="6" fill="#E5E7EB"/>
+                </svg>
+              </div>
+              <div className="flex-grow-1">
+                <div className="text-muted" style={{ fontSize: '10px' }}>No files yet</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 );
 
-// Step 2: AI Processing - Clean Architecture
+// Step 2: AI Processing - Real Processing Interface
 export const AIProcessingIllustration = () => (
-  <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" className="w-100">
-    <defs>
-      <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#FAFBFC" />
-        <stop offset="100%" stopColor="#F3F4F6" />
-      </linearGradient>
-      <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#9333EA" />
-        <stop offset="100%" stopColor="#7C3AED" />
-      </linearGradient>
-      <filter id="shadow2">
-        <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.08"/>
-      </filter>
-    </defs>
-    
-    <rect width="400" height="300" fill="url(#bgGrad2)"/>
-    
-    {/* Central AI Engine */}
-    <g filter="url(#shadow2)">
-      <circle cx="200" cy="150" r="45" fill="url(#aiGrad)" opacity="0.1"/>
-      <circle cx="200" cy="150" r="38" fill="url(#aiGrad)"/>
-      <text x="178" y="160" fill="white" fontSize="22" fontWeight="700">AI</text>
-    </g>
-    
-    {/* Processing Modules */}
-    <g filter="url(#shadow2)">
-      {/* Data Extraction - Top */}
-      <rect x="155" y="40" width="90" height="50" fill="white" stroke="#3B82F6" strokeWidth="1.5" rx="8"/>
-      <circle cx="175" cy="58" r="8" fill="#3B82F6"/>
-      <text x="188" y="60" fill="#1F2937" fontSize="11" fontWeight="600">Extract</text>
-      <text x="165" y="78" fill="#6B7280" fontSize="9">Documents</text>
+  <div className="position-relative" style={{ maxWidth: '100%', margin: '0 auto' }}>
+    <div className="bg-white rounded-3 shadow-sm border p-4">
+      {/* Processing Header */}
+      <div className="text-center mb-4">
+        <div className="bg-primary bg-gradient rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style={{ width: '64px', height: '64px' }}>
+          <span className="text-white fw-bold" style={{ fontSize: '24px' }}>AI</span>
+        </div>
+        <div className="fw-semibold text-dark mb-1" style={{ fontSize: '14px' }}>Processing Your Tax Return</div>
+        <div className="text-dark" style={{ fontSize: '11px' }}>AI is analyzing documents and calculating your taxes</div>
+      </div>
       
-      {/* Validation - Right */}
-      <rect x="275" y="125" width="90" height="50" fill="white" stroke="#10B981" strokeWidth="1.5" rx="8"/>
-      <circle cx="295" cy="143" r="8" fill="#10B981"/>
-      <text x="308" y="145" fill="#1F2937" fontSize="11" fontWeight="600">Validate</text>
-      <text x="287" y="163" fill="#6B7280" fontSize="9">Check Rules</text>
+      {/* Processing Steps Grid */}
+      <div className="row g-3 mb-4">
+        {/* Extract Documents */}
+        <div className="col-md-6">
+          <div className="bg-light rounded-3 p-3 h-100 border border-primary border-opacity-25">
+            <div className="d-flex align-items-center gap-2 mb-2">
+              <div className="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px' }}>
+                <Check className="text-primary" size={18} />
+              </div>
+              <div className="fw-semibold text-primary" style={{ fontSize: '12px' }}>Extract</div>
+            </div>
+            <div className="text-muted mb-2" style={{ fontSize: '10px' }}>Documents</div>
+            <div className="d-flex gap-1 flex-wrap">
+              <span className="badge bg-white text-primary border border-primary" style={{ fontSize: '9px' }}>W-2</span>
+              <span className="badge bg-white text-primary border border-primary" style={{ fontSize: '9px' }}>1099</span>
+              <span className="badge bg-white text-primary border border-primary" style={{ fontSize: '9px' }}>K-1</span>
+              <span className="badge bg-white text-primary border border-primary" style={{ fontSize: '9px' }}>Crypto</span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Validate & Check Rules */}
+        <div className="col-md-6">
+          <div className="bg-light rounded-3 p-3 h-100 border border-success border-opacity-25">
+            <div className="d-flex align-items-center gap-2 mb-2">
+              <div className="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px' }}>
+                <Check className="text-success" size={18} />
+              </div>
+              <div className="fw-semibold text-success" style={{ fontSize: '12px' }}>Validate</div>
+            </div>
+            <div className="text-muted mb-2" style={{ fontSize: '10px' }}>Check Rules</div>
+            <div className="progress" style={{ height: '6px' }}>
+              <div className="progress-bar bg-success" style={{ width: '100%' }}></div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Calculate Wash Sales */}
+        <div className="col-md-6">
+          <div className="bg-light rounded-3 p-3 h-100 border border-warning border-opacity-25">
+            <div className="d-flex align-items-center gap-2 mb-2">
+              <div className="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px' }}>
+                <div className="spinner-border spinner-border-sm text-warning" role="status" style={{ width: '16px', height: '16px' }}>
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              </div>
+              <div className="fw-semibold text-warning" style={{ fontSize: '12px' }}>Calculate</div>
+            </div>
+            <div className="text-muted mb-2" style={{ fontSize: '10px' }}>Wash Sales</div>
+            <div className="text-warning" style={{ fontSize: '9px' }}>48 transactions</div>
+          </div>
+        </div>
+        
+        {/* Schedule Forms C/E */}
+        <div className="col-md-6">
+          <div className="bg-light rounded-3 p-3 h-100 border">
+            <div className="d-flex align-items-center gap-2 mb-2">
+              <div className="bg-secondary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px' }}>
+                <Clock className="text-secondary" size={16} />
+              </div>
+              <div className="fw-semibold text-secondary" style={{ fontSize: '12px' }}>Schedule</div>
+            </div>
+            <div className="text-muted mb-2" style={{ fontSize: '10px' }}>Forms C/E</div>
+            <div className="text-muted" style={{ fontSize: '9px' }}>Pending...</div>
+          </div>
+        </div>
+      </div>
       
-      {/* Calculation - Bottom */}
-      <rect x="155" y="210" width="90" height="50" fill="white" stroke="#F59E0B" strokeWidth="1.5" rx="8"/>
-      <circle cx="175" cy="228" r="8" fill="#F59E0B"/>
-      <text x="188" y="230" fill="#1F2937" fontSize="11" fontWeight="600">Calculate</text>
-      <text x="165" y="248" fill="#6B7280" fontSize="9">Wash Sales</text>
-      
-      {/* Schedule - Left */}
-      <rect x="35" y="125" width="90" height="50" fill="white" stroke="#EF4444" strokeWidth="1.5" rx="8"/>
-      <circle cx="55" cy="143" r="8" fill="#EF4444"/>
-      <text x="68" y="145" fill="#1F2937" fontSize="11" fontWeight="600">Schedule</text>
-      <text x="50" y="163" fill="#6B7280" fontSize="9">Forms C/E</text>
-    </g>
-    
-    {/* Data Flow Lines */}
-    <g stroke="#E5E7EB" strokeWidth="2" fill="none" strokeDasharray="4,3">
-      <path d="M 200 112 L 200 90"/>
-      <path d="M 238 150 L 275 150"/>
-      <path d="M 200 188 L 200 210"/>
-      <path d="M 162 150 L 125 150"/>
-    </g>
-    
-    {/* Accuracy Badge */}
-    <g filter="url(#shadow2)">
-      <rect x="290" y="35" width="85" height="40" fill="white" stroke="#10B981" strokeWidth="1.5" rx="8"/>
-      <text x="310" y="54" fill="#10B981" fontSize="20" fontWeight="700">99%</text>
-      <text x="302" y="68" fill="#6B7280" fontSize="10">Accuracy</text>
-    </g>
-    
-    {/* Processing Status */}
-    <rect x="35" y="235" width="110" height="32" fill="#F9FAFB" stroke="#8B5CF6" strokeWidth="1.5" rx="16" filter="url(#shadow2)"/>
-    <circle cx="55" cy="251" r="5" fill="#8B5CF6">
-      <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
-    </circle>
-    <text x="68" y="255" fill="#8B5CF6" fontSize="12" fontWeight="600">Processing</text>
-  </svg>
+      {/* Accuracy Badge */}
+      <div className="bg-light bg-opacity-10 border border-success border-opacity-25 rounded-3 p-3 text-center">
+        <div className="d-flex align-items-center justify-content-center gap-3">
+          <div>
+            <div className="text-success fw-bold" style={{ fontSize: '28px' }}>99%</div>
+            <div className="text-muted" style={{ fontSize: '10px' }}>Accuracy</div>
+          </div>
+          <div className="border-start ps-3">
+            <div className="text-muted mb-1" style={{ fontSize: '11px' }}>Status</div>
+            <div className="d-flex align-items-center gap-2">
+              <div className="spinner-border spinner-border-sm text-primary" role="status" style={{ width: '14px', height: '14px' }}>
+                <span className="visually-hidden">Loading...</span>
+              </div>
+              <span className="text-primary fw-semibold" style={{ fontSize: '11px' }}>Processing...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 );
 
-// Step 3: CPA Review & E-File - Professional Workflow
+// Step 3: CPA Review & E-File - Real Review Interface
 export const CPAReviewIllustration = () => (
-  <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" className="w-100">
-    <defs>
-      <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#FAFBFC" />
-        <stop offset="100%" stopColor="#F3F4F6" />
-      </linearGradient>
-      <filter id="shadow3">
-        <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.08"/>
-      </filter>
-    </defs>
+  <div className="position-relative" style={{ maxWidth: '100%', margin: '0 auto' }}>
+    <div className="row g-3">
+      {/* Left Side - CPA Review Card */}
+      <div className="col-md-5">
+        <div className="bg-white rounded-3 shadow-sm border p-3 mb-3">
+          <div className="d-flex align-items-center gap-2 mb-3">
+ 
+            <div className="flex-grow-1">
+              <div className="fw-semibold text-dark" style={{ fontSize: '13px' }}>CPA Professional Review</div>
+              <div className="text-dark" style={{ fontSize: '10px' }}>Your tax return has been analyzed and prepared for professional review by a licensed CPA</div>
+            </div>
+          </div>
+          
+          <div className="d-flex gap-2 mb-3">
+            <div className="bg-light rounded-2 p-2 flex-fill text-center">
+              <Check className="text-primary" size={12} />
+              <div className="text-muted" style={{ fontSize: '9px' }}>Comprehensive<br/>analysis</div>
+            </div>
+            <div className="bg-light rounded-2 p-2 flex-fill text-center">
+              <Check className="text-primary" size={12} />
+              <div className="text-muted" style={{ fontSize: '9px' }}>Licensed CPA<br/>review</div>
+            </div>
+  
+          </div>
+        </div>
+        
+        {/* Process Steps */}
+        <div className="bg-white rounded-3 shadow-sm border p-3">
+          <div className="fw-semibold text-dark mb-3" style={{ fontSize: '12px' }}>What happens next?</div>
+          
+          <div className="d-flex gap-3 mb-3">
+            <div className="d-flex flex-column align-items-center">
+              <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-2" style={{ width: '32px', height: '32px', fontSize: '12px' }}>1</div>
+              <div className="border-start flex-grow-1" style={{ width: '2px', minHeight: '24px' }}></div>
+            </div>
+            <div className="flex-grow-1 pb-3">
+              <div className="fw-semibold text-dark mb-1" style={{ fontSize: '11px' }}>Payment</div>
+              <div className="text-dark" style={{ fontSize: '10px' }}>Complete secure payment for CPA review service</div>
+            </div>
+          </div>
+          
+          <div className="d-flex gap-3 mb-3">
+            <div className="d-flex flex-column align-items-center">
+              <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-2" style={{ width: '32px', height: '32px', fontSize: '12px' }}>2</div>
+              <div className="border-start flex-grow-1" style={{ width: '2px', minHeight: '24px' }}></div>
+            </div>
+            <div className="flex-grow-1 pb-3">
+              <div className="fw-semibold text-dark mb-1" style={{ fontSize: '11px' }}>CPA Review</div>
+              <div className="text-dark" style={{ fontSize: '10px' }}>Licensed CPA reviews your return and documents</div>
+            </div>
+          </div>
+          
+          <div className="d-flex gap-3">
+            <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px', fontSize: '12px' }}>3</div>
+            <div className="flex-grow-1">
+              <div className="fw-semibold text-dark mb-1" style={{ fontSize: '11px' }}>Delivery</div>
+              <div className="text-dark" style={{ fontSize: '10px' }}>Receive reviewed return with recommendations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Right Side - Tax Return Summary */}
+      <div className="col-md-7">
+        <div className="bg-white rounded-3 shadow-sm border p-3 mb-3">
+          <div className="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+            <div>
+              <div className="fw-bold text-dark" style={{ fontSize: '14px' }}>Review Your Return</div>
+              <div className="text-dark" style={{ fontSize: '10px' }}>Complete 2026 Form 1040 summary</div>
+            </div>
+            <div className="text-end">
+              <div className="badge bg-success" style={{ fontSize: '10px' }}>Ready for Review</div>
+            </div>
+          </div>
+          
+          <div className="bg-success bg-opacity-10 border border-success border-opacity-25 rounded-3 p-3 mb-3 text-center">
+            <div className="text-dark mb-1" style={{ fontSize: '11px' }}>ESTIMATED FEDERAL REFUND</div>
+            <div className="text-success fw-bold" style={{ fontSize: '32px' }}>$5148,29</div>
+            <div className="text-dark" style={{ fontSize: '9px' }}>Based on Single • Tax Year 2026</div>
+          </div>
+          
+          {/* Income Breakdown */}
+          <div className="mb-2">
+            <div className="d-flex justify-content-between align-items-center py-2 border-bottom">
+              <div className="d-flex align-items-center gap-2">
+                <span className="text-dark" style={{ fontSize: '14px' }}>$</span>
+                <div>
+                  <div className="fw-semibold text-dark" style={{ fontSize: '12px' }}>Total Income</div>
+                  <div className="text-dark" style={{ fontSize: '9px' }}>All income sources</div>
+                </div>
+              </div>
+              <div className="text-end">
+                <div className="fw-semibold text-dark" style={{ fontSize: '13px' }}>$75,365,3</div>
+              </div>
+            </div>
+            
+            <div className="d-flex justify-content-between align-items-center py-2 border-bottom">
+              <div className="d-flex align-items-center gap-2">
+                <span className="text-dark" style={{ fontSize: '14px' }}>↓</span>
+                <div>
+                  <div className="fw-semibold text-dark" style={{ fontSize: '12px' }}>Adjustments to Income</div>
+                  <div className="text-dark" style={{ fontSize: '9px' }}>Reduces your AGI</div>
+                </div>
+              </div>
+              <div className="text-end">
+                <div className="fw-semibold text-success" style={{ fontSize: '13px' }}>-$8953</div>
+              </div>
+            </div>
+            
+            <div className="d-flex justify-content-between align-items-center py-2 border-bottom">
+              <div className="d-flex align-items-center gap-2">
+                <ChartBar className="text-dark" size={16} />
+                <div>
+                  <div className="fw-semibold text-dark" style={{ fontSize: '12px' }}>Taxable Income</div>
+                  <div className="text-dark" style={{ fontSize: '9px' }}>Form 1040, Line 15</div>
+                </div>
+              </div>
+              <div className="text-end">
+                <div className="fw-semibold text-dark" style={{ fontSize: '13px' }}>$51,812,3</div>
+              </div>
+            </div>
+            
+            <div className="d-flex justify-content-between align-items-center py-2">
+              <div className="d-flex align-items-center gap-2">
+                <FileText className="text-dark" size={16} />
+                <div>
+                  <div className="fw-semibold text-dark" style={{ fontSize: '12px' }}>Total Tax</div>
+                  <div className="text-dark" style={{ fontSize: '9px' }}>Federal income tax calculated</div>
+                </div>
+              </div>
+              <div className="text-end">
+                <div className="fw-semibold text-danger" style={{ fontSize: '13px' }}>$5851,71</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* E-File Status */}
+        <div className="bg-success bg-opacity-10 border border-success rounded-3 p-3">
+          <div className="d-flex align-items-center gap-3">
+            <div className="bg-success rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: '40px', height: '40px' }}>
+              <Check className="text-white" size={24} />
+            </div>
+            <div className="flex-grow-1">
+              <div className="fw-semibold text-white mb-1" style={{ fontSize: '12px' }}>Return Filed</div>
+              <div className="text-muted" style={{ fontSize: '10px' }}>Successfully submitted to IRS</div>
+            </div>
+            <div className="text-end">
+              <div className="badge bg-white text-success border border-success" style={{ fontSize: '10px' }}>IRS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
-    <rect width="400" height="300" fill="url(#bgGrad3)"/>
-    
-    {/* Professional CPA - Minimalist */}
-    <g filter="url(#shadow3)">
-      {/* Avatar */}
-      <circle cx="80" cy="100" r="35" fill="white" stroke="#3B82F6" strokeWidth="2"/>
-      <text x="65" y="110" fill="#3B82F6" fontSize="24" fontWeight="600">CPA</text>
+    {/* Return Complexity Analysis */}
+    <div className="bg-white rounded-3 shadow-sm border p-3 mt-3">
+      <div className="d-flex justify-content-between align-items-start mb-3">
+        <div>
+          <div className="d-flex align-items-center gap-2 mb-1">
+            <BarChart3 className="text-dark" size={18} />
+            <span className="fw-semibold text-dark" style={{ fontSize: '13px' }}>Return Complexity Analysis</span>
+          </div>
+          <div className="text-dark" style={{ fontSize: '10px' }}>Premium tier recommended for multiple complex scenarios</div>
+        </div>
+        <div className="text-end">
+          <div className="badge bg-primary text-white mb-1" style={{ fontSize: '10px' }}>Premium</div>
+          <div className="fw-bold text-dark" style={{ fontSize: '16px' }}>$329.00</div>
+          <div className="text-dark" style={{ fontSize: '9px' }}>CPA Review Price</div>
+        </div>
+      </div>
       
-      {/* Verification Badge */}
-      <circle cx="105" cy="125" r="12" fill="#10B981"/>
-      <path d="M 100 125 L 103 128 L 110 121" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round"/>
-      
-      {/* Info Card */}
-      <rect x="35" y="150" width="90" height="60" fill="white" stroke="#E5E7EB" strokeWidth="1" rx="8"/>
-      <text x="50" y="170" fill="#1F2937" fontSize="11" fontWeight="600">Licensed CPA</text>
-      <text x="50" y="186" fill="#6B7280" fontSize="9">Expert Review</text>
-      <text x="50" y="200" fill="#6B7280" fontSize="9">Q&amp;A Support</text>
-    </g>
-    
-    {/* Tax Return Document */}
-    <g filter="url(#shadow3)">
-      <rect x="160" y="60" width="150" height="120" fill="white" stroke="#E5E7EB" strokeWidth="1.5" rx="8"/>
-      
-      {/* Header */}
-      <rect x="160" y="60" width="150" height="35" fill="white" stroke="#E5E7EB" strokeWidth="1.5" rx="8"/>
-      <rect x="160" y="83" width="150" height="1" fill="#E5E7EB"/>
-      <text x="180" y="82" fill="#1F2937" fontSize="13" fontWeight="700">Form 1040</text>
-      <text x="250" y="82" fill="#6B7280" fontSize="9">Tax Year 2024</text>
-      
-      {/* Form Lines */}
-      <g stroke="#E5E7EB" strokeWidth="1">
-        <line x1="175" y1="110" x2="295" y2="110"/>
-        <line x1="175" y1="125" x2="295" y2="125"/>
-        <line x1="175" y1="140" x2="295" y2="140"/>
-        <line x1="175" y1="155" x2="260" y2="155"/>
-      </g>
-      
-      {/* Values */}
-      <text x="270" y="113" fill="#6B7280" fontSize="9">$XXX,XXX</text>
-      <text x="270" y="128" fill="#6B7280" fontSize="9">$XX,XXX</text>
-      <text x="270" y="143" fill="#6B7280" fontSize="9">$X,XXX</text>
-      
-      {/* Approval Checkmark */}
-      <circle cx="285" cy="160" r="14" fill="#10B981" opacity="0.1"/>
-      <circle cx="285" cy="160" r="10" fill="#10B981"/>
-      <path d="M 280 160 L 283 163 L 290 156" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round"/>
-    </g>
-    
-    {/* E-File System */}
-    <g filter="url(#shadow3)">
-      <rect x="330" y="80" width="50" height="80" fill="white" stroke="#3B82F6" strokeWidth="1.5" rx="8"/>
-      
-      {/* IRS Logo */}
-      <rect x="338" y="95" width="34" height="24" fill="#F9FAFB" stroke="#E5E7EB" strokeWidth="1" rx="4"/>
-      <text x="345" y="110" fill="#3B82F6" fontSize="10" fontWeight="700">IRS</text>
-      
-      {/* E-File Button */}
-      <rect x="338" y="130" width="34" height="22" fill="#3B82F6" rx="4"/>
-      <text x="343" y="144" fill="white" fontSize="9" fontWeight="600">E-File</text>
-    </g>
-    
-    {/* Workflow Arrows */}
-    <g stroke="#D1D5DB" strokeWidth="2" fill="none">
-      <path d="M 125 120 L 155 100" strokeDasharray="3,3"/>
-      <path d="M 310 120 L 325 120"/>
-      <polygon points="323,117 330,120 323,123" fill="#D1D5DB"/>
-    </g>
-    
-    {/* Status Indicator */}
-    <g filter="url(#shadow3)">
-      <rect x="160" y="200" width="150" height="45" fill="white" stroke="#10B981" strokeWidth="1.5" rx="8"/>
-      <circle cx="180" cy="222" r="8" fill="#10B981"/>
-      <path d="M 175 222 L 178 225 L 185 218" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round"/>
-      <text x="195" y="218" fill="#1F2937" fontSize="12" fontWeight="600">Return Filed</text>
-      <text x="195" y="233" fill="#6B7280" fontSize="10">Successfully submitted to IRS</text>
-    </g>
-    
-    {/* Timeline */}
-    <rect x="330" y="175" width="50" height="28" fill="#F9FAFB" stroke="#E5E7EB" strokeWidth="1" rx="6" filter="url(#shadow3)"/>
-    <text x="338" y="193" fill="#6B7280" fontSize="9">24-48hrs</text>
-  </svg>
+      <div className="bg-light rounded-2 p-2">
+        <div className="row g-2" style={{ fontSize: '10px' }}>
+          <div className="col-6">
+            <div className="d-flex justify-content-between">
+              <span className="text-muted">K-1 Partnerships:</span>
+              <span className="fw-semibold text-white">2 partnership(s)</span>
+            </div>
+          </div>
+          <div className="col-6">
+            <div className="d-flex justify-content-between">
+              <span className="text-muted">Crypto Trading:</span>
+              <span className="fw-semibold text-white">48 transactions</span>
+            </div>
+          </div>
+          <div className="col-6">
+            <div className="d-flex justify-content-between">
+              <span className="text-muted">Self-Employment Income:</span>
+              <span className="fw-semibold text-white">Schedule C required</span>
+            </div>
+          </div>
+          <div className="col-6">
+            <div className="d-flex justify-content-between">
+              <span className="text-muted">Itemized Deductions:</span>
+              <span className="fw-semibold text-white">Mortgage $1,200.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 );

@@ -1,6 +1,6 @@
 import about16 from '@/assets/images/about/16.jpg'
 import about15 from '@/assets/images/about/15.jpg'
-import about14 from '@/assets/images/about/14.jpg'
+import about14 from '/images/marketing/import-crypto.png'
 import { BsYoutube } from 'react-icons/bs'
 import GlightBox from '@/components/GlightBox'
 import { Card, Col, Container, Row } from 'react-bootstrap'

@@ -1,4 +1,4 @@
-import about14 from '@/assets/images/about/14.jpg'
+import about14 from '/images/marketing/import-crypto.png'
 import { Link } from 'react-router-dom'
 import googlePlay from '@/assets/images/elements/google-play.svg'
 import appStore from '@/assets/images/elements/app-store.svg'
