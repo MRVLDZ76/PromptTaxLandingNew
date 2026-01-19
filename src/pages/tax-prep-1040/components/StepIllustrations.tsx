@@ -91,19 +91,19 @@ export const ChatUploadIllustration = () => (
           
           {/* Document Types */}
           <div className="d-flex gap-2 mb-3 flex-wrap">
-            <span className="badge bg-light text-dark border" style={{ fontSize: '10px', padding: '4px 8px' }}>
+            <span className="badge bg-light text-white border" style={{ fontSize: '10px', padding: '4px 8px' }}>
               <FileText size={10} className="me-1" /> W-2/1099
             </span>
-            <span className="badge bg-light text-dark border" style={{ fontSize: '10px', padding: '4px 8px' }}>
+            <span className="badge bg-light text-white border" style={{ fontSize: '10px', padding: '4px 8px' }}>
               <Bitcoin size={10} className="me-1" /> Crypto
             </span>
-            <span className="badge bg-light text-dark border" style={{ fontSize: '10px', padding: '4px 8px' }}>
+            <span className="badge bg-light text-white border" style={{ fontSize: '10px', padding: '4px 8px' }}>
               <BarChart3 size={10} className="me-1" /> K-1
             </span>
             <span className="badge bg-success text-white" style={{ fontSize: '10px', padding: '4px 8px' }}>
               <Check size={10} className="me-1" /> QuickBooks
             </span>
-            <span className="badge bg-light text-dark border" style={{ fontSize: '10px', padding: '4px 8px' }}>
+            <span className="badge bg-light text-white border" style={{ fontSize: '10px', padding: '4px 8px' }}>
               <Wallet size={10} className="me-1" /> Plaid
             </span>
           </div>
@@ -295,14 +295,18 @@ export const CPAReviewIllustration = () => (
               <div className="text-dark" style={{ fontSize: '10px' }}>Licensed CPA reviews your return and documents</div>
             </div>
           </div>
-          
-          <div className="d-flex gap-3">
-            <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px', fontSize: '12px' }}>3</div>
-            <div className="flex-grow-1">
+
+                    <div className="d-flex gap-3 mb-3">
+            <div className="d-flex flex-column align-items-center">
+              <div className="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-2" style={{ width: '32px', height: '32px', fontSize: '12px' }}>3</div>
+              <div className="border-start flex-grow-1" style={{ width: '2px', minHeight: '24px' }}></div>
+            </div>
+            <div className="flex-grow-1 pb-3">
               <div className="fw-semibold text-dark mb-1" style={{ fontSize: '11px' }}>Delivery</div>
               <div className="text-dark" style={{ fontSize: '10px' }}>Receive reviewed return with recommendations</div>
             </div>
           </div>
+ 
         </div>
       </div>
       
